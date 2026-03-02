@@ -134,7 +134,6 @@
   html {
     font-size: var(--font-size);
     scroll-behavior: smooth;
-    overflow-x: hidden;
   }
 
   h1 {
@@ -183,17 +182,9 @@
   }
 }
 .profile-photo{
- background-image:
-  url('/cris-hero.png');
-  background-size:30%;
-  background-position: 105% 35%;
-  background-attachment:scroll;
+  background-image: url('/cris-hero.png');
+  background-size:cover;
+  background-position:  right;
+  background-attachment: fixed;
   background-repeat: no-repeat;
-  
-  
 }
-@media screen and (max-width: 767px) {
-  .profile-photo{
-    background-image:none;
-  }
-  }

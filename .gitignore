@@ -8,6 +8,9 @@ jspm_packages/
 .vercel_labs
 .turbo
 
+.agents/
+skills-lock.json
+ATTRIBUTIONS.md
 guidelines/
 
 .claude_code/

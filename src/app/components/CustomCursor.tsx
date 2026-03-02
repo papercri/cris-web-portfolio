@@ -4,6 +4,7 @@ import { motion } from 'motion/react';
 export function CustomCursor() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isClicking, setIsClicking] = useState(false);
+  const pointerGap = 30;
 
   useEffect(() => {
     const updateMousePosition = (e: MouseEvent) => {
@@ -23,14 +24,14 @@ export function CustomCursor() {
     };
   }, []);
 
-  const size = isClicking ? 32 : 18;
+  const size = isClicking ? 40 : 24;
 
   return (
     <motion.div
-      className="fixed top-0 left-0 rounded-full pointer-events-none z-50 bg-black/20"
+      className="fixed top-0 left-0 rounded-full pointer-events-none z-50 bg-transparent border-2 border-black/20 "
       animate={{
-        x: mousePosition.x - size / 2,
-        y: mousePosition.y - size / 2,
+        x: mousePosition.x + pointerGap,
+        y: mousePosition.y + pointerGap,
         width: size,
         height: size,
       }}

@@ -49,7 +49,7 @@ export function Skills() {
           viewport={VP}
           transition={{ duration: 1, ease, delay: 0.08 }}
         >
-          What I work with every day.
+          What I work with<br />every day.
         </motion.h2>
 
         {/* Categories */}
