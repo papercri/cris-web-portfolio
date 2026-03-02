@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Moon, Sun } from 'lucide-react';
+import { Menu, X, Moon, Sun, Download } from 'lucide-react';
 import { motion } from 'motion/react';
 
 export function Navbar() {
@@ -71,6 +71,17 @@ export function Navbar() {
 
             {/* Dark mode + Mobile menu */}
             <div className="flex items-center gap-4">
+              <a
+                href="/CV-EN-min-Cristiana-Sollini.pdf"
+                download
+                className="group relative p-2 text-foreground/60 hover:text-foreground transition-colors"
+                aria-label="Download CV"
+              >
+                <Download className="w-4 h-4" />
+                <span className="pointer-events-none absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-foreground text-background px-3 py-1.5 text-[10px] font-semibold tracking-widest opacity-0 translate-y-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0">
+                  DOWNLOAD CV
+                </span>
+              </a>
               <button
                 onClick={toggleDark}
                 className="p-2 text-foreground/60 hover:text-foreground transition-colors"
