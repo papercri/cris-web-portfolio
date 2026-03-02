@@ -8,15 +8,19 @@ export function Skills() {
   const skillCategories = [
     {
       category: 'Frontend',
-      skills: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Vue.js', 'HTML & CSS', 'Framer Motion']
+      skills: ['HTML & CSS', 'LESS', 'SASS', 'Tailwind', 'Bootstrap']
     },
     {
-      category: 'Backend',
-      skills: ['Node.js', 'Express', 'PostgreSQL', 'MongoDB', 'GraphQL', 'REST APIs', 'Redis']
+      category: 'JS & Frameworks',
+      skills: ['JavaScript', 'TypeScript', 'React', 'Next.js', 'Vue.js', 'REST APIs']
+    },
+    {
+      category: 'Backend & CMS',
+      skills: ['PHP', 'MySQL', 'WordPress', 'Contentful']
     },
     {
       category: 'Tools & Workflow',
-      skills: ['Git', 'Docker', 'AWS', 'Figma', 'Jest', 'CI/CD', 'Linux']
+      skills: ['Git', 'Docker',  'Figma', 'Jest', ' Accessibility (WCAG)', 'Responsive Design','SEO']
     }
   ];
 
@@ -39,13 +43,13 @@ export function Skills() {
 
         {/* Headline */}
         <motion.h2
-          className="text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-tight mb-20"
+          className="text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-tight mb-10"
           initial={{ opacity: 0, x: -80 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={VP}
           transition={{ duration: 1, ease, delay: 0.08 }}
         >
-          What I work<br />with every day.
+          What I work with every day.
         </motion.h2>
 
         {/* Categories */}
@@ -63,18 +67,41 @@ export function Skills() {
                 {category.category}
               </h3>
               <div className="flex flex-wrap gap-3">
-                {category.skills.map((skill, skillIndex) => (
-                  <motion.span
-                    key={skillIndex}
-                    className="px-4 py-2 border border-white/20 text-white/80 text-sm font-medium hover:border-white/60 hover:text-white transition-colors"
-                    initial={{ opacity: 0, x: -30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={VP2}
-                    transition={{ duration: 0.5, delay: categoryIndex * 0.1 + skillIndex * 0.04, ease }}
-                  >
-                    {skill}
-                  </motion.span>
-                ))}
+                {category.skills.map((skill, skillIndex) => {
+                  const offset = (categoryIndex * 0.5 + skillIndex * 0.3) % 4;
+                  return (
+                    <motion.div
+                      key={skillIndex}
+                      className="relative p-[1px] overflow-hidden"
+                      initial={{ opacity: 0, x: -30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={VP2}
+                      transition={{ duration: 0.5, delay: categoryIndex * 0.1 + skillIndex * 0.04, ease }}
+                    >
+                      {/* Base track — always visible */}
+                      <div className="absolute inset-0 bg-white/18" />
+                      {/* Rotating color sweep */}
+                      <motion.div
+                        className="absolute w-[200%] h-[200%] -top-[50%] -left-[50%]"
+                        style={{
+                          background:
+                            'conic-gradient(from 0deg, transparent 0deg, rgba(139,92,246,1) 30deg, rgba(99,202,183,1) 65deg, transparent 110deg)',
+                        }}
+                        animate={{ rotate: 360 }}
+                        transition={{
+                          duration: 10,
+                          repeat: Infinity,
+                          ease: 'linear',
+                          delay: offset,
+                        }}
+                      />
+                      {/* Content */}
+                      <span className="relative block px-4 py-2 bg-[#1A1A1A] text-white/80 text-sm font-medium hover:text-white transition-colors">
+                        {skill}
+                      </span>
+                    </motion.div>
+                  );
+                })}
               </div>
             </motion.div>
           ))}

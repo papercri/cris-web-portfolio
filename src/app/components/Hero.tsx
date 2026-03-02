@@ -54,8 +54,7 @@ export function Hero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9, delay: 0.32, ease: E }}
           >
-            I build exceptional digital experiences that are fast, accessible, and beautiful.
-            Specialized in React, Node.js, and modern web technologies.
+            I build digital experiences that are fast, accessible, and visually clear. Over the years, I’ve focused on creating interfaces that not only look good, but feel intuitive and consistent across devices.
           </motion.p>
 
           <motion.div

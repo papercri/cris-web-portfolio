@@ -1,16 +1,16 @@
 export function ScrollingText() {
   const items = [
-    'Front End Developer',
+    'Front-End Developer',
     '. ',
-    'React & TypeScript',
+    'UX/UI & Web Accessibility',
     '. ',
-    'UI / UX',
+    'React',
     '. ',
-    'Open Source',
+    'Next.js',
     '. ',
-    'Node.js',
+    'Vue.js',
     '. ',
-    'Barcelona',
+    'HTML & CSS',
     '. ',
   ];
 

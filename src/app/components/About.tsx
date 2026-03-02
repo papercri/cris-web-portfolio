@@ -7,23 +7,23 @@ export function About() {
   const highlights = [
     {
       number: '01',
-      title: 'Clean Code',
-      description: 'Writing maintainable, scalable code following best practices and proven patterns.'
+      title: 'Mobile First',
+      description: 'Designing and developing responsive, mobile-first interfaces that feel fast, clear, and easy to use on any screen.'
     },
     {
       number: '02',
-      title: 'Design Focus',
-      description: 'Creating beautiful, intuitive user interfaces that put the user experience first.'
+      title: 'Accessibility Focus',
+      description: 'Creating accessible interfaces with semantic HTML, clear structure, and strong attention to WCAG standards.'
     },
     {
       number: '03',
-      title: 'Performance',
-      description: 'Optimizing for speed and efficiency in every layer of the application stack.'
+      title: 'Performance & SEO',
+      description: 'Optimizing speed, structure, and semantic markup to improve performance, search visibility, and overall user experience.'
     },
     {
       number: '04',
-      title: 'Collaboration',
-      description: 'Working effectively across teams to deliver exceptional, lasting results.'
+      title: 'Clean Code',
+      description: 'Writing maintainable, scalable code following best practices and proven patterns.'
     }
   ];
 
@@ -73,19 +73,25 @@ export function About() {
               viewport={VP}
               transition={{ duration: 0.85, ease: E, delay: 0.25 }}
             >
-              I'm a passionate full-stack developer with 5+ years of experience building web
-              applications that solve real-world problems. I love turning complex challenges
-              into simple, beautiful, and intuitive solutions.
+              My background is rooted in HTML and CSS, where structure, detail, and accessibility matter. I work comfortably with React and modern front-end tools, and I’m used to collaborating closely with design and backend teams to turn complex ideas into solid, maintainable code.
             </motion.p>
             <motion.p
-              className="text-lg text-foreground/60 leading-relaxed"
+              className="text-lg text-foreground/60 leading-relaxed mb-6"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={VP}
               transition={{ duration: 0.85, ease: E, delay: 0.35 }}
             >
-              When I'm not coding, you'll find me exploring new technologies, contributing
-              to open source, or sharing knowledge with the developer community.
+              Performance and usability are not afterthoughts in my work — they are part of the foundation. I pay attention to clean components, scalable structures, and layouts that behave as expected in the real world.
+            </motion.p>
+            <motion.p
+              className="text-lg text-foreground/60 leading-relaxed "
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={VP}
+              transition={{ duration: 0.85, ease: E, delay: 0.45 }}
+            >
+            I’m also exploring AI-assisted development to streamline workflows and build smarter interfaces when it makes sense.
             </motion.p>
           </div>
 
