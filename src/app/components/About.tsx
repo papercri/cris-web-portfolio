@@ -28,11 +28,11 @@ export function About() {
   ];
 
   return (
-    <section id="about" className="min-h-screen py-32 px-8 border-t border-foreground/10 flex flex-col justify-center">
+    <section id="about" className="min-h-screen py-25 px-8 border-t border-foreground/10 flex flex-col justify-center">
       <div className="max-w-7xl mx-auto">
         {/* Section label */}
         <motion.div
-          className="flex items-center gap-3 mb-16"
+          className="flex items-center gap-3 mb-6"
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={VP}
@@ -49,7 +49,7 @@ export function About() {
           {/* Left: headline + bio — slide in from left */}
           <div>
             <motion.h2
-              className="text-5xl md:text-6xl font-extrabold tracking-tight text-foreground leading-tight mb-8"
+              className="text-5xl md:text-5xl font-extrabold tracking-tight text-foreground leading-tight mb-2"
               initial={{ opacity: 0, x: -80 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={VP}
@@ -100,7 +100,7 @@ export function About() {
             {highlights.map((item, index) => (
               <motion.div
                 key={index}
-                className="flex gap-8 py-8 border-b border-foreground/10 last:border-b-0"
+                className="flex gap-8 py-6 border-b border-foreground/10 last:border-b-0"
                 initial={{ opacity: 0, x: 70 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={VP}
@@ -110,7 +110,7 @@ export function About() {
                   {item.number}
                 </span>
                 <div>
-                  <h3 className="text-xl font-semibold text-foreground mb-2">{item.title}</h3>
+                  <h3 className="text-xl font-semibold text-foreground mb-1">{item.title}</h3>
                   <p className="text-foreground/55 leading-relaxed">{item.description}</p>
                 </div>
               </motion.div>

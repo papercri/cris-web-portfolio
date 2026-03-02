@@ -24,11 +24,11 @@ export function CustomCursor() {
     };
   }, []);
 
-  const size = isClicking ? 40 : 24;
+  const size = isClicking ? 60 : 40;
 
   return (
     <motion.div
-      className="fixed top-0 left-0 rounded-full pointer-events-none z-50 bg-transparent border-2 border-black/20 "
+      className="fixed top-0 left-0 rounded-full pointer-events-none z-100 bg-transparent border border-black/10 dark:border-white/10 "
       animate={{
         x: mousePosition.x + pointerGap,
         y: mousePosition.y + pointerGap,

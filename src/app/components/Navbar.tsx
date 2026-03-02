@@ -20,6 +20,7 @@ export function Navbar() {
   };
 
   const navItems = [
+    { label: 'HOME', href: '#home' },
     { label: 'ABOUT', href: '#about' },
     { label: 'SKILLS', href: '#skills' },
     { label: 'PROJECTS', href: '#projects' },

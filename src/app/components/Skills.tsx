@@ -25,11 +25,11 @@ export function Skills() {
   ];
 
   return (
-    <section id="skills" className="min-h-screen py-32 px-8 bg-[#1A1A1A] flex flex-col justify-center">
-      <div className="max-w-7xl mx-auto">
+    <section id="skills" className="min-h-screen py-30 px-8 bg-[#1A1A1A] flex flex-col justify-center">
+      <div className="w-full max-w-7xl mx-auto">
         {/* Section label */}
         <motion.div
-          className="flex items-center gap-3 mb-16"
+          className="flex items-center gap-3 mb-8"
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={VP}
@@ -43,13 +43,13 @@ export function Skills() {
 
         {/* Headline */}
         <motion.h2
-          className="text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-tight mb-10"
+          className="text-5xl md:text-5xl font-extrabold tracking-tight text-white leading-tight mb-10"
           initial={{ opacity: 0, x: -80 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={VP}
           transition={{ duration: 1, ease, delay: 0.08 }}
         >
-          What I work with<br />every day.
+          What I work with every day.
         </motion.h2>
 
         {/* Categories */}
@@ -57,7 +57,7 @@ export function Skills() {
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
               key={categoryIndex}
-              className="py-10 border-t border-white/10 flex flex-col md:flex-row md:items-start gap-8"
+              className="py-6 border-t border-white/10 flex flex-col md:flex-row md:items-start gap-8"
               initial={{ opacity: 0, x: -60 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={VP2}
@@ -66,13 +66,13 @@ export function Skills() {
               <h3 className="text-sm font-semibold tracking-widest uppercase text-white/40 w-40 shrink-0 mt-1">
                 {category.category}
               </h3>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-4">
                 {category.skills.map((skill, skillIndex) => {
                   const offset = (categoryIndex * 0.5 + skillIndex * 0.3) % 4;
                   return (
                     <motion.div
                       key={skillIndex}
-                      className="relative p-[1px] overflow-hidden"
+                      className="relative p-[1px] overflow-hidden "
                       initial={{ opacity: 0, x: -30 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={VP2}
