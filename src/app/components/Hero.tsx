@@ -12,7 +12,7 @@ export function Hero() {
     <section
       id="home"
       aria-labelledby="hero-title"
-      className="w-full min-h-[100svh] lg:h-[100svh] lg:overflow-hidden flex flex-col pt-16 px-8 relative overflow-x-hidden items-bottom"
+      className="w-full min-h-[100svh] lg:h-[100svh] lg:overflow-hidden flex flex-col pt-8 px-8 relative overflow-x-hidden items-bottom"
     >
       <div className="flex w-full justify-between flex-wrap lg:flex-nowrap max-w-7xl mx-auto ">
         <div className="w-full flex flex-col justify-start mx-auto relative lg:flex-[2_2_0%] min-w-0 items-end">
@@ -95,12 +95,12 @@ export function Hero() {
                 <Github className="w-5 h-5" aria-hidden="true" /> 
               </a>
             
-              <a
+              {/* <a
                 href="#projects"
                 className="ml-4 px-6 py-3 bg-foreground text-background text-sm font-semibold tracking-wide hover:opacity-80 transition-opacity"
               >
                 VIEW WORK
-              </a> 
+              </a>  */}
             </motion.div>
           </div>
         </div>
@@ -119,7 +119,7 @@ export function Hero() {
       </div>
       
 
-      <div className="z-10 lg:flex-1 lg:min-h-0 lg:overflow-hidden lg:[container-type:size]">
+      <div className="z-10 lg:flex-1 lg:min-h-0 lg:overflow-hidden lg:[container-type:size] lg:flex hidden">
         <ScrollingText />
       </div>
     </section>

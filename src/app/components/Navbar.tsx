@@ -38,27 +38,24 @@ export function Navbar() {
   }, []);
 
   useEffect(() => {
+    const navbar = document.getElementById('main-navbar');
+
     if (!isOpen && !isDownloadDialogOpen) {
       document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
+      if (navbar) navbar.style.paddingRight = '';
       return;
     }
-
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.body.style.overflow = '';
-    };
+    
+  
   }, [isOpen, isDownloadDialogOpen]);
 
   useEffect(() => {
-    if (!isDownloadDialogOpen) {
-      return;
-    }
+    if (!isDownloadDialogOpen) return;
 
     closeDialogButtonRef.current?.focus();
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        setIsDownloadDialogOpen(false);
-      }
+      if (event.key === 'Escape') setIsDownloadDialogOpen(false);
     };
 
     window.addEventListener('keydown', onKeyDown);
@@ -78,8 +75,10 @@ export function Navbar() {
     { label: t.nav.projects, href: '#projects' },
     { label: t.nav.contact, href: '#contact' },
   ];
-  const blurHover = 'hover:drop-shadow-[0_0_10px_rgba(26,26,26,0.22)] dark:hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.22)] transition-[color,opacity,filter] duration-200';
-  const buttonBlurHover = 'hover:text-foreground transition-[color,opacity,filter,background-color,border-color,text-shadow] duration-[400ms] ease-out hover:[text-shadow:0_0_4px_rgba(110,110,110,0.55),0_0_8px_rgba(130,130,130,0.48),0_0_14px_rgba(150,150,150,0.38),0_0_24px_rgba(170,170,170,0.28)] dark:hover:[text-shadow:0_0_4px_rgba(255,255,255,0.62),0_0_8px_rgba(240,240,240,0.5),0_0_14px_rgba(220,220,220,0.4),0_0_24px_rgba(205,205,205,0.3)] hover:[filter:drop-shadow(0_0_4px_rgba(120,120,120,0.5))_drop-shadow(0_0_10px_rgba(160,160,160,0.35))] dark:hover:[filter:drop-shadow(0_0_4px_rgba(255,255,255,0.55))_drop-shadow(0_0_10px_rgba(220,220,220,0.35))]';
+  const blurHover = 'transition-all duration-500 ease-in-out hover:opacity-70 hover:filter hover:blur-[0.5px]';
+
+  const buttonBlurHover = 'transition-all duration-700 ease-in-out hover:text-foreground hover:drop-shadow-[0_0_15px_rgba(150,150,150,0.25)] dark:hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.18)]';
+
 
   const handleNavClick = (href: string) => {
     setIsOpen(false);
@@ -90,8 +89,9 @@ export function Navbar() {
   return (
     <>
       <nav
+        id="main-navbar"
         aria-label="Primary"
-        className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,backdrop-filter,border-color] duration-300 ${scrolled || isOpen ? 'bg-background/95 backdrop-blur-sm border-b border-foreground/10' : 'bg-transparent'}`}
+        className={`sticky top-0 left-0 right-0 z-110 transition-[background-color,backdrop-filter,border-color] duration-300 bg-background/95 backdrop-blur-sm border-b border-foreground/10  }`}
       >
         <div className="px-8 py-5">
           <div className="w-full max-w-7xl mx-auto flex items-center justify-between">
@@ -127,7 +127,7 @@ export function Navbar() {
               ))}
             </motion.ul>
 
-            {/* Dark mode + Mobile menu */}
+            {/* Botones de acción (Tema, CV, Idioma, Menú móvil) */}
             <div className="flex items-center gap-4">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -141,15 +141,14 @@ export function Navbar() {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="min-w-20 rounded-none border-foreground/20 bg-background p-0">
                   <DropdownMenuItem onClick={() => setLocale('en')} className={`justify-between rounded-none px-3 py-2 cursor-pointer ${buttonBlurHover}`}>
-                    EN
-                    {locale === 'en' ? <span>✓</span> : null}
+                    EN {locale === 'en' && <span>✓</span>}
                   </DropdownMenuItem>
                   <DropdownMenuItem onClick={() => setLocale('es')} className={`justify-between rounded-none px-3 py-2 cursor-pointer ${buttonBlurHover}`}>
-                    ES
-                    {locale === 'es' ? <span>✓</span> : null}
+                    ES {locale === 'es' && <span>✓</span>}
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
+
               <motion.button
                 type="button"
                 onClick={() => setIsDownloadDialogOpen(true)}
@@ -163,6 +162,7 @@ export function Navbar() {
                   {t.nav.downloadCv}
                 </span>
               </motion.button>
+
               <motion.button
                 type="button"
                 onClick={toggleDark}
@@ -171,6 +171,7 @@ export function Navbar() {
               >
                 {isDark ? <Sun className="w-4 h-4" aria-hidden="true" /> : <Moon className="w-4 h-4" aria-hidden="true" />}
               </motion.button>
+
               <motion.button
                 type="button"
                 className={`md:hidden inline-flex p-2 text-foreground hover:opacity-60 ${buttonBlurHover}`}
@@ -186,20 +187,21 @@ export function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile drawer — outside nav so it's never clipped */}
+      {/* Menú móvil */}
       {isOpen && (
         <div
           id={mobileMenuId}
-          className="fixed inset-0 z-40 pt-20 bg-background/98 backdrop-blur-md md:hidden flex flex-col"
+      
+          className="fixed inset-0 z-100 pt-20 bg-background/98 backdrop-blur-md md:hidden flex flex-col items-start"
           role="dialog"
           aria-modal="true"
           aria-label="Mobile navigation menu"
         >
-          <div className="px-10 pt-8 flex items-center gap-4">
+          <div className="px-6 pt-8 flex items-center gap-4">
             <motion.button
               type="button"
               onClick={() => setLocale('en')}
-              className={`inline-flex px-2 py-1 text-xs font-semibold tracking-widest ${buttonBlurHover} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background ${locale === 'en' ? 'text-foreground' : 'text-foreground/50 hover:text-foreground/80'}`}
+              className={`inline-flex  py-1 text-sm font-semibold tracking-widest ${buttonBlurHover} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background ${locale === 'en' ? 'text-foreground' : 'text-foreground/50 hover:text-foreground/80'}`}
               aria-label="Switch to English"
             >
               EN
@@ -207,19 +209,19 @@ export function Navbar() {
             <motion.button
               type="button"
               onClick={() => setLocale('es')}
-              className={`inline-flex px-2 py-1 text-xs font-semibold tracking-widest ${buttonBlurHover} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background ${locale === 'es' ? 'text-foreground' : 'text-foreground/50 hover:text-foreground/80'}`}
+              className={`inline-flex px-2 py-1 text-sm font-semibold tracking-widest ${buttonBlurHover} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background ${locale === 'es' ? 'text-foreground' : 'text-foreground/50 hover:text-foreground/80'}`}
               aria-label="Cambiar a español"
             >
               ES
             </motion.button>
           </div>
-          <ul className="flex flex-col px-10 pt-10 space-y-8">
+          <ul className="flex flex-col px-6 pt-4 space-y-4">
             {navItems.map((item) => (
               <li key={item.href}>
                 <motion.a
                   href={item.href}
                   onClick={(e) => { e.preventDefault(); handleNavClick(item.href); }}
-                  className={`inline-flex text-4xl font-extrabold tracking-tight text-foreground hover:opacity-50 ${blurHover} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background`}
+                  className={`inline-flex text-xl font-extrabold tracking-tight text-foreground leading-none ${buttonBlurHover}`}
                 >
                   {item.label}
                 </motion.a>
@@ -229,6 +231,7 @@ export function Navbar() {
         </div>
       )}
 
+      {/* Modal de descarga de CV */}
       {isDownloadDialogOpen && (
         <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/50 px-4">
           <div

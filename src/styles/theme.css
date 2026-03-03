@@ -131,7 +131,11 @@ html.dark {
   * {
     @apply border-border outline-ring/50;
   }
-
+  body[data-scroll-locked], 
+  body[style*="padding-right"] {
+    padding-right: 0px !important;
+    overflow: hidden !important;
+  }
   body {
     @apply bg-background text-foreground;
     font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
@@ -221,6 +225,7 @@ html.dark {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    box-sizing: border-box;
   }
 }
 /* .profile-photo{

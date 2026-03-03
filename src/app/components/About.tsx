@@ -9,7 +9,7 @@ export function About() {
   const highlights = t.about.highlights;
 
   return (
-    <section id="about" className="min-h-screen pt-14 pb-25 px-8 border-t border-foreground/10 flex flex-col justify-center">
+    <section id="about" className="min-h-screen pt-14 pb-10 px-8 border-t border-foreground/10 flex flex-col justify-center">
       <div className="max-w-7xl mx-auto">
         {/* Section label */}
         <motion.div
