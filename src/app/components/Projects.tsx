@@ -95,15 +95,13 @@ export function Projects() {
                   </div>
                 </div>
 
-                <div className="w-full  min-h-[320px] max-h-[500px] border border-foreground/15 overflow-hidden bg-foreground/[0.03]">
+                <div className="w-full  min-h-[320px] max-h-[480px] border border-foreground/15 overflow-hidden bg-foreground/[0.03]">
                   <img
                     src={project.imageUrl}
                     alt={project.title}
                     loading="lazy"
                     decoding="async"
-                    width={1280}
-                    height={720}
-                    className="w-full h-full object-cover"
+                    className="img-hover w-full h-full object-cover"
                   />
                 </div>
               </div>

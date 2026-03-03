@@ -9,7 +9,7 @@ export function Contact() {
   return (
     <section id="contact" aria-labelledby="contact-title" className="section-base pb-32 bg-foreground text-background overflow-x-hidden">
       <div className="section-container min-h-[70vh] min-w-0 flex flex-col">
-        {/* Section label */}
+ 
         <motion.div
           className="section-label-row mb-12"
           initial={{ opacity: 0, x: -40 }}

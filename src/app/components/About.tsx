@@ -9,7 +9,7 @@ export function About() {
   return (
     <section id="about" className="section-base pb-10">
       <div className="section-container">
-        {/* Section label */}
+ 
         <motion.div
           className="section-label-row mb-6"
           initial={{ opacity: 0, x: -40 }}
