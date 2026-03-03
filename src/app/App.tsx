@@ -13,16 +13,24 @@ const Footer   = lazy(() => import('./components/Footer').then(m => ({ default: 
 export default function App() {
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-foreground focus:px-4 focus:py-2 focus:text-background"
+      >
+        Skip to main content
+      </a>
       <CustomCursor />
       <Navbar />
-      <Hero />
-      <Suspense fallback={null}>
-        <About />
-        <Skills />
-        <Projects />
-        <Contact />
-        <Footer />
-      </Suspense>
+      <main id="main-content">
+        <Hero />
+        <Suspense fallback={null}>
+          <About />
+          <Skills />
+          <Projects />
+          <Contact />
+          <Footer />
+        </Suspense>
+      </main>
     </div>
   );
 }

@@ -78,6 +78,14 @@
   --sidebar-ring: oklch(0.5 0 0);
 }
 
+html {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -137,6 +145,14 @@
     overflow-x: hidden;
   }
 
+  body {
+    touch-action: manipulation;
+  }
+
+  section[id] {
+    scroll-margin-top: 6rem;
+  }
+
   h1 {
     font-family: 'DM Sans', system-ui, sans-serif;
     font-weight: 800;
@@ -176,10 +192,32 @@
   a{
     cursor: pointer;
   }
+
+  a:focus-visible,
+  button:focus-visible,
+  [role='button']:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
   input, textarea {
     font-family: 'DM Sans', system-ui, sans-serif;
     font-weight: var(--font-weight-normal);
     line-height: 1.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 .profile-photo{

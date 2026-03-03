@@ -10,7 +10,7 @@ export function Contact() {
   const { t } = useI18n();
   const contactTitleLines = t.contact.title.split('\n');
   return (
-    <section id="contact" className="min-h-screen py-32 px-8 bg-[#1A1A1A] flex flex-col justify-center">
+    <section id="contact" aria-labelledby="contact-title" className="min-h-screen py-32 px-8 bg-foreground text-background flex flex-col justify-center">
       <div className="w-full max-w-7xl mx-auto min-h-[70vh] flex flex-col">
         {/* Section label */}
         <motion.div
@@ -20,14 +20,15 @@ export function Contact() {
           viewport={VP}
           transition={{ duration: 0.8, ease }}
         >
-          <span className="inline-block w-2 h-2 rounded-full bg-white/30" />
-          <span className="text-xs font-semibold tracking-widest uppercase text-white/40">
+          <span className="inline-block w-2 h-2 rounded-full bg-background/30" aria-hidden="true" />
+          <span className="text-xs font-semibold tracking-widest uppercase text-background/50">
             {t.contact.label}
           </span>
         </motion.div>
 
         <motion.h2
-          className="text-[clamp(6rem,18vw,20rem)] font-extrabold tracking-tighter lg:leading-[12rem] text-white mb-12"
+          id="contact-title"
+          className="text-[clamp(6rem,18vw,20rem)] font-extrabold tracking-tighter lg:leading-[12rem] text-background mb-12"
           initial={{ opacity: 0, x: -80 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={VP}
@@ -42,7 +43,7 @@ export function Contact() {
         </motion.h2>
 
         <motion.p
-          className="text-white/55 text-lg max-w-2xl leading-relaxed mb-10"
+          className="text-background/70 text-lg max-w-2xl leading-relaxed mb-10"
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={VP2}
@@ -50,7 +51,7 @@ export function Contact() {
         >
           {t.contact.text} <a
             href="mailto:cristiana.sollini@gmail.com"
-            className="text-white/55 hover:text-white transition-colors underline underline-offset-4"
+            className="text-background/80 hover:text-background transition-colors underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background/80 focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
             aria-label="Email"
           >
             {t.contact.email}
@@ -58,7 +59,7 @@ export function Contact() {
             href="https://www.linkedin.com/in/cristianasollini/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white/55 hover:text-white transition-colors underline underline-offset-4"
+            className="text-background/80 hover:text-background transition-colors underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background/80 focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
             aria-label="LinkedIn"
           >
             {t.contact.linkedin}
@@ -74,30 +75,30 @@ export function Contact() {
         >
           <a
             href="mailto:cristiana.sollini@gmail.com"
-            className="text-white/55 hover:text-white transition-colors"
+            className="text-background/70 hover:text-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background/80 focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
             aria-label="Email"
           >
-            <Mail className="w-8 h-8" />
+            <Mail className="w-8 h-8" aria-hidden="true" />
           </a>
 
           <a
             href="https://www.linkedin.com/in/cristianasollini/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white/55 hover:text-white transition-colors"
+            className="text-background/70 hover:text-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background/80 focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
             aria-label="LinkedIn"
           >
-            <Linkedin className="w-8 h-8" />
+            <Linkedin className="w-8 h-8" aria-hidden="true" />
           </a>
 
           <a
             href="https://github.com/papercri"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white/55 hover:text-white transition-colors"
+            className="text-background/70 hover:text-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background/80 focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
             aria-label="GitHub"
           >
-            <Github className="w-8 h-8" />
+            <Github className="w-8 h-8" aria-hidden="true" />
           </a>
         </motion.div>
       </div>

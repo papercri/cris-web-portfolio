@@ -10,7 +10,7 @@ export function Skills() {
   const skillCategories = t.skills.categories;
 
   return (
-    <section id="skills" className="min-h-screen py-30 px-8 bg-[#1A1A1A] flex flex-col justify-center">
+    <section id="skills" aria-labelledby="skills-title" className="min-h-screen py-30 px-8 bg-foreground text-background flex flex-col justify-center">
       <div className="w-full max-w-7xl mx-auto">
         {/* Section label */}
         <motion.div
@@ -20,15 +20,16 @@ export function Skills() {
           viewport={VP}
           transition={{ duration: 0.8, ease }}
         >
-          <span className="inline-block w-2 h-2 rounded-full bg-white/30" />
-          <span className="text-xs font-semibold tracking-widest uppercase text-white/40">
+          <span className="inline-block w-2 h-2 rounded-full bg-background/30" aria-hidden="true" />
+          <span className="text-xs font-semibold tracking-widest uppercase text-background/50">
             {t.skills.label}
           </span>
         </motion.div>
 
         {/* Headline */}
         <motion.h2
-          className="text-5xl md:text-6xl font-extrabold tracking-wide text-white leading-none mb-10"
+          id="skills-title"
+          className="text-5xl md:text-6xl font-extrabold tracking-wide text-background leading-none mb-10"
           initial={{ opacity: 0, x: -80 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={VP}
@@ -48,7 +49,7 @@ export function Skills() {
               viewport={VP2}
               transition={{ duration: 0.85, delay: categoryIndex * 0.12, ease }}
             >
-              <h3 className="text-sm font-semibold tracking-widest uppercase text-white/40 w-40 shrink-0 mt-1">
+              <h3 className="text-sm font-semibold tracking-widest uppercase text-background/50 w-40 shrink-0 mt-1">
                 {category.category}
               </h3>
               <div className="flex flex-wrap gap-4">
@@ -64,7 +65,7 @@ export function Skills() {
                       transition={{ duration: 0.5, delay: categoryIndex * 0.1 + skillIndex * 0.04, ease }}
                     >
                       {/* Base track — always visible */}
-                      <div className="absolute inset-0 bg-white/18" />
+                      <div className="absolute inset-0 bg-background/20" />
                       {/* Rotating color sweep */}
                       <motion.div
                         className="absolute w-[200%] h-[200%] -top-[50%] -left-[50%]"
@@ -81,7 +82,7 @@ export function Skills() {
                         }}
                       />
                       {/* Content */}
-                      <span className="relative block px-4 py-2 bg-[#1A1A1A] text-white/80 text-sm font-medium hover:text-white transition-colors">
+                      <span className="relative block px-4 py-2 bg-foreground text-background/85 text-sm font-medium hover:text-background transition-colors">
                         {skill}
                       </span>
                     </motion.div>

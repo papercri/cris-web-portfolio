@@ -4,9 +4,18 @@ import { motion } from 'motion/react';
 export function CustomCursor() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isClicking, setIsClicking] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const pointerGap = 30;
 
   useEffect(() => {
+    const mediaReduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const mediaFinePointer = window.matchMedia('(pointer: fine)');
+    const shouldShowCursor = !mediaReduceMotion.matches && mediaFinePointer.matches;
+    setIsVisible(shouldShowCursor);
+    if (!shouldShowCursor) {
+      return;
+    }
+
     const updateMousePosition = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
@@ -23,6 +32,10 @@ export function CustomCursor() {
       window.removeEventListener('mouseup', onMouseUp);
     };
   }, []);
+
+  if (!isVisible) {
+    return null;
+  }
 
   const size = isClicking ? 60 : 40;
 

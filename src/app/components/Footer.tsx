@@ -14,7 +14,8 @@ export function Footer() {
         <motion.a
           href="#home"
           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-          className="text-xl font-extrabold tracking-tight uppercase text-foreground hover:opacity-60 transition-opacity"
+          className="text-xl font-extrabold tracking-tight uppercase text-foreground hover:opacity-60 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          aria-label="Back to top"
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={VP}
@@ -44,7 +45,7 @@ export function Footer() {
             href="https://github.com/papercri"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs font-semibold tracking-widest uppercase text-foreground/50 hover:text-foreground transition-colors"
+            className="text-xs font-semibold tracking-widest uppercase text-foreground/50 hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             {t.footer.github}
           </a>
@@ -52,13 +53,13 @@ export function Footer() {
             href="https://www.linkedin.com/in/cristianasollini/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs font-semibold tracking-widest uppercase text-foreground/50 hover:text-foreground transition-colors"
+            className="text-xs font-semibold tracking-widest uppercase text-foreground/50 hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             {t.footer.linkedin}
           </a>
           <a
             href="mailto:cristiana.sollini@gmail.com"
-            className="text-xs font-semibold tracking-widest uppercase text-foreground/50 hover:text-foreground transition-colors"
+            className="text-xs font-semibold tracking-widest uppercase text-foreground/50 hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             {t.footer.email}
           </a>

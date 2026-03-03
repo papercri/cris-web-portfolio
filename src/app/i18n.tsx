@@ -22,7 +22,7 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
       return;
     }
 
-    const browserLocale = window.navigator.language.toLowerCase();
+    const browserLocale = (window.navigator.languages?.[0] || window.navigator.language).toLowerCase();
     const detected: Locale = browserLocale.startsWith('es') ? 'es' : 'en';
     setLocaleState(detected);
   }, []);
@@ -30,6 +30,33 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     window.localStorage.setItem(STORAGE_KEY, locale);
     document.documentElement.lang = locale;
+    document.title = translations[locale].seo.title;
+
+    const description = translations[locale].seo.description;
+    const ensureMetaByName = (name: string, value: string) => {
+      let element = document.head.querySelector(`meta[name="${name}"]`) as HTMLMetaElement | null;
+      if (!element) {
+        element = document.createElement('meta');
+        element.setAttribute('name', name);
+        document.head.appendChild(element);
+      }
+      element.setAttribute('content', value);
+    };
+
+    const ensureMetaByProperty = (property: string, value: string) => {
+      let element = document.head.querySelector(`meta[property="${property}"]`) as HTMLMetaElement | null;
+      if (!element) {
+        element = document.createElement('meta');
+        element.setAttribute('property', property);
+        document.head.appendChild(element);
+      }
+      element.setAttribute('content', value);
+    };
+
+    ensureMetaByName('description', description);
+    ensureMetaByProperty('og:title', translations[locale].seo.title);
+    ensureMetaByProperty('og:description', description);
+    ensureMetaByProperty('og:locale', locale === 'es' ? 'es_ES' : 'en_US');
   }, [locale]);
 
   const value = useMemo<I18nValue>(
@@ -54,6 +81,10 @@ export function useI18n() {
 
 export const translations = {
   en: {
+    seo: {
+      title: 'Cristiana Sollini | Front-End Developer Portfolio',
+      description: 'Front-end developer portfolio focused on accessible, performant, and SEO-friendly web experiences built with React and modern tooling.',
+    },
     nav: {
       home: 'HOME',
       about: 'ABOUT',
@@ -183,6 +214,10 @@ export const translations = {
     },
   },
   es: {
+    seo: {
+      title: 'Cristiana Sollini | Portfolio Front-End Developer',
+      description: 'Portfolio de desarrollo front-end centrado en accesibilidad, rendimiento y buenas prácticas SEO con React y herramientas modernas.',
+    },
     nav: {
       home: 'INICIO',
       about: 'SOBRE MÍ',

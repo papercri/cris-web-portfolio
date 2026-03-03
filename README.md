@@ -29,6 +29,17 @@ The site supports `EN` and `ES` with a lightweight context-based i18n setup.
 - Persistent language preference via `localStorage`
 - Top-right language selector that shows the active locale (`EN`/`ES`)
 
+## Accessibility & SEO
+
+The portfolio includes a dedicated accessibility and SEO pass aligned with WCAG-oriented best practices.
+
+- Landmark improvements: skip link + semantic `main` structure for better keyboard/screen reader navigation
+- Keyboard usability: visible `focus-visible` states across interactive elements
+- Dialog and mobile menu accessibility: ARIA roles/labels and `Esc` key support
+- Motion accessibility: reduced-motion handling for animated elements
+- SEO enhancements: richer meta tags (`description`, Open Graph, Twitter cards, `robots`, `canonical`)
+- Locale-aware metadata updates from i18n (`title`, `description`, `og:locale`)
+
 ## Getting Started
 
 ### 1) Install dependencies

@@ -1,4 +1,4 @@
-import { ExternalLink, Github, ArrowRight } from 'lucide-react';
+import { ExternalLink, Github } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useI18n } from '../i18n';
 
@@ -11,25 +11,31 @@ export function Projects() {
   const projects = t.projects.items;
 
   return (
-    <section id="projects" className="min-h-screen py-20 px-8 border-t border-foreground/10 flex flex-col justify-center">
+    <section id="projects" aria-labelledby="projects-title" className="min-h-screen py-20 px-8 border-t border-foreground/10 flex flex-col justify-center">
       <div className="w-full max-w-7xl mx-auto">
+        <h2 id="projects-title" className="sr-only">{t.nav.projects}</h2>
         <motion.div
           className="sticky top-20 z-30 bg-background/10 py-5 flex flex-wrap items-center gap-4 md:gap-6 backdrop-blur-sm"
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={VP}
           transition={{ duration: 0.8, ease }}
-        ><span className="inline-block w-2 h-2 rounded-full bg-foreground/50" />
+        >
+          <span className="inline-block w-2 h-2 rounded-full bg-foreground/50" aria-hidden="true" />
           <span className="text-xs font-semibold tracking-widest uppercase text-foreground/50">
             {t.projects.label}
           </span>
-          <div className="flex flex-wrap items-center gap-3 md:gap-5 text-sm font-semibold text-foreground">
+          <nav aria-label="Projects section links" className="flex flex-wrap items-center gap-3 md:gap-5 text-sm font-semibold text-foreground">
             {projects.map((project) => (
-              <a key={project.id} href={`#${project.id}`} className="hover:opacity-60 transition-opacity">
+              <a
+                key={project.id}
+                href={`#${project.id}`}
+                className="hover:opacity-60 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
                 {project.title}
               </a>
             ))}
-          </div>
+          </nav>
         
         </motion.div>
 
@@ -70,12 +76,22 @@ export function Projects() {
                   </div>
 
                   <div className="flex items-center gap-5">
-                    <a href={project.liveUrl} className="flex items-center gap-2 text-sm font-semibold text-foreground hover:opacity-60 transition-opacity" target='blank'>
-                      <ExternalLink className="w-4 h-4" />
+                    <a
+                      href={project.liveUrl}
+                      className="flex items-center gap-2 text-sm font-semibold text-foreground hover:opacity-60 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <ExternalLink className="w-4 h-4" aria-hidden="true" />
                       {t.projects.liveDemo}
                     </a>
-                    <a href={project.githubUrl} className="flex items-center gap-2 text-sm font-semibold text-foreground hover:opacity-60 transition-opacity" target='blank'>
-                      <Github className="w-4 h-4" />
+                    <a
+                      href={project.githubUrl}
+                      className="flex items-center gap-2 text-sm font-semibold text-foreground hover:opacity-60 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Github className="w-4 h-4" aria-hidden="true" />
                       {t.projects.code}
                     </a>
                   </div>
@@ -86,7 +102,10 @@ export function Projects() {
                     src={project.imageUrl}
                     alt={project.title}
                     loading="lazy"
-                    className="w-full h-full "
+                    decoding="async"
+                    width={1280}
+                    height={720}
+                    className="w-full h-full object-cover"
                   />
                 </div>
               </div>
