@@ -12,7 +12,7 @@ export function Hero() {
     <section
       id="home"
       aria-labelledby="hero-title"
-      className="w-full min-h-[100svh] flex flex-col pt-20 px-8 relative overflow-x-hidden"
+      className="w-full min-h-[100svh] flex flex-col pt-16 px-8 relative overflow-x-hidden"
     >
       <div className="w-full flex-1 flex flex-col justify-center max-w-7xl mx-auto relative profile-photo  border-b border-black/10 z-20">
         {/* Main hero content — grows to fill available space */}

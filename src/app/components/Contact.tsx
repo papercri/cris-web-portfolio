@@ -10,8 +10,8 @@ export function Contact() {
   const { t } = useI18n();
   const contactTitleLines = t.contact.title.split('\n');
   return (
-    <section id="contact" aria-labelledby="contact-title" className="min-h-screen py-32 px-8 bg-foreground text-background flex flex-col justify-center">
-      <div className="w-full max-w-7xl mx-auto min-h-[70vh] flex flex-col">
+    <section id="contact" aria-labelledby="contact-title" className="min-h-screen pt-14 pb-32 px-8 bg-foreground text-background flex flex-col justify-center overflow-x-hidden">
+      <div className="w-full max-w-7xl mx-auto min-h-[70vh] min-w-0 flex flex-col">
         {/* Section label */}
         <motion.div
           className="flex items-center gap-3 mb-12"
@@ -28,7 +28,7 @@ export function Contact() {
 
         <motion.h2
           id="contact-title"
-          className="text-[clamp(6rem,18vw,20rem)] font-extrabold tracking-tighter lg:leading-[12rem] text-background mb-12"
+          className="w-full max-w-full min-w-0 text-[clamp(2.75rem,11vw,10rem)] font-extrabold tracking-tight leading-[0.88] sm:leading-[0.9] md:leading-[0.92] text-background mb-6 break-words [text-wrap:balance]"
           initial={{ opacity: 0, x: -80 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={VP}
@@ -43,7 +43,7 @@ export function Contact() {
         </motion.h2>
 
         <motion.p
-          className="text-background/70 text-lg max-w-2xl leading-relaxed mb-10"
+          className="w-full max-w-2xl min-w-0 text-background/70 text-[clamp(1rem,1.4vw,1.125rem)] leading-[clamp(1.5rem,2.6vw,1.9rem)] break-words mb-10"
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={VP2}

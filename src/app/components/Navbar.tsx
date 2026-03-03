@@ -131,18 +131,18 @@ export function Navbar() {
                 <DropdownMenuTrigger asChild>
                   <button
                     type="button"
-                    className="px-2 py-1 text-xs font-semibold tracking-widest text-foreground/70 hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                    className="px-2 py-1 text-xs font-semibold tracking-widest text-foreground/80 rounded-none hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                     aria-label={t.nav.language}
                   >
                     {locale.toUpperCase()}
                   </button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="min-w-20">
-                  <DropdownMenuItem onClick={() => setLocale('en')} className="justify-between">
+                <DropdownMenuContent align="end" className="min-w-20 rounded-none border-foreground/20 bg-background p-0">
+                  <DropdownMenuItem onClick={() => setLocale('en')} className="justify-between rounded-none px-3 py-2">
                     EN
                     {locale === 'en' ? <span>✓</span> : null}
                   </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => setLocale('es')} className="justify-between">
+                  <DropdownMenuItem onClick={() => setLocale('es')} className="justify-between rounded-none px-3 py-2">
                     ES
                     {locale === 'es' ? <span>✓</span> : null}
                   </DropdownMenuItem>

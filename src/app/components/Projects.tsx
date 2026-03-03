@@ -11,7 +11,7 @@ export function Projects() {
   const projects = t.projects.items;
 
   return (
-    <section id="projects" aria-labelledby="projects-title" className="min-h-screen py-20 px-8 border-t border-foreground/10 flex flex-col justify-center">
+    <section id="projects" aria-labelledby="projects-title" className="min-h-screen pt-14 pb-20 px-8 border-t border-foreground/10 flex flex-col justify-center">
       <div className="w-full max-w-7xl mx-auto">
         <h2 id="projects-title" className="sr-only">{t.nav.projects}</h2>
         <motion.div
@@ -44,7 +44,7 @@ export function Projects() {
             <motion.div
               key={index}
               id={project.id}
-              className="group min-h-[100svh] flex items-start py-4 scroll-mt-44 border-foreground/10 last:border-b last:border-foreground/10"
+              className="group min-h-[100svh] flex items-start py-4 scroll-mt-28 border-foreground/10 last:border-b last:border-foreground/10"
               initial={{ opacity: 0, x: -70 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={VP2}

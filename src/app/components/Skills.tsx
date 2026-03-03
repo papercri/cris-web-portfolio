@@ -10,7 +10,7 @@ export function Skills() {
   const skillCategories = t.skills.categories;
 
   return (
-    <section id="skills" aria-labelledby="skills-title" className="min-h-screen py-30 px-8 bg-foreground text-background flex flex-col justify-center">
+    <section id="skills" aria-labelledby="skills-title" className="min-h-screen pt-14 pb-30 px-8 bg-foreground text-background flex flex-col justify-center">
       <div className="w-full max-w-7xl mx-auto">
         {/* Section label */}
         <motion.div
