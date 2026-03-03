@@ -7,7 +7,7 @@ export function About() {
   const highlights = t.about.highlights;
 
   return (
-    <section id="about" className="section-base pb-10 border-t border-foreground/10">
+    <section id="about" className="section-base pb-10">
       <div className="section-container">
         {/* Section label */}
         <motion.div

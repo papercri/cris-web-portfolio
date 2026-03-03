@@ -1,8 +1,3 @@
-/**
- * Shared animation constants used across section components.
- * Import these instead of redefining locally in each file.
- */
-
 /** Standard easing curve [x1, y1, x2, y2] */
 export const ease = [0.25, 0.46, 0.45, 0.94] as const;
 

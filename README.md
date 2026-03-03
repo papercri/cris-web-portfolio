@@ -1,5 +1,7 @@
 # My Portfolio
 
+**Live site:** [frontend-ux.website](https://frontend-ux.website/)
+
 My personal portfolio website built with React, Vite, Tailwind CSS, and Motion.
 
 It includes:
@@ -10,7 +12,7 @@ It includes:
 - Projects section with editorial-style layout and anchor navigation
 - Contact section focused on direct channels (email, LinkedIn, GitHub)
 - Responsive navigation with dark mode toggle and CV download flow
-- Bilingual support (English/Spanish)
+- Bilingual support (English/Spanish) 
 
 ## Tech Stack
 
@@ -28,6 +30,14 @@ The site supports `EN` and `ES` with a lightweight context-based i18n setup.
 - Automatic browser-language detection on first visit (`es-*` locales default to Spanish; others default to English)
 - Persistent language preference via `localStorage`
 - Top-right language selector that shows the active locale (`EN`/`ES`)
+
+### `I18nProvider`
+
+Defined in `src/app/i18n.tsx` and wraps the entire app in `src/main.tsx`. It manages the full i18n lifecycle:
+
+- Reads locale from `localStorage` on mount; falls back to browser language detection
+- On locale change, persists to `localStorage`, updates `document.documentElement.lang`, and syncs `<title>`, `description`, and Open Graph meta tags
+- Exposes `locale`, `setLocale`, and `t` (active translations object) via the `useI18n()` hook
 
 ## Accessibility & SEO
 

@@ -105,7 +105,7 @@ export const translations = {
       bio: 'I build digital experiences that are fast, accessible, and visually clear. Over the years, I’ve focused on creating interfaces that not only look good, but feel intuitive and consistent across devices.',
     },
     scrolling: {
-      items: ['Front-End Developer', '. ', 'UX/UI & Web Accessibility', '. ', 'React', '. ', 'Next.js', '. ', 'Vue.js', '. ', 'HTML & CSS', '. '],
+      items: ['FrontEnd Developer', '/ ', 'UX/UI & Web Accessibility', '/ ', 'React', '/ ', 'Next.js', '/ ', 'Vue.js', '/ ', 'HTML & CSS', '/ '],
     },
     about: {
       label: 'ABOUT ME',
@@ -246,7 +246,7 @@ export const translations = {
       bio: 'Construyo experiencias digitales rápidas, accesibles y visualmente claras. Durante los últimos años me he enfocado en crear interfaces que no solo se vean bien, sino que también resulten intuitivas y consistentes en cualquier dispositivo.',
     },
     scrolling: {
-      items: ['Desarrollo Front-End', '. ', 'UX/UI y Accesibilidad Web', '. ', 'React', '. ', 'Next.js', '. ', 'Vue.js', '. ', 'HTML y CSS', '. '],
+      items: ['Desarrollo FrontEnd', '/ ', 'UX & UI', '/ ', 'Accesibilidad Web', '/ ', 'React', '/ ', 'Next.js', '. ', 'Vue.js', '/ ', 'HTML & CSS', '/ '],
     },
     about: {
       label: 'SOBRE MÍ',

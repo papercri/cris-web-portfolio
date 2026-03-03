@@ -10,7 +10,6 @@ jspm_packages/
 
 .agents/
 skills-lock.json
-ATTRIBUTIONS.md
 guidelines/
 
 .claude_code/

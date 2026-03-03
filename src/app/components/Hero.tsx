@@ -11,13 +11,13 @@ export function Hero() {
     <section
       id="home"
       aria-labelledby="hero-title"
-      className="w-full lg:min-h-[100svh] min-h-[100vh] lg:h-[100svh] lg:overflow-hidden flex flex-col pt-8 px-8 relative overflow-x-hidden items-bottom"
+      className="w-full lg:min-h-[100svh] min-h-[100vh] lg:h-[100svh] lg:overflow-hidden flex flex-col pt-8 px-8 relative overflow-x-hidden items-bottom pb-10 lg:pb-0 "
     >
       <div className="flex w-full justify-between flex-wrap lg:flex-nowrap max-w-7xl mx-auto ">
         <div className="w-full flex flex-col justify-start mx-auto relative lg:flex-[2_2_0%] min-w-0 items-end">
         <div className="w-full flex flex-col justify-start py-5">
           <motion.div
-            className="section-label-row mb-12"
+            className="section-label-row md:mb-12 mb-8"
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease }}
@@ -28,7 +28,7 @@ export function Hero() {
             </p>
           </motion.div>
 
-          <div className="mb-10 ">
+          <div className="md:mb-10 mb-4">
             <motion.h1
               id="hero-title"
               className="text-[clamp(3.5rem,9vw,8rem)] leading-none font-extrabold tracking-normal text-foreground"
@@ -94,18 +94,12 @@ export function Hero() {
                 <Github className="w-5 h-5" aria-hidden="true" /> 
               </a>
             
-              {/* <a
-                href="#projects"
-                className="ml-4 px-6 py-3 bg-foreground text-background text-sm font-semibold tracking-wide hover:opacity-80 transition-opacity"
-              >
-                VIEW WORK
-              </a>  */}
             </motion.div>
           </div>
         </div>
 
         </div>
-        <div className="w-full lg:max-w-none lg:flex-1 mx-auto flex-shrink-0 relative z-10 lg:justify-end items-end  flex max-w-2/5 justify-center">
+        <div className="w-full lg:max-w-none lg:flex-1 mx-auto flex-shrink-0 relative z-10 lg:justify-end items-end  flex max-w-3/5 justify-center">
           <motion.img
             src="/cris-hero.png"
             alt="Cristiana Sollini front-end developer"
