@@ -41,7 +41,7 @@ export function CustomCursor() {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 rounded-full pointer-events-none z-100 bg-transparent border border-black/10 dark:border-white/10 "
+      className="fixed top-0 left-0 rounded-full pointer-events-none z-100 bg-transparent border-2 border-black/10 dark:border-white/10 flex items-center justify-center"
       animate={{
         x: mousePosition.x + pointerGap,
         y: mousePosition.y + pointerGap,
@@ -54,6 +54,11 @@ export function CustomCursor() {
         width: { type: 'spring', damping: 20, stiffness: 260 },
         height: { type: 'spring', damping: 20, stiffness: 260 },
       }}
-    />
+    >
+      <span
+        className={`rounded-full bg-black/35 dark:bg-white/35 blur-[1px] ${isClicking ? 'w-2.5 h-2.5' : 'w-2 h-2'}`}
+        aria-hidden="true"
+      />
+    </motion.div>
   );
 }

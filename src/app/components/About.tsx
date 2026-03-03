@@ -66,13 +66,22 @@ export function About() {
               {t.about.p2}
             </motion.p>
             <motion.p
-              className="text-lg text-foreground/60 leading-relaxed "
+              className="text-lg text-foreground/60 leading-relaxed mb-6"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={VP}
               transition={{ duration: 0.85, ease: E, delay: 0.45 }}
             >
               {t.about.p3}
+            </motion.p>
+            <motion.p
+              className="text-lg text-foreground/60 leading-relaxed"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={VP}
+              transition={{ duration: 0.85, ease: E, delay: 0.55 }}
+            >
+              {t.about.p4}
             </motion.p>
           </div>
 

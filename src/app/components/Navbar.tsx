@@ -78,6 +78,8 @@ export function Navbar() {
     { label: t.nav.projects, href: '#projects' },
     { label: t.nav.contact, href: '#contact' },
   ];
+  const blurHover = 'hover:drop-shadow-[0_0_10px_rgba(26,26,26,0.22)] dark:hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.22)] transition-[color,opacity,filter] duration-200';
+  const buttonBlurHover = 'hover:text-foreground transition-[color,opacity,filter,background-color,border-color,text-shadow] duration-[400ms] ease-out hover:[text-shadow:0_0_4px_rgba(110,110,110,0.55),0_0_8px_rgba(130,130,130,0.48),0_0_14px_rgba(150,150,150,0.38),0_0_24px_rgba(170,170,170,0.28)] dark:hover:[text-shadow:0_0_4px_rgba(255,255,255,0.62),0_0_8px_rgba(240,240,240,0.5),0_0_14px_rgba(220,220,220,0.4),0_0_24px_rgba(205,205,205,0.3)] hover:[filter:drop-shadow(0_0_4px_rgba(120,120,120,0.5))_drop-shadow(0_0_10px_rgba(160,160,160,0.35))] dark:hover:[filter:drop-shadow(0_0_4px_rgba(255,255,255,0.55))_drop-shadow(0_0_10px_rgba(220,220,220,0.35))]';
 
   const handleNavClick = (href: string) => {
     setIsOpen(false);
@@ -96,7 +98,7 @@ export function Navbar() {
             <motion.a
               href="#home"
               onClick={(e) => { e.preventDefault(); handleNavClick('#home'); }}
-              className="text-xl font-extrabold tracking-tight uppercase text-foreground hover:opacity-60 transition-opacity"
+              className={`inline-flex text-xl font-extrabold tracking-tight uppercase text-foreground hover:opacity-60 ${blurHover}`}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
@@ -114,13 +116,13 @@ export function Navbar() {
             >
               {navItems.map((item) => (
                 <li key={item.href}>
-                  <a
+                  <motion.a
                     href={item.href}
                     onClick={(e) => { e.preventDefault(); handleNavClick(item.href); }}
-                    className="text-xs font-semibold tracking-widest text-foreground/70 hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                    className={`inline-flex text-xs font-semibold tracking-widest text-foreground/70 hover:text-foreground ${blurHover} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background`}
                   >
                     {item.label}
-                  </a>
+                  </motion.a>
                 </li>
               ))}
             </motion.ul>
@@ -129,54 +131,56 @@ export function Navbar() {
             <div className="flex items-center gap-4">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <button
+                  <motion.button
                     type="button"
-                    className="px-2 py-1 text-xs font-semibold tracking-widest text-foreground/80 rounded-none hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                    className={`inline-flex px-2 py-1 text-xs font-semibold tracking-widest text-foreground/80 rounded-none hover:text-foreground ${buttonBlurHover} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background`}
                     aria-label={t.nav.language}
                   >
                     {locale.toUpperCase()}
-                  </button>
+                  </motion.button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="min-w-20 rounded-none border-foreground/20 bg-background p-0">
-                  <DropdownMenuItem onClick={() => setLocale('en')} className="justify-between rounded-none px-3 py-2">
+                  <DropdownMenuItem onClick={() => setLocale('en')} className={`justify-between rounded-none px-3 py-2 cursor-pointer ${buttonBlurHover}`}>
                     EN
                     {locale === 'en' ? <span>✓</span> : null}
                   </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => setLocale('es')} className="justify-between rounded-none px-3 py-2">
+                  <DropdownMenuItem onClick={() => setLocale('es')} className={`justify-between rounded-none px-3 py-2 cursor-pointer ${buttonBlurHover}`}>
                     ES
                     {locale === 'es' ? <span>✓</span> : null}
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
-              <button
+              <motion.button
                 type="button"
                 onClick={() => setIsDownloadDialogOpen(true)}
-                className="group relative p-2 text-foreground/60 hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className={`group relative inline-flex p-2 text-foreground/60 hover:text-foreground ${buttonBlurHover} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background`}
                 aria-label={t.nav.downloadCv}
               >
-                <Download className="w-4 h-4" aria-hidden="true" />
+                <motion.span className="block">
+                  <Download className="w-4 h-4" aria-hidden="true" />
+                </motion.span>
                 <span className="pointer-events-none absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-foreground text-background px-3 py-1.5 text-[10px] font-semibold tracking-widest opacity-0 translate-y-1 transition-[opacity,transform] duration-200 group-hover:opacity-100 group-hover:translate-y-0">
                   {t.nav.downloadCv}
                 </span>
-              </button>
-              <button
+              </motion.button>
+              <motion.button
                 type="button"
                 onClick={toggleDark}
-                className="p-2 text-foreground/60 hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className={`inline-flex p-2 text-foreground/60 hover:text-foreground ${buttonBlurHover} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background`}
                 aria-label="Toggle dark mode"
               >
                 {isDark ? <Sun className="w-4 h-4" aria-hidden="true" /> : <Moon className="w-4 h-4" aria-hidden="true" />}
-              </button>
-              <button
+              </motion.button>
+              <motion.button
                 type="button"
-                className="md:hidden p-2 text-foreground hover:opacity-60 transition-opacity"
+                className={`md:hidden inline-flex p-2 text-foreground hover:opacity-60 ${buttonBlurHover}`}
                 onClick={() => setIsOpen((v) => !v)}
                 aria-label="Toggle menu"
                 aria-expanded={isOpen}
                 aria-controls={mobileMenuId}
               >
                 {isOpen ? <X className="w-6 h-6" aria-hidden="true" /> : <Menu className="w-6 h-6" aria-hidden="true" />}
-              </button>
+              </motion.button>
             </div>
           </div>
         </div>
@@ -192,33 +196,33 @@ export function Navbar() {
           aria-label="Mobile navigation menu"
         >
           <div className="px-10 pt-8 flex items-center gap-4">
-            <button
+            <motion.button
               type="button"
               onClick={() => setLocale('en')}
-              className={`px-2 py-1 text-xs font-semibold tracking-widest transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background ${locale === 'en' ? 'text-foreground' : 'text-foreground/50 hover:text-foreground/80'}`}
+              className={`inline-flex px-2 py-1 text-xs font-semibold tracking-widest ${buttonBlurHover} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background ${locale === 'en' ? 'text-foreground' : 'text-foreground/50 hover:text-foreground/80'}`}
               aria-label="Switch to English"
             >
               EN
-            </button>
-            <button
+            </motion.button>
+            <motion.button
               type="button"
               onClick={() => setLocale('es')}
-              className={`px-2 py-1 text-xs font-semibold tracking-widest transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background ${locale === 'es' ? 'text-foreground' : 'text-foreground/50 hover:text-foreground/80'}`}
+              className={`inline-flex px-2 py-1 text-xs font-semibold tracking-widest ${buttonBlurHover} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background ${locale === 'es' ? 'text-foreground' : 'text-foreground/50 hover:text-foreground/80'}`}
               aria-label="Cambiar a español"
             >
               ES
-            </button>
+            </motion.button>
           </div>
           <ul className="flex flex-col px-10 pt-10 space-y-8">
             {navItems.map((item) => (
               <li key={item.href}>
-                <a
+                <motion.a
                   href={item.href}
                   onClick={(e) => { e.preventDefault(); handleNavClick(item.href); }}
-                  className="text-4xl font-extrabold tracking-tight text-foreground hover:opacity-50 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  className={`inline-flex text-4xl font-extrabold tracking-tight text-foreground hover:opacity-50 ${blurHover} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background`}
                 >
                   {item.label}
-                </a>
+                </motion.a>
               </li>
             ))}
           </ul>
@@ -241,14 +245,14 @@ export function Navbar() {
                 ref={closeDialogButtonRef}
                 type="button"
                 onClick={() => setIsDownloadDialogOpen(false)}
-                className="px-4 py-2 text-sm font-medium border border-foreground/20 text-foreground hover:bg-foreground/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className={`px-4 py-2 text-sm font-medium border border-foreground/20 text-foreground hover:bg-foreground/5 ${buttonBlurHover} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background`}
               >
                 {t.nav.cancel}
               </button>
               <button
                 type="button"
                 onClick={handleDownloadCv}
-                className="px-4 py-2 text-sm font-medium bg-foreground text-background hover:opacity-90 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className={`px-4 py-2 text-sm font-medium bg-foreground text-background hover:opacity-90 ${buttonBlurHover} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background`}
               >
                 {t.nav.download}
               </button>

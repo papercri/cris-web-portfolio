@@ -9,7 +9,7 @@ export function ScrollingText() {
   const line = items.map((item, i) =>
     item === '. '
       ? <span key={i} className="mx-5 opacity-10 font-bold">. </span>
-      : <span key={i} className="mx-5 opacity-5 font-bold">{item}</span>
+      : <span key={i} className="mx-5 opacity-10 font-bold">{item}</span>
   );
 
   return (
@@ -29,7 +29,7 @@ export function ScrollingText() {
         }
       `}</style>}
       <div className="w-full overflow-hidden bg-transparent select-none">
-        <div className={`${shouldReduceMotion ? 'flex flex-wrap justify-center' : 'marquee-track'} text-foreground text-[clamp(2.8rem,12vw,12rem)] font-extrabold tracking-wide items-center leading-[70%] uppercase`}>
+        <div className={`${shouldReduceMotion ? 'flex flex-wrap justify-center' : 'marquee-track'} text-foreground text-[clamp(2.9rem,13vw,13rem)] font-extrabold tracking-wide items-center leading-[70%] uppercase`}>
           <span className="flex items-center gap-0 pr-16">{line}</span>
           {!shouldReduceMotion && <span className="flex items-center gap-0 pr-16">{line}</span>}
           {!shouldReduceMotion && <span className="flex items-center gap-0 pr-16" aria-hidden>{line}</span>}

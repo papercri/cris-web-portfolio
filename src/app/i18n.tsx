@@ -113,6 +113,8 @@ export const translations = {
       p1: 'My background is rooted in HTML and CSS, where structure, detail, and accessibility matter. I work comfortably with React and modern front-end tools, and I’m used to collaborating closely with design and backend teams to turn complex ideas into solid, maintainable code.',
       p2: 'Performance and usability are not afterthoughts in my work — they are part of the foundation. I pay attention to clean components, scalable structures, and layouts that behave as expected in the real world.',
       p3: 'I’m also exploring AI-assisted development to streamline workflows and build smarter interfaces when it makes sense.',
+      p4: 'I strengthened my technical foundation through a Front-End Bootcamp focused on React at IT Academy. Before that, I completed a Vue.js Bootcamp at CodeOp and a PHP & MySQL course to better understand backend logic and data flow. I also hold a Bachelor’s Degree in Communication Sciences, which shapes the way I approach UX, clarity, and visual structure.',
+      
       highlights: [
         {
           number: '01',
@@ -134,6 +136,12 @@ export const translations = {
           title: 'Clean Code',
           description: 'Writing maintainable, scalable code following best practices and proven patterns.',
         },
+        {
+          number: '05',
+          title: 'Collaboration & UX/UI Focus',
+          description: 'I work closely with design and backend teams to translate mockups into accurate, consistent, and functional interfaces. I bring a strong UX mindset, pay attention to visual detail, and keep the end user in mind in every technical decision.',
+        },
+        
       ],
     },
     skills: {
@@ -246,6 +254,7 @@ export const translations = {
       p1: 'Mi base está en HTML y CSS, donde la estructura, el detalle y la accesibilidad son clave. Trabajo con soltura con React y herramientas front-end modernas, y colaboro de forma cercana con equipos de diseño y backend para convertir ideas complejas en código sólido y mantenible.',
       p2: 'El rendimiento y la usabilidad no son algo secundario en mi trabajo: son parte de la base. Cuido componentes limpios, estructuras escalables y layouts que se comporten como deben en el mundo real.',
       p3: 'También estoy explorando desarrollo asistido por IA para agilizar flujos de trabajo y construir interfaces más inteligentes cuando tiene sentido.',
+      p4: 'He reforzado mi base técnica con un Bootcamp de Front-End centrado en React en IT Academy. Antes cursé un Bootcamp de Vue.js en CodeOp y una formación en PHP y MySQL para comprender mejor la lógica de backend y el flujo de datos. Además, soy licenciada en Ciencias de la Comunicación, una formación que influye en mi forma de entender la experiencia de usuario, la claridad y la estructura visual.',
       highlights: [
         {
           number: '01',
@@ -266,6 +275,11 @@ export const translations = {
           number: '04',
           title: 'Código Limpio',
           description: 'Escribo código mantenible y escalable siguiendo buenas prácticas y patrones probados.',
+        },
+        {
+          number: '05',
+          title: 'Colaboración y visión UX/UI',
+          description: 'I work closely with design and backend teams to translate mockups into accurate, consistent, and functional interfaces. I bring a strong UX mindset, pay attention to visual detail, and keep the end user in mind in every technical decision.',
         },
       ],
     },
