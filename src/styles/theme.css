@@ -223,25 +223,19 @@ html.dark {
     transition-duration: 0.01ms !important;
   }
 }
-.profile-photo{
+/* .profile-photo{
  background-image:
   url('/cris-hero.png');
-  background-size: clamp(300px, 23vw, 420px);
-  background-position: center calc(100% - 6px);
+  background-size: 80%;
+  background-position: right bottom;
   background-attachment:scroll;
   background-repeat: no-repeat;
 }
 
-  @media screen and (min-width: 768px) {
-    .profile-photo{
-      background-size: clamp(300px, 23vw, 420px);
-      background-position: calc(100% - clamp(18px, 2vw, 34px)) calc(100% - clamp(106px, 10vw, 156px));
-    }
-  }
 
   @media screen and (max-width: 767px) {
     .profile-photo{
-      background-size: clamp(120px, 62vw, 220px);
-      background-position: center calc(100% - 6px);
+      background-size: 40%;
+      background-position: center;
     }
-  }
+  } */

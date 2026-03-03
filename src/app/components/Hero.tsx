@@ -12,12 +12,11 @@ export function Hero() {
     <section
       id="home"
       aria-labelledby="hero-title"
-      className="w-full min-h-[100svh] flex flex-col pt-16 px-8 relative overflow-x-hidden"
+      className="w-full min-h-[100svh] lg:h-[100svh] lg:overflow-hidden flex flex-col pt-16 px-8 relative overflow-x-hidden items-bottom"
     >
-      <div className="w-full flex-1 flex flex-col justify-center max-w-7xl mx-auto relative profile-photo  border-b border-black/10 z-20">
-        {/* Main hero content — grows to fill available space */}
-        <div className="w-full flex-1 flex flex-col justify-start py-5">
-          {/* Eyebrow label */}
+      <div className="flex w-full justify-between flex-wrap lg:flex-nowrap max-w-7xl mx-auto ">
+        <div className="w-full flex flex-col justify-start mx-auto relative lg:flex-[2_2_0%] min-w-0 items-end">
+        <div className="w-full flex flex-col justify-start py-5">
           <motion.div
             className="flex items-center gap-3 mb-12 "
             initial={{ opacity: 0, x: -40 }}
@@ -30,7 +29,6 @@ export function Hero() {
             </p>
           </motion.div>
 
-          {/* Display headline */}
           <div className="mb-10 ">
             <motion.h1
               id="hero-title"
@@ -55,8 +53,6 @@ export function Hero() {
               </motion.span>
             </motion.h1>
           </div>
-
-          {/* Bottom row: bio + links */}
           <div className="relative z-10 flex flex-wrap items-end gap-8 w-full 2xl:flex-nowrap 2xl:gap-24 justify-start">
             <motion.p
               className="text-lg text-foreground/60 max-w-md leading-relaxed font-light"
@@ -98,20 +94,32 @@ export function Hero() {
               >
                 <Github className="w-5 h-5" aria-hidden="true" /> 
               </a>
-           {/*    
-              <button
-                onClick={scrollToProjects}
+            
+              <a
+                href="#projects"
                 className="ml-4 px-6 py-3 bg-foreground text-background text-sm font-semibold tracking-wide hover:opacity-80 transition-opacity"
               >
                 VIEW WORK
-              </button> */}
+              </a> 
             </motion.div>
           </div>
         </div>
 
+        </div>
+        <div className="w-full lg:max-w-none lg:flex-1 mx-auto flex-shrink-0 relative z-10 lg:justify-end items-end  flex max-w-2/5 justify-center">
+          <motion.img
+            src="/cris-hero.png"
+            alt="Cristiana Sollini front-end developer"
+            className="w-full h-auto object-fill"
+            initial={{ opacity: 0, x: 60 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.5, ease: E }}
+          />
+        </div>
       </div>
+      
 
-      <div className="absolute inset-x-0 bottom-0 z-10">
+      <div className="z-10 lg:flex-1 lg:min-h-0 lg:overflow-hidden lg:[container-type:size]">
         <ScrollingText />
       </div>
     </section>
