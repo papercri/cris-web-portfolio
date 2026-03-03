@@ -2,14 +2,15 @@
 
 My personal portfolio website built with React, Vite, Tailwind CSS, and Motion.
 
-It showcases:
+It includes:
 
 - Hero section with custom cursor and animated intro
 - About section
 - Skills section
 - Projects section with editorial-style layout and anchor navigation
-- Contact section focused on direct channels (email and LinkedIn)
+- Contact section focused on direct channels (email, LinkedIn, GitHub)
 - Responsive navigation with dark mode toggle and CV download flow
+- Bilingual support (English/Spanish)
 
 ## Tech Stack
 
@@ -18,7 +19,15 @@ It showcases:
 - Tailwind CSS v4
 - Motion (`motion/react`)
 - Lucide icons
-- Radix UI primitives (for selected UI components)
+- Radix UI primitives (for selected components)
+
+## Internationalization
+
+The site supports `EN` and `ES` with a lightweight context-based i18n setup.
+
+- Automatic browser-language detection on first visit (`es-*` locales default to Spanish; others default to English)
+- Persistent language preference via `localStorage`
+- Top-right language selector that shows the active locale (`EN`/`ES`)
 
 ## Getting Started
 

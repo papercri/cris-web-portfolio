@@ -1,11 +1,14 @@
 import { Linkedin, Mail, Github } from 'lucide-react';
 import { motion } from 'motion/react';
+import { useI18n } from '../i18n';
 
 const ease = [0.25, 0.46, 0.45, 0.94] as const;
 const VP = { once: false, margin: '-80px' };
 const VP2 = { once: false, margin: '-40px' };
 
 export function Contact() {
+  const { t } = useI18n();
+  const contactTitleLines = t.contact.title.split('\n');
   return (
     <section id="contact" className="min-h-screen py-32 px-8 bg-[#1A1A1A] flex flex-col justify-center">
       <div className="w-full max-w-7xl mx-auto min-h-[70vh] flex flex-col">
@@ -19,7 +22,7 @@ export function Contact() {
         >
           <span className="inline-block w-2 h-2 rounded-full bg-white/30" />
           <span className="text-xs font-semibold tracking-widest uppercase text-white/40">
-            CONTACT
+            {t.contact.label}
           </span>
         </motion.div>
 
@@ -30,7 +33,12 @@ export function Contact() {
           viewport={VP}
           transition={{ duration: 1, ease, delay: 0.05 }}
         >
-          let&apos;s<br />connect
+          {contactTitleLines.map((line, index) => (
+            <span key={index}>
+              {line}
+              {index < contactTitleLines.length - 1 ? <br /> : null}
+            </span>
+          ))}
         </motion.h2>
 
         <motion.p
@@ -40,12 +48,12 @@ export function Contact() {
           viewport={VP2}
           transition={{ duration: 0.8, ease, delay: 0.12 }}
         >
-          If you want to collaborate, discuss a project, or just say hi, reach me directly by <a
+          {t.contact.text} <a
             href="mailto:cristiana.sollini@gmail.com"
             className="text-white/55 hover:text-white transition-colors underline underline-offset-4"
             aria-label="Email"
           >
-            Email
+            {t.contact.email}
           </a> or <a
             href="https://www.linkedin.com/in/cristianasollini/"
             target="_blank"
@@ -53,8 +61,8 @@ export function Contact() {
             className="text-white/55 hover:text-white transition-colors underline underline-offset-4"
             aria-label="LinkedIn"
           >
-            LinkedIn
-          </a>.
+            {t.contact.linkedin}
+          </a>{t.contact.ending}
         </motion.p>
 
         <motion.div

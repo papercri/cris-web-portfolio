@@ -1,8 +1,16 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Moon, Sun, Download } from 'lucide-react';
 import { motion } from 'motion/react';
+import { useI18n } from '../i18n';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from './ui/dropdown-menu';
 
 export function Navbar() {
+  const { locale, setLocale, t } = useI18n();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isDark, setIsDark] = useState(false);
@@ -10,8 +18,9 @@ export function Navbar() {
 
   const handleDownloadCv = () => {
     const link = document.createElement('a');
-    link.href = '/CV-EN-min-Cristiana-Sollini.pdf';
-    link.download = 'CV-EN-min-Cristiana-Sollini.pdf';
+    const cvPath = locale === 'es' ? '/CV-ES-min-Cristiana-Sollini.pdf' : '/CV-EN-min-Cristiana-Sollini.pdf';
+    link.href = cvPath;
+    link.download = cvPath.split('/').pop() || 'CV.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -31,11 +40,11 @@ export function Navbar() {
   };
 
   const navItems = [
-    { label: 'HOME', href: '#home' },
-    { label: 'ABOUT', href: '#about' },
-    { label: 'SKILLS', href: '#skills' },
-    { label: 'PROJECTS', href: '#projects' },
-    { label: 'CONTACT', href: '#contact' },
+    { label: t.nav.home, href: '#home' },
+    { label: t.nav.about, href: '#about' },
+    { label: t.nav.skills, href: '#skills' },
+    { label: t.nav.projects, href: '#projects' },
+    { label: t.nav.contact, href: '#contact' },
   ];
 
   const handleNavClick = (href: string) => {
@@ -82,15 +91,36 @@ export function Navbar() {
 
             {/* Dark mode + Mobile menu */}
             <div className="flex items-center gap-4">
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <button
+                    type="button"
+                    className="px-2 py-1 text-xs font-semibold tracking-widest text-foreground/70 hover:text-foreground transition-colors"
+                    aria-label={t.nav.language}
+                  >
+                    {locale.toUpperCase()}
+                  </button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="min-w-20">
+                  <DropdownMenuItem onClick={() => setLocale('en')} className="justify-between">
+                    EN
+                    {locale === 'en' ? <span>✓</span> : null}
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => setLocale('es')} className="justify-between">
+                    ES
+                    {locale === 'es' ? <span>✓</span> : null}
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
               <button
                 type="button"
                 onClick={() => setIsDownloadDialogOpen(true)}
                 className="group relative p-2 text-foreground/60 hover:text-foreground transition-colors"
-                aria-label="Download CV"
+                aria-label={t.nav.downloadCv}
               >
                 <Download className="w-4 h-4" />
                 <span className="pointer-events-none absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-foreground text-background px-3 py-1.5 text-[10px] font-semibold tracking-widest opacity-0 translate-y-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0">
-                  DOWNLOAD CV
+                  {t.nav.downloadCv}
                 </span>
               </button>
               <button
@@ -115,6 +145,24 @@ export function Navbar() {
       {/* Mobile drawer — outside nav so it's never clipped */}
       {isOpen && (
         <div className="fixed inset-0 z-40 pt-20 bg-background/98 backdrop-blur-md md:hidden flex flex-col">
+          <div className="px-10 pt-8 flex items-center gap-4">
+            <button
+              type="button"
+              onClick={() => setLocale('en')}
+              className={`px-2 py-1 text-xs font-semibold tracking-widest transition-colors ${locale === 'en' ? 'text-foreground' : 'text-foreground/50 hover:text-foreground/80'}`}
+              aria-label="Switch to English"
+            >
+              EN
+            </button>
+            <button
+              type="button"
+              onClick={() => setLocale('es')}
+              className={`px-2 py-1 text-xs font-semibold tracking-widest transition-colors ${locale === 'es' ? 'text-foreground' : 'text-foreground/50 hover:text-foreground/80'}`}
+              aria-label="Cambiar a español"
+            >
+              ES
+            </button>
+          </div>
           <ul className="flex flex-col px-10 pt-10 space-y-8">
             {navItems.map((item) => (
               <li key={item.href}>
@@ -134,22 +182,22 @@ export function Navbar() {
       {isDownloadDialogOpen && (
         <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/50 px-4">
           <div className="w-full max-w-md rounded-lg border border-foreground/15 bg-background p-6 shadow-lg">
-            <h3 className="text-lg font-semibold text-foreground">Do you want to download my CV?</h3>
-            <p className="mt-2 text-sm text-foreground/60">This will download the PDF CV to your device.</p>
+            <h3 className="text-lg font-semibold text-foreground">{t.nav.modalTitle}</h3>
+            <p className="mt-2 text-sm text-foreground/60">{t.nav.modalDesc}</p>
             <div className="mt-6 flex justify-end gap-2">
               <button
                 type="button"
                 onClick={() => setIsDownloadDialogOpen(false)}
                 className="px-4 py-2 text-sm font-medium border border-foreground/20 text-foreground hover:bg-foreground/5 transition-colors"
               >
-                Cancel
+                {t.nav.cancel}
               </button>
               <button
                 type="button"
                 onClick={handleDownloadCv}
                 className="px-4 py-2 text-sm font-medium bg-foreground text-background hover:opacity-90 transition-opacity"
               >
-                Download CV
+                {t.nav.download}
               </button>
             </div>
           </div>

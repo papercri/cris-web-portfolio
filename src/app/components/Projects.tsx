@@ -1,56 +1,14 @@
 import { ExternalLink, Github, ArrowRight } from 'lucide-react';
 import { motion } from 'motion/react';
+import { useI18n } from '../i18n';
 
 const ease = [0.25, 0.46, 0.45, 0.94] as const;
 const VP = { once: false, margin: '-80px' };
 const VP2 = { once: false, margin: '-40px' };
 
 export function Projects() {
-  const projects = [
-    {
-      id: 'travel-planner',
-      title: 'Trip Taylor',
-      imageUrl: '/trip-tailor.jpg',
-      description: 'AI-powered travel planner web app that helps users discover destinations and get personalized travel recommendations. Built with modern technologies, it allows users to explore cities, view key information, and plan their trips through an interactive assistant.',
-      highlights: [
-        'Generates personalized itineraries using dynamic OpenAI prompts, adapting recommendations to user preferences, budget, and travel style.',
-        'Built with Next.js, TypeScript, Tailwind, and Firebase, including authentication and full CRUD functionality so users can save, edit, and manage their trips.',
-        'Optimized data architecture with multiple travel APIs combined into a single request, reducing load times and improving performance and user experience.',
-        
-      ],
-      tags: ['NEXT', 'TAILWIND', 'TYPESCRIPT', 'API-REST', 'FIREBASE', 'OPENAI', 'RESPONSIVE DESIGN', 'ACCESSIBILITY', ],
-      liveUrl: 'https://triptailor-ai.vercel.app/',
-      githubUrl: 'https://github.com/papercri/triptailor'
-    },
-    {
-      id: 'e-commerce',
-      title: 'Fem Shop',
-      imageUrl: '/fem-shop.jpg',
-      description: 'FemShop is a modern e-commerce application built with Vue, focused on delivering a smooth and intuitive shopping experience. It includes product listing, cart management, and user authentication, with a scalable architecture that separates state, persistence, and data handling. The project combines local and cloud-based solutions to ensure both performance and reliability.',
-      highlights: [
-        'State management with Pinia, enabling a clean and scalable structure for cart, products, and user sessions.',
-        'Hybrid data handling using Firebase for authentication and database management, combined with localStorage for client-side persistence.',
-        'Integration with an external API for user management, demonstrating experience working with third-party services and asynchronous data flows.',
-      ],
-      tags: ['VUE', 'PINIA','FIREBASE','JAVASCRIPT', 'API-REST', 'TAILWIND', 'RESPONSIVE DESIGN', 'ACCESSIBILITY'],
-      liveUrl: 'https://femshop.vercel.app/',
-      githubUrl: 'https://github.com/papercri/femshop'
-    },
-    {
-      id: 'prompt-composer',
-      title: 'Prompt Composer',
-      imageUrl: '/prompt-composer.jpg',
-      description: 'Prompt Composer is an online prompt building tool. Users can create, organise and save prompt templates in folders. It supports cloud storage of prompts once you sign in with an account. The interface is simple and aimed at helping people keep prompt text organised and reusable.',
-      highlights: [
-        'Cloud-based prompt saving and folder organisation to manage prompt templates over time.',
-        'Simple login with Google for access and storage of user prompts.',
-        'Focus on reusable prompt management to speed up prompt writing and iteration.',
-      ],
-      tags: ['NEXT', 'TAILWIND', 'TYPESCRIPT',  'FIREBASE', 'GOOGLE AUTH', ],
-      liveUrl: 'https://prompt-composer-ai.vercel.app/',
-      githubUrl: 'https://github.com/papercri/prompt-composer'
-    }
-  ];
+  const { t } = useI18n();
+  const projects = t.projects.items;
 
   return (
     <section id="projects" className="min-h-screen py-20 px-8 border-t border-foreground/10 flex flex-col justify-center">
@@ -63,7 +21,7 @@ export function Projects() {
           transition={{ duration: 0.8, ease }}
         ><span className="inline-block w-2 h-2 rounded-full bg-foreground/50" />
           <span className="text-xs font-semibold tracking-widest uppercase text-foreground/50">
-            SELECTED WORK
+            {t.projects.label}
           </span>
           <div className="flex flex-wrap items-center gap-3 md:gap-5 text-sm font-semibold text-foreground">
             {projects.map((project) => (
@@ -114,11 +72,11 @@ export function Projects() {
                   <div className="flex items-center gap-5">
                     <a href={project.liveUrl} className="flex items-center gap-2 text-sm font-semibold text-foreground hover:opacity-60 transition-opacity" target='blank'>
                       <ExternalLink className="w-4 h-4" />
-                      Live Demo
+                      {t.projects.liveDemo}
                     </a>
                     <a href={project.githubUrl} className="flex items-center gap-2 text-sm font-semibold text-foreground hover:opacity-60 transition-opacity" target='blank'>
                       <Github className="w-4 h-4" />
-                      Code
+                      {t.projects.code}
                     </a>
                   </div>
                 </div>

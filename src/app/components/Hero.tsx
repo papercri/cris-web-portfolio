@@ -1,10 +1,12 @@
 import { Github, Linkedin, Mail, ArrowDown } from 'lucide-react';
 import { motion } from 'motion/react';
 import { ScrollingText } from './ScrollingText';
+import { useI18n } from '../i18n';
 
 const E = [0.25, 0.46, 0.45, 0.94] as const;
 
 export function Hero() {
+  const { t } = useI18n();
   const scrollToProjects = () => {
     document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -23,7 +25,7 @@ export function Hero() {
           >
             <span className="inline-block w-2 h-2 rounded-full bg-foreground/30"></span>
             <h2 className="text-xs font-semibold tracking-widest uppercase text-foreground/50">
-              BASED IN BARCELONA, SPAIN &nbsp;·&nbsp; FRONT END DEVELOPER
+              {t.hero.eyebrow}
             </h2>
           </motion.div>
 
@@ -56,7 +58,7 @@ export function Hero() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.9, delay: 0.32, ease: E }}
             >
-              I build digital experiences that are fast, accessible, and visually clear. Over the years, I&apos;ve focused on creating interfaces that not only look good, but feel intuitive and consistent across devices.
+              {t.hero.bio}
             </motion.h3>
 
             <motion.div

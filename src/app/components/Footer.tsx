@@ -1,9 +1,11 @@
 import { motion } from 'motion/react';
+import { useI18n } from '../i18n';
 
 const E = [0.25, 0.46, 0.45, 0.94] as const;
 const VP = { once: false, margin: '-40px' };
 
 export function Footer() {
+  const { t } = useI18n();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -28,7 +30,7 @@ export function Footer() {
           viewport={VP}
           transition={{ duration: 0.7, ease: E, delay: 0.1 }}
         >
-          © {currentYear} Cristiana Sollini. All rights reserved.
+          © {currentYear} Cristiana Sollini. {t.footer.rights}
         </motion.p>
 
         <motion.div
@@ -44,7 +46,7 @@ export function Footer() {
             rel="noopener noreferrer"
             className="text-xs font-semibold tracking-widest uppercase text-foreground/50 hover:text-foreground transition-colors"
           >
-            GitHub
+            {t.footer.github}
           </a>
           <a
             href="https://www.linkedin.com/in/cristianasollini/"
@@ -52,13 +54,13 @@ export function Footer() {
             rel="noopener noreferrer"
             className="text-xs font-semibold tracking-widest uppercase text-foreground/50 hover:text-foreground transition-colors"
           >
-            LinkedIn
+            {t.footer.linkedin}
           </a>
           <a
             href="mailto:cristiana.sollini@gmail.com"
             className="text-xs font-semibold tracking-widest uppercase text-foreground/50 hover:text-foreground transition-colors"
           >
-            Email
+            {t.footer.email}
           </a>
         </motion.div>
       </div>

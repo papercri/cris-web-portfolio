@@ -1,18 +1,8 @@
+import { useI18n } from '../i18n';
+
 export function ScrollingText() {
-  const items = [
-    'Front-End Developer',
-    '. ',
-    'UX/UI & Web Accessibility',
-    '. ',
-    'React',
-    '. ',
-    'Next.js',
-    '. ',
-    'Vue.js',
-    '. ',
-    'HTML & CSS',
-    '. ',
-  ];
+  const { t } = useI18n();
+  const items = t.scrolling.items;
 
   const line = items.map((item, i) =>
     item === '. '

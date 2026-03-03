@@ -1,28 +1,13 @@
 import { motion } from 'motion/react';
+import { useI18n } from '../i18n';
 
 const ease = [0.25, 0.46, 0.45, 0.94] as const;
 const VP = { once: false, margin: '-80px' };
 const VP2 = { once: false, margin: '-40px' };
 
 export function Skills() {
-  const skillCategories = [
-    {
-      category: 'Frontend',
-      skills: ['HTML & CSS', 'LESS', 'SASS', 'Tailwind', 'Bootstrap']
-    },
-    {
-      category: 'JS & Frameworks',
-      skills: ['JavaScript', 'TypeScript', 'React', 'Next.js', 'Vue.js']
-    },
-    {
-      category: 'Backend & CMS',
-      skills: ['PHP', 'MySQL', 'WordPress', 'Contentful', 'Firebase', 'REST APIs']
-    },
-    {
-      category: 'Tools & Workflow',
-      skills: ['Git', 'Docker',  'Figma', 'Jest', ' Accessibility (WCAG)', 'Responsive Design','SEO']
-    }
-  ];
+  const { t } = useI18n();
+  const skillCategories = t.skills.categories;
 
   return (
     <section id="skills" className="min-h-screen py-30 px-8 bg-[#1A1A1A] flex flex-col justify-center">
@@ -37,7 +22,7 @@ export function Skills() {
         >
           <span className="inline-block w-2 h-2 rounded-full bg-white/30" />
           <span className="text-xs font-semibold tracking-widest uppercase text-white/40">
-            SKILLS & EXPERTISE
+            {t.skills.label}
           </span>
         </motion.div>
 
@@ -49,7 +34,7 @@ export function Skills() {
           viewport={VP}
           transition={{ duration: 1, ease, delay: 0.08 }}
         >
-          What I work with every day.
+          {t.skills.title}
         </motion.h2>
 
         {/* Categories */}
