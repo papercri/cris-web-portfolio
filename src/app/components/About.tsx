@@ -49,7 +49,7 @@ export function About() {
           {/* Left: headline + bio — slide in from left */}
           <div>
             <motion.h2
-              className="text-5xl md:text-5xl font-extrabold tracking-tight text-foreground leading-tight mb-2"
+              className="text-5xl md:text-6xl font-extrabold tracking-wide text-foreground leading-none mb-2"
               initial={{ opacity: 0, x: -80 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={VP}

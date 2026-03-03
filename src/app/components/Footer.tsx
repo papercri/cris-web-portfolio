@@ -12,7 +12,7 @@ export function Footer() {
         <motion.a
           href="#home"
           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-          className="text-xs font-semibold tracking-widest uppercase text-foreground hover:opacity-60 transition-opacity"
+          className="text-xl font-extrabold tracking-tight uppercase text-foreground hover:opacity-60 transition-opacity"
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={VP}

@@ -12,11 +12,11 @@ export function Skills() {
     },
     {
       category: 'JS & Frameworks',
-      skills: ['JavaScript', 'TypeScript', 'React', 'Next.js', 'Vue.js', 'REST APIs']
+      skills: ['JavaScript', 'TypeScript', 'React', 'Next.js', 'Vue.js']
     },
     {
       category: 'Backend & CMS',
-      skills: ['PHP', 'MySQL', 'WordPress', 'Contentful']
+      skills: ['PHP', 'MySQL', 'WordPress', 'Contentful', 'Firebase', 'REST APIs']
     },
     {
       category: 'Tools & Workflow',
@@ -43,7 +43,7 @@ export function Skills() {
 
         {/* Headline */}
         <motion.h2
-          className="text-5xl md:text-5xl font-extrabold tracking-tight text-white leading-tight mb-10"
+          className="text-5xl md:text-6xl font-extrabold tracking-wide text-white leading-none mb-10"
           initial={{ opacity: 0, x: -80 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={VP}
@@ -85,7 +85,7 @@ export function Skills() {
                         className="absolute w-[200%] h-[200%] -top-[50%] -left-[50%]"
                         style={{
                           background:
-                            'conic-gradient(from 0deg, transparent 0deg, rgba(139,92,246,1) 30deg, rgba(99,202,183,1) 65deg, transparent 110deg)',
+                            'conic-gradient(from 0deg, transparent 0deg, rgba(255,255,255,1) 30deg, rgba(255,255,255,.5) 65deg, transparent 110deg)',
                         }}
                         animate={{ rotate: 360 }}
                         transition={{

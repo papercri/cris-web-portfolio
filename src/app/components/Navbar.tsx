@@ -6,6 +6,17 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isDark, setIsDark] = useState(false);
+  const [isDownloadDialogOpen, setIsDownloadDialogOpen] = useState(false);
+
+  const handleDownloadCv = () => {
+    const link = document.createElement('a');
+    link.href = '/CV-EN-min-Cristiana-Sollini.pdf';
+    link.download = 'CV-EN-min-Cristiana-Sollini.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    setIsDownloadDialogOpen(false);
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -36,12 +47,12 @@ export function Navbar() {
   return (
     <>
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled || isOpen ? 'bg-background/95 backdrop-blur-sm border-b border-foreground/10' : 'bg-transparent'}`}>
-        <div className="max-w-7xl mx-auto px-8 py-5">
-          <div className="flex items-center justify-between">
+        <div className="px-8 py-5">
+          <div className="w-full max-w-7xl mx-auto flex items-center justify-between">
             <motion.a
               href="#home"
               onClick={(e) => { e.preventDefault(); handleNavClick('#home'); }}
-              className="text-sm font-semibold tracking-widest uppercase text-foreground hover:opacity-60 transition-opacity"
+              className="text-xl font-extrabold tracking-tight uppercase text-foreground hover:opacity-60 transition-opacity"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
@@ -71,9 +82,9 @@ export function Navbar() {
 
             {/* Dark mode + Mobile menu */}
             <div className="flex items-center gap-4">
-              <a
-                href="/CV-EN-min-Cristiana-Sollini.pdf"
-                download
+              <button
+                type="button"
+                onClick={() => setIsDownloadDialogOpen(true)}
                 className="group relative p-2 text-foreground/60 hover:text-foreground transition-colors"
                 aria-label="Download CV"
               >
@@ -81,7 +92,7 @@ export function Navbar() {
                 <span className="pointer-events-none absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-foreground text-background px-3 py-1.5 text-[10px] font-semibold tracking-widest opacity-0 translate-y-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0">
                   DOWNLOAD CV
                 </span>
-              </a>
+              </button>
               <button
                 onClick={toggleDark}
                 className="p-2 text-foreground/60 hover:text-foreground transition-colors"
@@ -117,6 +128,31 @@ export function Navbar() {
               </li>
             ))}
           </ul>
+        </div>
+      )}
+
+      {isDownloadDialogOpen && (
+        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/50 px-4">
+          <div className="w-full max-w-md rounded-lg border border-foreground/15 bg-background p-6 shadow-lg">
+            <h3 className="text-lg font-semibold text-foreground">Do you want to download my CV?</h3>
+            <p className="mt-2 text-sm text-foreground/60">This will download the PDF CV to your device.</p>
+            <div className="mt-6 flex justify-end gap-2">
+              <button
+                type="button"
+                onClick={() => setIsDownloadDialogOpen(false)}
+                className="px-4 py-2 text-sm font-medium border border-foreground/20 text-foreground hover:bg-foreground/5 transition-colors"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                onClick={handleDownloadCv}
+                className="px-4 py-2 text-sm font-medium bg-foreground text-background hover:opacity-90 transition-opacity"
+              >
+                Download CV
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </>

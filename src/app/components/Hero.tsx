@@ -22,42 +22,42 @@ export function Hero() {
             transition={{ duration: 0.8, ease: E }}
           >
             <span className="inline-block w-2 h-2 rounded-full bg-foreground/30"></span>
-            <span className="text-xs font-semibold tracking-widest uppercase text-foreground/50">
+            <h2 className="text-xs font-semibold tracking-widest uppercase text-foreground/50">
               BASED IN BARCELONA, SPAIN &nbsp;·&nbsp; FRONT END DEVELOPER
-            </span>
+            </h2>
           </motion.div>
 
           {/* Display headline */}
           <div className="mb-10 ">
             <motion.h1
-              className="text-[clamp(3.2rem,7.8vw,6.8rem)] leading-none font-extrabold tracking-normal text-foreground"
+              className="text-[clamp(3.5rem,9vw,8rem)] leading-none font-extrabold tracking-normal text-foreground"
               initial={{ opacity: 0, x: -80 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.2, ease: E }}
             >
-              Cristiana Sollini
+              Cristiana 
             </motion.h1>
             <motion.h1
-              className="text-[clamp(3rem,7vw,6rem)] leading-none font-extrabold tracking-normal text-foreground/25"
+              className="text-[clamp(3.5rem,9vw,8rem)] leading-none font-extrabold tracking-normal text-foreground/50"
               initial={{ opacity: 0, x: -80 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.1, ease: E }}
             >
-              My Portfolio
+              Sollini
             </motion.h1>
             
           </div>
 
           {/* Bottom row: bio + links */}
           <div className="relative z-10 flex flex-wrap items-end gap-8 w-full 2xl:flex-nowrap 2xl:gap-24 justify-start">
-            <motion.p
-              className="text-lg text-foreground/60 max-w-md leading-relaxed"
+            <motion.h3
+              className="text-lg text-foreground/60 max-w-md leading-relaxed font-light"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.9, delay: 0.32, ease: E }}
             >
               I build digital experiences that are fast, accessible, and visually clear. Over the years, I&apos;ve focused on creating interfaces that not only look good, but feel intuitive and consistent across devices.
-            </motion.p>
+            </motion.h3>
 
             <motion.div
               className="flex items-center gap-6 "
@@ -88,14 +88,14 @@ export function Hero() {
                 className="text-foreground/50 hover:text-foreground transition-colors"
                 aria-label="Email"
               >
-                <Mail className="w-5 h-5" />
-              </a>
+                <Mail className="w-5 h-5" /></a>
+           {/*    
               <button
                 onClick={scrollToProjects}
                 className="ml-4 px-6 py-3 bg-foreground text-background text-sm font-semibold tracking-wide hover:opacity-80 transition-opacity"
               >
                 VIEW WORK
-              </button>
+              </button> */}
             </motion.div>
           </div>
         </div>
