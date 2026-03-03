@@ -214,6 +214,55 @@ html.dark {
   }
 }
 
+/* ─── Shared component utilities ──────────────────────────────────────────── */
+@layer components {
+
+  /* Section: base layout shared by About / Skills / Projects / Contact */
+  .section-base {
+    @apply min-h-screen pt-14 px-8 flex flex-col justify-center;
+  }
+
+  /* Section: max-width centred container */
+  .section-container {
+    @apply w-full max-w-7xl mx-auto;
+  }
+
+  /* Section label row — dot + eyebrow text wrapper */
+  .section-label-row {
+    @apply flex items-center gap-3;
+  }
+
+  /* Dot accent in section labels */
+  .section-label-dot {
+    @apply inline-block w-2 h-2 rounded-full shrink-0;
+  }
+
+  /* Eyebrow / label text style */
+  .section-label-text {
+    @apply text-xs font-semibold tracking-widest uppercase;
+  }
+
+  /* Standard focus-visible ring (on background-coloured surfaces) */
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+
+  /* Inverted focus-visible ring (on foreground / dark surfaces) */
+  .focus-ring-inv {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background/80 focus-visible:ring-offset-2 focus-visible:ring-offset-foreground;
+  }
+
+  /* Small uppercase navigation link (Footer, Navbar) */
+  .link-small {
+    @apply text-xs font-semibold tracking-widest uppercase text-foreground/50 hover:text-foreground transition-colors;
+  }
+
+  /* Project / skill tag badge */
+  .tag-badge {
+    @apply px-3 py-1 border border-foreground/15 text-[11px] font-semibold tracking-widest text-foreground/60;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -228,19 +277,3 @@ html.dark {
     box-sizing: border-box;
   }
 }
-/* .profile-photo{
- background-image:
-  url('/cris-hero.png');
-  background-size: 80%;
-  background-position: right bottom;
-  background-attachment:scroll;
-  background-repeat: no-repeat;
-}
-
-
-  @media screen and (max-width: 767px) {
-    .profile-photo{
-      background-size: 40%;
-      background-position: center;
-    }
-  } */

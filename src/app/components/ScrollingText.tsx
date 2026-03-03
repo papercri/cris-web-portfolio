@@ -22,14 +22,14 @@ export function ScrollingText() {
         .marquee-track {
           display: flex;
           width: max-content;
-          animation: marquee 125s linear infinite;
+          animation: marquee 200s linear infinite;
         }
         .marquee-track:hover {
           animation-play-state: paused;
         }
       `}</style>}
       <div className="w-full overflow-hidden bg-transparent select-none">
-        <div className={`${shouldReduceMotion ? 'flex flex-wrap justify-center' : 'marquee-track'} text-foreground text-[100vh] lg:text-[134cqh] font-extrabold tracking-wide items-center leading-[70%] uppercase`}>
+        <div className={`${shouldReduceMotion ? 'flex flex-wrap justify-center' : 'marquee-track'} text-foreground text-[90vh] lg:text-[132cqh] font-extrabold tracking-wide items-center leading-[70%] uppercase`}>
           <span className="flex items-center gap-0 pr-16">{line}</span>
           {!shouldReduceMotion && <span className="flex items-center gap-0 pr-16">{line}</span>}
           {!shouldReduceMotion && <span className="flex items-center gap-0 pr-16" aria-hidden>{line}</span>}

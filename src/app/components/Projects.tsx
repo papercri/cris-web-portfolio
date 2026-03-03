@@ -1,18 +1,15 @@
 import { ExternalLink, Github } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useI18n } from '../i18n';
-
-const ease = [0.25, 0.46, 0.45, 0.94] as const;
-const VP = { once: false, margin: '-80px' };
-const VP2 = { once: false, margin: '-40px' };
+import { ease, VP, VP2 } from '../lib/animation';
 
 export function Projects() {
   const { t } = useI18n();
   const projects = t.projects.items;
 
   return (
-    <section id="projects" aria-labelledby="projects-title" className="min-h-screen pt-14 pb-20 px-8 border-t border-foreground/10 flex flex-col justify-center">
-      <div className="w-full max-w-7xl mx-auto">
+    <section id="projects" aria-labelledby="projects-title" className="section-base pb-20 border-t border-foreground/10">
+      <div className="section-container">
         <h2 id="projects-title" className="sr-only">{t.nav.projects}</h2>
         <motion.div
           className="sticky top-20 z-30 bg-background/10 py-5 flex flex-wrap items-center gap-4 md:gap-6 backdrop-blur-sm"
@@ -21,8 +18,8 @@ export function Projects() {
           viewport={VP}
           transition={{ duration: 0.8, ease }}
         >
-          <span className="inline-block w-2 h-2 rounded-full bg-foreground/50" aria-hidden="true" />
-          <span className="text-xs font-semibold tracking-widest uppercase text-foreground/50">
+          <span className="section-label-dot bg-foreground/50" aria-hidden="true" />
+          <span className="section-label-text text-foreground/50">
             {t.projects.label}
           </span>
           <nav aria-label="Projects section links" className="flex flex-wrap items-center gap-3 md:gap-5 text-sm font-semibold text-foreground">
@@ -30,7 +27,7 @@ export function Projects() {
               <a
                 key={project.id}
                 href={`#${project.id}`}
-                className="hover:opacity-60 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="hover:opacity-60 transition-opacity focus-ring"
               >
                 {project.title}
               </a>
@@ -68,7 +65,7 @@ export function Projects() {
                     {project.tags.map((tag, tagIndex) => (
                       <span
                         key={tagIndex}
-                        className="px-3 py-1 border border-foreground/15 text-[11px] font-semibold tracking-widest text-foreground/60"
+                      className="tag-badge"
                       >
                         {tag}
                       </span>
@@ -78,7 +75,7 @@ export function Projects() {
                   <div className="flex items-center gap-5">
                     <a
                       href={project.liveUrl}
-                      className="flex items-center gap-2 text-sm font-semibold text-foreground hover:opacity-60 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                      className="flex items-center gap-2 text-sm font-semibold text-foreground hover:opacity-60 transition-opacity focus-ring"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -87,7 +84,7 @@ export function Projects() {
                     </a>
                     <a
                       href={project.githubUrl}
-                      className="flex items-center gap-2 text-sm font-semibold text-foreground hover:opacity-60 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                      className="flex items-center gap-2 text-sm font-semibold text-foreground hover:opacity-60 transition-opacity focus-ring"
                       target="_blank"
                       rel="noopener noreferrer"
                     >

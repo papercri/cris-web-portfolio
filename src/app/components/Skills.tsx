@@ -1,27 +1,24 @@
 import { motion } from 'motion/react';
 import { useI18n } from '../i18n';
-
-const ease = [0.25, 0.46, 0.45, 0.94] as const;
-const VP = { once: false, margin: '-80px' };
-const VP2 = { once: false, margin: '-40px' };
+import { ease, VP, VP2 } from '../lib/animation';
 
 export function Skills() {
   const { t } = useI18n();
   const skillCategories = t.skills.categories;
 
   return (
-    <section id="skills" aria-labelledby="skills-title" className="min-h-screen pt-14 pb-30 px-8 bg-foreground text-background flex flex-col justify-center">
-      <div className="w-full max-w-7xl mx-auto">
+    <section id="skills" aria-labelledby="skills-title" className="section-base pb-30 bg-foreground text-background">
+      <div className="section-container">
         {/* Section label */}
         <motion.div
-          className="flex items-center gap-3 mb-8"
+          className="section-label-row mb-8"
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={VP}
           transition={{ duration: 0.8, ease }}
         >
-          <span className="inline-block w-2 h-2 rounded-full bg-background/30" aria-hidden="true" />
-          <span className="text-xs font-semibold tracking-widest uppercase text-background/50">
+          <span className="section-label-dot bg-background/30" aria-hidden="true" />
+          <span className="section-label-text text-background/50">
             {t.skills.label}
           </span>
         </motion.div>
@@ -64,9 +61,9 @@ export function Skills() {
                       viewport={VP2}
                       transition={{ duration: 0.5, delay: categoryIndex * 0.1 + skillIndex * 0.04, ease }}
                     >
-                      {/* Base track — always visible */}
+                  
                       <div className="absolute inset-0 bg-background/20" />
-                      {/* Rotating color sweep */}
+            
                       <motion.div
                         className="absolute w-[200%] h-[200%] -top-[50%] -left-[50%]"
                         style={{

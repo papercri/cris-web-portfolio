@@ -1,8 +1,6 @@
 import { motion } from 'motion/react';
 import { useI18n } from '../i18n';
-
-const E = [0.25, 0.46, 0.45, 0.94] as const;
-const VP = { once: false, margin: '-40px' };
+import { ease, VP } from '../lib/animation';
 
 export function Footer() {
   const { t } = useI18n();
@@ -14,12 +12,12 @@ export function Footer() {
         <motion.a
           href="#home"
           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-          className="text-xl font-extrabold tracking-tight uppercase text-foreground hover:opacity-60 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          className="text-xl font-extrabold tracking-tight uppercase text-foreground hover:opacity-60 transition-opacity focus-ring"
           aria-label="Back to top"
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={VP}
-          transition={{ duration: 0.7, ease: E }}
+          transition={{ duration: 0.7, ease }}
         >
           CS.
         </motion.a>
@@ -29,7 +27,7 @@ export function Footer() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={VP}
-          transition={{ duration: 0.7, ease: E, delay: 0.1 }}
+          transition={{ duration: 0.7, ease, delay: 0.1 }}
         >
           © {currentYear} Cristiana Sollini. {t.footer.rights}
         </motion.p>
@@ -39,13 +37,13 @@ export function Footer() {
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={VP}
-          transition={{ duration: 0.7, ease: E, delay: 0.15 }}
+          transition={{ duration: 0.7, ease, delay: 0.15 }}
         >
           <a
             href="https://github.com/papercri"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs font-semibold tracking-widest uppercase text-foreground/50 hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            className="link-small focus-ring"
           >
             {t.footer.github}
           </a>
@@ -53,13 +51,13 @@ export function Footer() {
             href="https://www.linkedin.com/in/cristianasollini/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs font-semibold tracking-widest uppercase text-foreground/50 hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            className="link-small focus-ring"
           >
             {t.footer.linkedin}
           </a>
           <a
             href="mailto:cristiana.sollini@gmail.com"
-            className="text-xs font-semibold tracking-widest uppercase text-foreground/50 hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            className="link-small focus-ring"
           >
             {t.footer.email}
           </a>

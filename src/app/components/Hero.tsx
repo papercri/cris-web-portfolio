@@ -2,8 +2,7 @@ import { Github, Linkedin, Mail } from 'lucide-react';
 import { motion } from 'motion/react';
 import { ScrollingText } from './ScrollingText';
 import { useI18n } from '../i18n';
-
-const E = [0.25, 0.46, 0.45, 0.94] as const;
+import { ease } from '../lib/animation';
 
 export function Hero() {
   const { t } = useI18n();
@@ -12,19 +11,19 @@ export function Hero() {
     <section
       id="home"
       aria-labelledby="hero-title"
-      className="w-full min-h-[100svh] lg:h-[100svh] lg:overflow-hidden flex flex-col pt-8 px-8 relative overflow-x-hidden items-bottom"
+      className="w-full lg:min-h-[100svh] min-h-[100vh] lg:h-[100svh] lg:overflow-hidden flex flex-col pt-8 px-8 relative overflow-x-hidden items-bottom"
     >
       <div className="flex w-full justify-between flex-wrap lg:flex-nowrap max-w-7xl mx-auto ">
         <div className="w-full flex flex-col justify-start mx-auto relative lg:flex-[2_2_0%] min-w-0 items-end">
         <div className="w-full flex flex-col justify-start py-5">
           <motion.div
-            className="flex items-center gap-3 mb-12 "
+            className="section-label-row mb-12"
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: E }}
+            transition={{ duration: 0.8, ease }}
           >
-            <span className="inline-block w-2 h-2 rounded-full bg-foreground/30"></span>
-            <p className="text-xs font-semibold tracking-widest uppercase text-foreground/60">
+            <span className="section-label-dot bg-foreground/30"></span>
+            <p className="section-label-text text-foreground/60">
               {t.hero.eyebrow}
             </p>
           </motion.div>
@@ -39,7 +38,7 @@ export function Hero() {
                 className="block"
                 initial={{ opacity: 0, x: -80 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1, delay: 0.2, ease: E }}
+                transition={{ duration: 1, delay: 0.2, ease }}
               >
                 Cristiana
               </motion.span>
@@ -47,7 +46,7 @@ export function Hero() {
                 className="block text-foreground/50"
                 initial={{ opacity: 0, x: -80 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1, delay: 0.1, ease: E }}
+                transition={{ duration: 1, delay: 0.1, ease }}
               >
                 Sollini
               </motion.span>
@@ -58,7 +57,7 @@ export function Hero() {
               className="text-lg text-foreground/60 max-w-md leading-relaxed font-light"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.9, delay: 0.32, ease: E }}
+              transition={{ duration: 0.9, delay: 0.32, ease }}
             >
               {t.hero.bio}
             </motion.p>
@@ -67,21 +66,21 @@ export function Hero() {
               className="flex items-center gap-6 "
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.9, delay: 0.44, ease: E }}
+              transition={{ duration: 0.9, delay: 0.44, ease }}
             >
               
               <a
                 href="https://www.linkedin.com/in/cristianasollini/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-foreground/50 hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="text-foreground/50 hover:text-foreground transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-5 h-5" aria-hidden="true" />
               </a>
               <a
                 href="mailto:cristiana.sollini@gmail.com"
-                className="text-foreground/50 hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="text-foreground/50 hover:text-foreground transition-colors"
                 aria-label="Email"
               >
                 <Mail className="w-5 h-5" aria-hidden="true" /></a>
@@ -89,7 +88,7 @@ export function Hero() {
                 href="https://github.com/papercri"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-foreground/50 hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="text-foreground/50 hover:text-foreground transition-colors "
                 aria-label="GitHub"
               >
                 <Github className="w-5 h-5" aria-hidden="true" /> 
@@ -113,7 +112,7 @@ export function Hero() {
             className="w-full h-auto object-fill"
             initial={{ opacity: 0, x: 60 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.5, ease: E }}
+              transition={{ duration: 1, delay: 0.5, ease }}
           />
         </div>
       </div>

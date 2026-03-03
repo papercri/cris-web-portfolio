@@ -75,9 +75,9 @@ export function Navbar() {
     { label: t.nav.projects, href: '#projects' },
     { label: t.nav.contact, href: '#contact' },
   ];
-  const blurHover = 'transition-all duration-500 ease-in-out hover:opacity-70 hover:filter hover:blur-[0.5px]';
+  const blurHover = 'transition-all duration-500 ease-in-out hover:opacity-70 hover:filter hover:blur-[0.5px] focus-ring';
 
-  const buttonBlurHover = 'transition-all duration-700 ease-in-out hover:text-foreground hover:drop-shadow-[0_0_15px_rgba(150,150,150,0.25)] dark:hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.18)]';
+  const buttonBlurHover = 'transition-all duration-700 ease-in-out hover:text-foreground hover:drop-shadow-[0_0_15px_rgba(150,150,150,0.25)] dark:hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.18)] focus-ring';
 
 
   const handleNavClick = (href: string) => {
@@ -119,7 +119,7 @@ export function Navbar() {
                   <motion.a
                     href={item.href}
                     onClick={(e) => { e.preventDefault(); handleNavClick(item.href); }}
-                    className={`inline-flex text-xs font-semibold tracking-widest text-foreground/70 hover:text-foreground ${blurHover} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background`}
+                    className={`inline-flex text-xs font-semibold tracking-widest text-foreground/70 hover:text-foreground ${blurHover}`}
                   >
                     {item.label}
                   </motion.a>
@@ -133,7 +133,7 @@ export function Navbar() {
                 <DropdownMenuTrigger asChild>
                   <motion.button
                     type="button"
-                    className={`inline-flex px-2 py-1 text-xs font-semibold tracking-widest text-foreground/80 rounded-none hover:text-foreground ${buttonBlurHover} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background`}
+                    className={`inline-flex px-2 py-1 text-xs font-semibold tracking-widest text-foreground/80 rounded-none hover:text-foreground ${buttonBlurHover}`}
                     aria-label={t.nav.language}
                   >
                     {locale.toUpperCase()}
@@ -152,7 +152,7 @@ export function Navbar() {
               <motion.button
                 type="button"
                 onClick={() => setIsDownloadDialogOpen(true)}
-                className={`group relative inline-flex p-2 text-foreground/60 hover:text-foreground ${buttonBlurHover} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background`}
+                className={`group relative inline-flex p-2 text-foreground/60 hover:text-foreground ${buttonBlurHover}`}
                 aria-label={t.nav.downloadCv}
               >
                 <motion.span className="block">
@@ -166,7 +166,7 @@ export function Navbar() {
               <motion.button
                 type="button"
                 onClick={toggleDark}
-                className={`inline-flex p-2 text-foreground/60 hover:text-foreground ${buttonBlurHover} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background`}
+                className={`inline-flex p-2 text-foreground/60 hover:text-foreground ${buttonBlurHover}`}
                 aria-label="Toggle dark mode"
               >
                 {isDark ? <Sun className="w-4 h-4" aria-hidden="true" /> : <Moon className="w-4 h-4" aria-hidden="true" />}
@@ -201,7 +201,7 @@ export function Navbar() {
             <motion.button
               type="button"
               onClick={() => setLocale('en')}
-              className={`inline-flex  py-1 text-sm font-semibold tracking-widest ${buttonBlurHover} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background ${locale === 'en' ? 'text-foreground' : 'text-foreground/50 hover:text-foreground/80'}`}
+              className={`inline-flex  py-1 text-sm font-semibold tracking-widest ${buttonBlurHover} ${locale === 'en' ? 'text-foreground' : 'text-foreground/50 hover:text-foreground/80'}`}
               aria-label="Switch to English"
             >
               EN
@@ -209,7 +209,7 @@ export function Navbar() {
             <motion.button
               type="button"
               onClick={() => setLocale('es')}
-              className={`inline-flex px-2 py-1 text-sm font-semibold tracking-widest ${buttonBlurHover} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background ${locale === 'es' ? 'text-foreground' : 'text-foreground/50 hover:text-foreground/80'}`}
+              className={`inline-flex px-2 py-1 text-sm font-semibold tracking-widest ${buttonBlurHover} ${locale === 'es' ? 'text-foreground' : 'text-foreground/50 hover:text-foreground/80'}`}
               aria-label="Cambiar a español"
             >
               ES
@@ -248,14 +248,14 @@ export function Navbar() {
                 ref={closeDialogButtonRef}
                 type="button"
                 onClick={() => setIsDownloadDialogOpen(false)}
-                className={`px-4 py-2 text-sm font-medium border border-foreground/20 text-foreground hover:bg-foreground/5 ${buttonBlurHover} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background`}
+                className={`px-4 py-2 text-sm font-medium border border-foreground/20 text-foreground hover:bg-foreground/5 ${buttonBlurHover}`}
               >
                 {t.nav.cancel}
               </button>
               <button
                 type="button"
                 onClick={handleDownloadCv}
-                className={`px-4 py-2 text-sm font-medium bg-foreground text-background hover:opacity-90 ${buttonBlurHover} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background`}
+                className={`px-4 py-2 text-sm font-medium bg-foreground text-background hover:opacity-90 ${buttonBlurHover}`}
               >
                 {t.nav.download}
               </button>
