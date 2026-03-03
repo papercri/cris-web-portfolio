@@ -42,7 +42,7 @@ export function Projects() {
             <motion.div
               key={index}
               id={project.id}
-              className="group min-h-[100svh] flex items-start py-4 scroll-mt-28 border-foreground/10 "
+              className="group min-h-[100svh] flex items-start py-8 scroll-mt-40 border-foreground/10 "
               initial={{ opacity: 0, x: -70 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={VP2}
