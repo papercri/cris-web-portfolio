@@ -5,16 +5,17 @@ export function CustomCursor() {
   const [isClicking, setIsClicking] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
-  // 1. Valores de movimiento independientes (sin re-renders de React)
+  // 1. Definimos la distancia a la que queremos mantener nuestro cursor "satélite"
+  const offsetX = -65; 
+  const offsetY = 55; 
+
   const mouseX = useMotionValue(-100);
   const mouseY = useMotionValue(-100);
 
-  // 2. Físicas suaves para el anillo (más retraso = más elegancia)
   const ringSpringConfig = { damping: 25, stiffness: 150, mass: 0.6 };
   const ringX = useSpring(mouseX, ringSpringConfig);
   const ringY = useSpring(mouseY, ringSpringConfig);
 
-  // 3. Físicas rápidas para el punto central (snappy y preciso)
   const dotSpringConfig = { damping: 20, stiffness: 400, mass: 0.2 };
   const dotX = useSpring(mouseX, dotSpringConfig);
   const dotY = useSpring(mouseY, dotSpringConfig);
@@ -28,8 +29,9 @@ export function CustomCursor() {
     if (!shouldShowCursor) return;
 
     const updateMousePosition = (e: MouseEvent) => {
-      mouseX.set(e.clientX);
-      mouseY.set(e.clientY);
+      // 2. Sumamos el offset aquí. Toda la animación se dirigirá a este nuevo punto.
+      mouseX.set(e.clientX + offsetX);
+      mouseY.set(e.clientY + offsetY);
     };
 
     const onMouseDown = () => setIsClicking(true);
@@ -48,43 +50,37 @@ export function CustomCursor() {
 
   if (!isVisible) return null;
 
-  const ringSize = isClicking ? 50 : 36;
-  const dotSize = isClicking ? 12 : 8;
+  const ringSize = isClicking ? 60 : 36;
+  const dotSize = isClicking ? 20 : 10;
 
   return (
     <>
-      {/* Anillo exterior (Lento y elástico) */}
+      {/* Anillo exterior */}
       <motion.div
-        className="fixed top-0 left-0 rounded-full pointer-events-none z-[100] bg-transparent border-[1.5px] border-chart-4/60 dark:border-chart-4/60 "
+        className="fixed top-0 left-0 rounded-full pointer-events-none z-[100] bg-transparent border-[1.5px] border-chart-4/70 dark:border-chart-4/70"
         style={{
           x: ringX,
           y: ringY,
-          translateX: '-50%', // Centrado perfecto
-          translateY: '-50%', // Centrado perfecto
+          translateX: '-50%', 
+          translateY: '-50%',
         }}
-        animate={{
-          width: ringSize,
-          height: ringSize,
-        }}
+        animate={{ width: ringSize, height: ringSize }}
         transition={{
           width: { type: 'spring', damping: 20, stiffness: 260 },
           height: { type: 'spring', damping: 20, stiffness: 260 },
         }}
       />
 
-      {/* Punto central (Rápido) */}
+      {/* Punto central */}
       <motion.div
-        className="fixed top-0 left-0 rounded-full pointer-events-none z-[100] bg-chart-4/90 dark:bg-chart-4/90 blur-[0.5px]"
+        className="fixed top-0 left-0 rounded-full pointer-events-none z-[100] bg-chart-4/40 dark:bg-chart-4/40 blur-[0.5px]"
         style={{
           x: dotX,
           y: dotY,
           translateX: '-50%', 
-          translateY: '-50%', 
+          translateY: '-50%',
         }}
-        animate={{
-          width: dotSize,
-          height: dotSize,
-        }}
+        animate={{ width: dotSize, height: dotSize }}
         transition={{
           width: { type: 'spring', damping: 25, stiffness: 400 },
           height: { type: 'spring', damping: 25, stiffness: 400 },

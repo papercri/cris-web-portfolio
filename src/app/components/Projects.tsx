@@ -7,6 +7,7 @@ export function Projects() {
   const { t } = useI18n();
   const projects = t.projects.items;
 
+
   return (
     <section id="projects" aria-labelledby="projects-title" className="section-base pb-20 border-t border-foreground/10">
       <div className="section-container">
@@ -61,7 +62,7 @@ export function Projects() {
                     ))}
                   </ul>
 
-                  <div className="flex flex-wrap items-center gap-2">
+                  <div className="flex flex-wrap items-center gap-3">
                     {project.tags.map((tag, tagIndex) => (
                       <span
                         key={tagIndex}

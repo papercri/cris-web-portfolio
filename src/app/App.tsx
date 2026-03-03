@@ -2,7 +2,7 @@ import { lazy, Suspense } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { CustomCursor } from './components/CustomCursor';
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/react"
 // Lazy-load below-the-fold sections so the browser renders the hero first
 const About    = lazy(() => import('./components/About').then(m => ({ default: m.About })));
 const Skills   = lazy(() => import('./components/Skills').then(m => ({ default: m.Skills })));
@@ -30,8 +30,9 @@ export default function App() {
           <Contact />
           <Footer />
         </Suspense>
+         <Analytics />
       </main>
-       <Analytics />
+      
     </div>
   );
 }
