@@ -24,7 +24,7 @@ export function Contact() {
         </motion.div>
 
         <motion.h2
-          className="text-[clamp(6rem,18vw,20rem)] font-extrabold tracking-tighter lg:leading-[10rem] text-white mb-12"
+          className="text-[clamp(6rem,18vw,20rem)] font-extrabold tracking-tighter lg:leading-[12rem] text-white mb-12"
           initial={{ opacity: 0, x: -80 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={VP}
