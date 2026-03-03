@@ -67,15 +67,7 @@ export function Hero() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.9, delay: 0.44, ease: E }}
             >
-              <a
-                href="https://github.com/papercri"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-foreground/50 hover:text-foreground transition-colors"
-                aria-label="GitHub"
-              >
-                <Github className="w-5 h-5" />
-              </a>
+              
               <a
                 href="https://www.linkedin.com/in/cristianasollini/"
                 target="_blank"
@@ -91,6 +83,15 @@ export function Hero() {
                 aria-label="Email"
               >
                 <Mail className="w-5 h-5" /></a>
+                <a
+                href="https://github.com/papercri"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-foreground/50 hover:text-foreground transition-colors"
+                aria-label="GitHub"
+              >
+                <Github className="w-5 h-5" />
+              </a>
            {/*    
               <button
                 onClick={scrollToProjects}
