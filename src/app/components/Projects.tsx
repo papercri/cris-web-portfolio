@@ -27,7 +27,7 @@ export function Projects() {
               <a
                 key={project.id}
                 href={`#${project.id}`}
-                className="hover:opacity-60 transition-opacity focus-ring"
+                className="hover:opacity-60 transition-opacity focus-ring link-anim"
               >
                 {project.title}
               </a>
@@ -41,7 +41,7 @@ export function Projects() {
             <motion.div
               key={index}
               id={project.id}
-              className="group min-h-[100svh] flex items-start py-4 scroll-mt-28 border-foreground/10 last:border-b last:border-foreground/10"
+              className="group min-h-[100svh] flex items-start py-4 scroll-mt-28 border-foreground/10 "
               initial={{ opacity: 0, x: -70 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={VP2}
@@ -75,7 +75,7 @@ export function Projects() {
                   <div className="flex items-center gap-5">
                     <a
                       href={project.liveUrl}
-                      className="flex items-center gap-2 text-sm font-semibold text-foreground hover:opacity-60 transition-opacity focus-ring"
+                      className="flex items-center gap-2 text-sm font-semibold text-foreground hover:opacity-60 transition-opacity focus-ring link-anim"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -84,7 +84,7 @@ export function Projects() {
                     </a>
                     <a
                       href={project.githubUrl}
-                      className="flex items-center gap-2 text-sm font-semibold text-foreground hover:opacity-60 transition-opacity focus-ring"
+                      className="flex items-center gap-2 text-sm font-semibold text-foreground hover:opacity-60 transition-opacity focus-ring link-anim"
                       target="_blank"
                       rel="noopener noreferrer"
                     >

@@ -1,6 +1,8 @@
 import { motion } from 'motion/react';
 import { useI18n } from '../i18n';
-import { ease, VP } from '../lib/animation';
+import { ease } from '../lib/animation';
+
+const VP = { once: false, margin: '0px' };
 
 export function Footer() {
   const { t } = useI18n();
@@ -43,7 +45,7 @@ export function Footer() {
             href="https://github.com/papercri"
             target="_blank"
             rel="noopener noreferrer"
-            className="link-small focus-ring"
+            className="link-small focus-ring link-anim"
           >
             {t.footer.github}
           </a>
@@ -51,13 +53,13 @@ export function Footer() {
             href="https://www.linkedin.com/in/cristianasollini/"
             target="_blank"
             rel="noopener noreferrer"
-            className="link-small focus-ring"
+            className="link-small focus-ring link-anim"
           >
             {t.footer.linkedin}
           </a>
           <a
             href="mailto:cristiana.sollini@gmail.com"
-            className="link-small focus-ring"
+            className="link-small focus-ring link-anim"
           >
             {t.footer.email}
           </a>

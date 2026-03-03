@@ -48,7 +48,7 @@ export function Contact() {
         >
           {t.contact.text} <a
             href="mailto:cristiana.sollini@gmail.com"
-            className="text-background/80 hover:text-background transition-colors underline underline-offset-4 focus-ring-inv"
+            className="text-background/80 hover:text-background transition-colors underline underline-offset-4 focus-ring-inv link-anim-inv"
             aria-label="Email"
           >
             {t.contact.email}
@@ -56,7 +56,7 @@ export function Contact() {
             href="https://www.linkedin.com/in/cristianasollini/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-background/80 hover:text-background transition-colors underline underline-offset-4 focus-ring-inv"
+            className="text-background/80 hover:text-background transition-colors underline underline-offset-4 focus-ring-inv link-anim-inv"
             aria-label="LinkedIn"
           >
             {t.contact.linkedin}

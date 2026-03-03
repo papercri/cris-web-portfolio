@@ -91,7 +91,7 @@ export function Navbar() {
       <nav
         id="main-navbar"
         aria-label="Primary"
-        className={`sticky top-0 left-0 right-0 z-110 transition-[background-color,backdrop-filter,border-color] duration-300 bg-background/95 backdrop-blur-sm border-b border-foreground/10  }`}
+        className={`sticky top-0 left-0 right-0 z-45 transition-[background-color,backdrop-filter,border-color] duration-300 bg-background/95 backdrop-blur-sm border-b border-foreground/10  }`}
       >
         <div className="px-8 py-5">
           <div className="w-full max-w-7xl mx-auto flex items-center justify-between">
@@ -119,7 +119,7 @@ export function Navbar() {
                   <motion.a
                     href={item.href}
                     onClick={(e) => { e.preventDefault(); handleNavClick(item.href); }}
-                    className={`inline-flex text-xs font-semibold tracking-widest text-foreground/70 hover:text-foreground ${blurHover}`}
+                    className={`inline-flex text-xs font-semibold tracking-widest text-foreground/70 hover:text-foreground ${blurHover} link-anim`}
                   >
                     {item.label}
                   </motion.a>
@@ -129,7 +129,7 @@ export function Navbar() {
 
             {/* Botones de acción (Tema, CV, Idioma, Menú móvil) */}
             <div className="flex items-center gap-4">
-              <DropdownMenu>
+              <DropdownMenu modal={false}>
                 <DropdownMenuTrigger asChild>
                   <motion.button
                     type="button"
@@ -139,7 +139,7 @@ export function Navbar() {
                     {locale.toUpperCase()}
                   </motion.button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="min-w-20 rounded-none border-foreground/20 bg-background p-0">
+                <DropdownMenuContent align="end" className="min-w-20 rounded-none border-foreground/20 bg-background p-0 z-[200]">
                   <DropdownMenuItem onClick={() => setLocale('en')} className={`justify-between rounded-none px-3 py-2 cursor-pointer ${buttonBlurHover}`}>
                     EN {locale === 'en' && <span>✓</span>}
                   </DropdownMenuItem>
@@ -192,7 +192,7 @@ export function Navbar() {
         <div
           id={mobileMenuId}
       
-          className="fixed inset-0 z-100 pt-20 bg-background/98 backdrop-blur-md md:hidden flex flex-col items-start"
+          className="fixed inset-0 z-40 pt-20 bg-background/98 backdrop-blur-md md:hidden flex flex-col items-start"
           role="dialog"
           aria-modal="true"
           aria-label="Mobile navigation menu"
