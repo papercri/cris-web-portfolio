@@ -70,17 +70,18 @@ export function Navbar() {
   const handleNavClick = (href: string) => {
   setIsOpen(false);
   const element = document.querySelector(href);
-  
-  if (element) {
-    const navbarHeight = document.getElementById('main-navbar')?.offsetHeight || 0;
-    const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-    const offsetPosition = elementPosition - (navbarHeight - 3);
+  setTimeout(() => {
+    if (element) {
+      const navbarHeight = document.getElementById('main-navbar')?.offsetHeight || 0;
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - (navbarHeight - 3);
 
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: 'smooth'
-    });
-  }
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  }, 50);
 };
 
 
