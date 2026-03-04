@@ -57,7 +57,7 @@ export function CustomCursor() {
     <>
       {/* Anillo exterior */}
       <motion.div
-        className="fixed top-0 left-0 rounded-full pointer-events-none z-[100] bg-transparent border-[1.5px] border-chart-4/70 dark:border-chart-4/70"
+        className="fixed top-0 left-0 rounded-full pointer-events-none z-300 bg-transparent border-[1.5px] border-chart-4/70 dark:border-chart-4/70"
         style={{
           x: ringX,
           y: ringY,
@@ -73,7 +73,7 @@ export function CustomCursor() {
 
       {/* Punto central */}
       <motion.div
-        className="fixed top-0 left-0 rounded-full pointer-events-none z-[100] bg-chart-4/40 dark:bg-chart-4/40 blur-[0.5px]"
+        className="fixed top-0 left-0 rounded-full pointer-events-none z-300 bg-chart-4/40 dark:bg-chart-4/40 blur-[0.5px]"
         style={{
           x: dotX,
           y: dotY,
