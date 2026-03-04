@@ -493,7 +493,7 @@ html.dark {
 }
 
 /* ─── 2XL screens (≥ 1536px) — start scaling up ─────────────────────────── */
-@media (min-width: 1536px) {
+/* @media (min-width: 1536px) {
 
   :root {
     --font-size: 18px;
@@ -507,7 +507,7 @@ html.dark {
     padding-top: 5rem !important;
     padding-bottom: 5rem !important;
   }
-}
+} */
 
 /* ─── Very High Resolution screens (≥ 1920px) ───────────────────────────── */
 @media (min-width: 1920px) {
