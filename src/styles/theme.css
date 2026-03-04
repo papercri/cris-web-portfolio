@@ -42,7 +42,7 @@
 }
 
 .dark {
-  --background: oklch(0.27 0 0);
+  --background: oklch(0.21 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.29 0 0);
   --card-foreground: oklch(0.985 0 0);
@@ -159,9 +159,13 @@ html.dark {
 
   section[id] {
     scroll-margin-top: 4.3rem;
+  
+    border-bottom: 1px solid rgba(248, 246, 242, 0.12);
   }
   section#home {
     padding-top: 120px!important;
+    border-top: 0;
+    border-bottom: 0;
   }
   /* Scrolling text strip — always capped so it never takes over the screen */
   section#home > div:last-child {
