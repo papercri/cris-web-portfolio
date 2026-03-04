@@ -25,13 +25,13 @@ export function Projects() {
           </span>
           <nav aria-label="Projects section links" className="sm:flex hidden flex-wrap items-center gap-3 md:gap-5 text-sm font-semibold text-foreground">
             {projects.map((project) => (
-              <a
+              <button
                 key={project.id}
-                href={`#${project.id}`}
-                className="hover:opacity-60 transition-opacity focus-ring link-anim"
+                onClick={() => document.getElementById(project.id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+                className="hover:opacity-60 transition-opacity focus-ring link-anim cursor-pointer"
               >
                 {project.title}
-              </a>
+              </button>
             ))}
           </nav>
         
