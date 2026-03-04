@@ -30,12 +30,18 @@ export function Navbar() {
     document.body.removeChild(link);
     setIsDownloadDialogOpen(false);
   };
-
   useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }, [isOpen]);
+  /* useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  }, []); */
 
   useEffect(() => {
     const navbar = document.getElementById('main-navbar');
@@ -91,7 +97,7 @@ export function Navbar() {
       <nav
         id="main-navbar"
         aria-label="Primary"
-        className={`sticky top-0 left-0 right-0 z-45 transition-[background-color,backdrop-filter,border-color] duration-300 bg-background/95 backdrop-blur-sm border-b border-foreground/10  }`}
+        className={`sticky  top-0 left-0 right-0 z-50 transition-[background-color,backdrop-filter,border-color] duration-300 bg-background/95 backdrop-blur-sm border-b border-foreground/10  }`}
       >
         <div className="px-8 py-5">
           <div className="w-full max-w-7xl mx-auto flex items-center justify-between">
@@ -192,7 +198,7 @@ export function Navbar() {
         <div
           id={mobileMenuId}
       
-          className="fixed inset-0 z-40 pt-20 bg-background/98 backdrop-blur-md md:hidden flex flex-col items-start"
+          className="fixed inset-0 z-40 h-[100dvh] pt-20 bg-background/98 backdrop-blur-md md:hidden flex flex-col items-start"
           role="dialog"
           aria-modal="true"
           aria-label="Mobile navigation menu"

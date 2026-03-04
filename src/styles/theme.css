@@ -377,3 +377,24 @@ html.dark {
     opacity: 1!important; 
   }
 }
+
+  @media (max-width: 380px) {
+    section[id] {
+
+      padding:25px!important;
+      height:auto!important;
+      min-height:auto!important;
+      overflow:auto!important
+
+  }
+  h2{
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+  .mobile-img{
+    height:auto!important;
+    min-height:auto!important
+  }
+  .profile-img{
+    border:1px solid #888880;
+  }
+ } 

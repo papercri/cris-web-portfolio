@@ -25,7 +25,7 @@ export function Contact() {
 
         <motion.h2
           id="contact-title"
-          className="w-full max-w-full min-w-0 text-[clamp(2.75rem,11vw,10rem)] font-extrabold tracking-tight leading-[0.88] sm:leading-[0.9] md:leading-[0.92] text-background mb-6 break-words [text-wrap:balance]"
+          className="w-full max-w-full min-w-0 text-[clamp(2.75rem,11vw,10rem)] font-extrabold tracking-tight leading-[1] sm:leading-[0.9] md:leading-[0.92] text-background mb-6 break-words [text-wrap:balance]"
           initial={{ opacity: 0, x: -80 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={VP}

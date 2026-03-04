@@ -103,7 +103,7 @@ export function Hero() {
           <motion.img
             src="/cris-hero.png"
             alt="Cristiana Sollini front-end developer"
-            className="img-hover w-full h-auto object-fill"
+            className="img-hover w-full h-auto object-fill profile-img"
             initial={{ opacity: 0, x: 60 }}
             animate={{ opacity: .7, x: 0 }}
             transition={{ duration: 1, delay: 0.5, ease }}

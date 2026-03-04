@@ -13,7 +13,7 @@ export function Projects() {
       <div className="section-container">
         <h2 id="projects-title" className="sr-only">{t.nav.projects}</h2>
         <motion.div
-          className="sticky top-20 z-30 bg-background/10 py-5 flex flex-wrap items-center gap-4 md:gap-6 backdrop-blur-sm"
+          className="sm:sticky sm:top-20 sm:z-30 bg-background/10 sm:py-5 flex flex-wrap items-center gap-4 md:gap-6 backdrop-blur-sm"
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={VP}
@@ -23,7 +23,7 @@ export function Projects() {
           <span className="section-label-text text-foreground/50">
             {t.projects.label}
           </span>
-          <nav aria-label="Projects section links" className="flex flex-wrap items-center gap-3 md:gap-5 text-sm font-semibold text-foreground">
+          <nav aria-label="Projects section links" className="sm:flex hidden flex-wrap items-center gap-3 md:gap-5 text-sm font-semibold text-foreground">
             {projects.map((project) => (
               <a
                 key={project.id}
@@ -37,7 +37,7 @@ export function Projects() {
         
         </motion.div>
 
-        <div className="space-y-0 mt-10">
+        <div className="space-y-0 sm:mt-10 ">
           {projects.map((project, index) => (
             <motion.div
               key={index}
@@ -95,13 +95,13 @@ export function Projects() {
                   </div>
                 </div>
 
-                <div className="w-full  min-h-[320px] max-h-[480px] border border-foreground/15 overflow-hidden bg-foreground/[0.03]">
+                <div className="w-full  min-h-[320px] max-h-[480px] border border-foreground/15 overflow-hidden bg-foreground/[0.03] mobile-img">
                   <img
                     src={project.imageUrl}
                     alt={project.title}
                     loading="lazy"
                     decoding="async"
-                    className="img-hover w-full h-full object-cover"
+                    className="img-hover w-full h-full object-cover mobile-img"
                   />
                 </div>
               </div>
