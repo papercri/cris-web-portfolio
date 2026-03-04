@@ -7,7 +7,7 @@ export function Contact() {
   const { t } = useI18n();
   const contactTitleLines = t.contact.title.split('\n');
   return (
-    <section id="contact" aria-labelledby="contact-title" className="section-base pb-32 bg-foreground text-background overflow-x-hidden">
+    <section id="contact" aria-labelledby="contact-title" className="inverted-section section-base pb-32 bg-foreground text-background overflow-x-hidden">
       <div className="section-container min-h-[70vh] min-w-0 flex flex-col">
  
         <motion.div

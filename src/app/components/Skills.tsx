@@ -7,7 +7,7 @@ export function Skills() {
   const skillCategories = t.skills.categories;
 
   return (
-    <section id="skills" aria-labelledby="skills-title" className="section-base pb-30 bg-foreground text-background">
+    <section id="skills" aria-labelledby="skills-title" className="inverted-section section-base pb-30 bg-foreground text-background">
       <div className="section-container">
         {/* Section label */}
         <motion.div
