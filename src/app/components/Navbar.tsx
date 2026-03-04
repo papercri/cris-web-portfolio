@@ -200,12 +200,12 @@ export function Navbar() {
           
           <ul className="flex flex-col px-8 pt-8 space-y-6 w-full">
             {navItems.map((item) => (
-              <li key={item.href} className="w-full">
+              <li key={item.href} className="w-full mb-3">
                 <a
                   href={item.href}
                   onClick={(e) => { e.preventDefault(); handleNavClick(item.href); }}
                   /* break-words evita que el texto se salga */
-                  className={`text-3xl font-black tracking-tighter text-foreground break-words block w-full ${buttonBlurHover}`}
+                  className={`text-xl font-black tracking-tighter text-foreground break-words block w-full ${buttonBlurHover}`}
                 >
                   {item.label}
                 </a>
