@@ -147,9 +147,19 @@ export function Navbar() {
                     {locale.toUpperCase()}
                   </button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="z-[110] bg-background">
-                  <DropdownMenuItem onClick={() => setLocale('en')}>EN</DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => setLocale('es')}>ES</DropdownMenuItem>
+                <DropdownMenuContent align="end" className="z-[110] bg-background min-w-[5rem]">
+                  <DropdownMenuItem
+                    onClick={() => setLocale('en')}
+                    className={`px-4 py-2 text-xs font-semibold cursor-pointer hover:bg-foreground/8 transition-colors ${locale === 'en' ? 'text-foreground' : 'text-foreground/50'}`}
+                  >
+                    EN
+                  </DropdownMenuItem>
+                  <DropdownMenuItem
+                    onClick={() => setLocale('es')}
+                    className={`px-4 py-2 text-xs font-semibold cursor-pointer hover:bg-foreground/8 transition-colors ${locale === 'es' ? 'text-foreground' : 'text-foreground/50'}`}
+                  >
+                    ES
+                  </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
 
@@ -207,6 +217,47 @@ export function Navbar() {
 
       {/* 3. SPACER: Importante para que el contenido no empiece debajo del nav fixed 
       <div className="h-[70px] md:h-[74px]" /> */}
+
+      {/* 4. DOWNLOAD DIALOG */}
+      {isDownloadDialogOpen && (
+        <div
+          className="fixed inset-0 z-[200] flex items-center justify-center bg-black/50 px-4"
+          onClick={() => setIsDownloadDialogOpen(false)}
+        >
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby={dialogTitleId}
+            aria-describedby={dialogDescId}
+            className="mod w-full max-w-md rounded-lg border border-foreground/15 bg-background p-6 shadow-lg"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h3 id={dialogTitleId} className="text-lg font-semibold text-foreground">
+              {t.nav.modalTitle}
+            </h3>
+            <p id={dialogDescId} className="mt-2 text-sm text-foreground/60">
+              {t.nav.modalDesc}
+            </p>
+            <div className="mt-6 flex flex-wrap justify-end gap-2">
+              <button
+                ref={closeDialogButtonRef}
+                type="button"
+                onClick={() => setIsDownloadDialogOpen(false)}
+                className={`px-4 py-2 text-sm font-medium border border-foreground/20 text-foreground hover:bg-foreground/5 ${buttonBlurHover}`}
+              >
+                {t.nav.cancel}
+              </button>
+              <button
+                type="button"
+                onClick={handleDownloadCv}
+                className={`px-4 py-2 text-sm font-medium bg-foreground text-background hover:opacity-90 ${buttonBlurHover}`}
+              >
+                {t.nav.download}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }
