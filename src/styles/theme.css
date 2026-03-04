@@ -415,26 +415,29 @@ html.dark {
       min-height:auto!important;
       overflow:auto!important
 
-  }
-  h2{
-    font-size: clamp(2rem, 8vw, 3rem);
-  }
-  .mobile-img{
-    height:auto!important;
-    min-height:auto!important
-  }
-  .profile-img{
-    border:1px solid #888880;
-  }
-  .mod {
-    padding: 6px;
-    max-width: 90%;
-  }
-  section#home {
-    padding-top: 50px!important;
-  }
+      }
+      h2{
+        font-size: clamp(2rem, 8vw, 3rem);
+      }
+      .mobile-img{
+        height:auto!important;
+        min-height:auto!important
+      }
+      
+      .mod {
+        padding: 6px;
+        max-width: 90%;
+      }
+      section#home {
+        padding-top: 50px!important;
+      }
  } 
-
+@media (max-width: 640px) {
+  .profile-img{
+    border:1px solid #ccc;
+    margin-top:20px
+  }
+}
 /* ─── Contact section — taller on mobile ────────────────────────────────── */
 @media (max-width: 1023px) {
   section#contact {
@@ -460,8 +463,8 @@ html.dark {
   }
 }
 
-/* ─── Landscape orientation — mobile/tablet only (max 1024px) ── */
-@media (orientation: landscape) and (max-width: 1024px) {
+
+@media (max-width: 1024px) {
   section#home {
     justify-content: flex-start !important;
   }
@@ -502,22 +505,6 @@ html.dark {
   }
 }
 
-/* ─── 2XL screens (≥ 1536px) — start scaling up ─────────────────────────── */
-/* @media (min-width: 1536px) {
-
-  :root {
-    --font-size: 18px;
-  }
-
-  section#home {
-    padding-top: 100px !important;
-  }
-
-  .section-base {
-    padding-top: 5rem !important;
-    padding-bottom: 5rem !important;
-  }
-} */
 
 /* ─── Very High Resolution screens (≥ 1920px) ───────────────────────────── */
 @media (min-width: 1920px) {
@@ -527,7 +514,7 @@ html.dark {
   }
 
   .section-container {
-    max-width: 100rem;
+    max-width: 80rem;
   }
 
   section#home {
@@ -545,18 +532,15 @@ html.dark {
 }
 
 /* ─── Ultra High Resolution / 4K screens (≥ 2560px) ─────────────────────── */
-@media (min-width: 2560px) {
+@media (min-width: 2460px) {
 
   :root {
     --font-size: 26px;
   }
 
-  .section-container {
-    max-width: 120rem;
-  }
 
   section#home {
-    padding-top: 160px !important;
+    margin-top: 100px !important;
   }
 
   section#home > div:last-child {

@@ -11,10 +11,10 @@ export function Hero() {
     <section
       id="home"
       aria-labelledby="hero-title"
-      className="w-full lg:min-h-[100svh] min-h-[100vh] lg:h-[100svh] lg:overflow-hidden flex flex-col pt-8 px-8 relative overflow-x-hidden items-bottom pb-10 lg:pb-0 "
+      className="w-full md:min-h-[100svh] min-h-[100vh] md:h-[100svh] md:overflow-hidden flex flex-col pt-8 px-8 relative overflow-x-hidden items-bottom pb-10 md:pb-0 "
     >
-      <div className="flex w-full justify-between flex-wrap lg:flex-nowrap max-w-7xl mx-auto ">
-        <div className="w-full flex flex-col justify-start mx-auto relative lg:flex-[2_2_0%] min-w-0 items-end">
+      <div className="flex w-full justify-between flex-wrap md:flex-nowrap max-w-7xl mx-auto ">
+        <div className="w-full flex flex-col justify-start mx-auto relative md:flex-[2_2_0%] min-w-0 items-end">
         <div className="w-full flex flex-col justify-start sm:py-5 py-2">
           <motion.div
             className="section-label-row md:mb-12 mb-8"
@@ -99,7 +99,7 @@ export function Hero() {
         </div>
 
         </div>
-        <div className="w-full lg:max-w-none lg:flex-1 mx-auto flex-shrink-0 relative z-10 lg:justify-end items-end  flex max-w-3/5 justify-center">
+        <div className="w-full md:max-w-none md:flex-1 mx-auto flex-shrink-0 relative z-10 md:justify-end items-end  flex max-w-3/5 justify-center">
           <motion.img
             src="/cris-hero.png"
             alt="Cristiana Sollini front-end developer"
@@ -112,7 +112,7 @@ export function Hero() {
       </div>
       
 
-      <div className="z-10 lg:flex-1 lg:min-h-0 lg:overflow-hidden lg:[container-type:size] lg:flex hidden">
+      <div className="z-10 md:flex-1 md:min-h-0 md:overflow-hidden md:[container-type:size] md:flex hidden">
         <ScrollingText />
       </div>
     </section>
