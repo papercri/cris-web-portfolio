@@ -127,13 +127,13 @@ export function Navbar() {
             <ul className="hidden md:flex items-center gap-10">
               {navItems.map((item) => (
                 <li key={item.href}>
-                  <a
+                  <motion.a
                     href={item.href}
                     onClick={(e) => { e.preventDefault(); handleNavClick(item.href); }}
-                    className={`text-xs font-semibold tracking-widest text-foreground/70 hover:text-foreground ${blurHover}`}
+                    className={`inline-flex text-xs font-semibold tracking-widest text-foreground/70 hover:text-foreground ${blurHover} link-anim`}
                   >
                     {item.label}
-                  </a>
+                  </motion.a>
                 </li>
               ))}
             </ul>
@@ -164,12 +164,12 @@ export function Navbar() {
               </DropdownMenu>
 
               {/* Botón CV y Tema (Ocultos o simplificados en móvil si ocupan mucho) */}
-              <button onClick={() => setIsDownloadDialogOpen(true)} className={buttonBlurHover}>
-                <Download className="w-4 h-4" />
+              <button onClick={() => setIsDownloadDialogOpen(true)} className={`inline-flex p-2 text-foreground/60 hover:text-foreground ${buttonBlurHover}`} aria-label={t.nav.downloadCv}>
+                <Download className="w-4 h-4" aria-hidden="true" />
               </button>
 
-              <button onClick={toggleDark} className={buttonBlurHover}>
-                {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+              <button onClick={toggleDark} className={`inline-flex p-2 text-foreground/60 hover:text-foreground ${buttonBlurHover}`} aria-label="Toggle dark mode">
+                {isDark ? <Sun className="w-4 h-4" aria-hidden="true" /> : <Moon className="w-4 h-4" aria-hidden="true" />}
               </button>
 
               {/* BOTÓN MENÚ MÓVIL: Siempre visible porque el nav tiene z-100 */}
