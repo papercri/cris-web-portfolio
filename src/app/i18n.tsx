@@ -13,19 +13,12 @@ const I18nContext = createContext<I18nValue | null>(null);
 const STORAGE_KEY = 'portfolio-locale';
 
 export function I18nProvider({ children }: { children: React.ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>('en');
-
-  useEffect(() => {
+  const [locale, setLocaleState] = useState<Locale>(() => {
     const stored = window.localStorage.getItem(STORAGE_KEY);
-    if (stored === 'en' || stored === 'es') {
-      setLocaleState(stored);
-      return;
-    }
-
+    if (stored === 'en' || stored === 'es') return stored;
     const browserLocale = (window.navigator.languages?.[0] || window.navigator.language).toLowerCase();
-    const detected: Locale = browserLocale.startsWith('es') ? 'es' : 'en';
-    setLocaleState(detected);
-  }, []);
+    return browserLocale.startsWith('es') ? 'es' : 'en';
+  });
 
   useEffect(() => {
     window.localStorage.setItem(STORAGE_KEY, locale);
