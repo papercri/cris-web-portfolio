@@ -160,9 +160,11 @@ html.dark {
   }
 
   section[id] {
-    scroll-margin-top: 4.5rem;
+    scroll-margin-top: 4.3rem;
   }
-
+  section#home {
+    padding-top: 90px!important;
+  }
   h1 {
     font-family: 'DM Sans', system-ui, sans-serif;
     font-weight: 800;

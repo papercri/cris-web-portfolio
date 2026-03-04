@@ -87,188 +87,126 @@ export function Navbar() {
 
 
   const handleNavClick = (href: string) => {
-    setIsOpen(false);
-    const element = document.querySelector(href);
-    element?.scrollIntoView({ behavior: 'smooth' });
-  };
+  setIsOpen(false);
+  const element = document.querySelector(href);
+  
+  if (element) {
+    const navbarHeight = document.getElementById('main-navbar')?.offsetHeight || 0;
+    // Calculamos la posición del elemento menos la altura del nav + los 3px de margen
+    const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+    const offsetPosition = elementPosition - (navbarHeight - 3);
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
+  }
+};
+
 
   return (
     <>
+      {/* 1. NAVBAR FIJO: z-[100] asegura que siempre esté arriba de todo */}
       <nav
         id="main-navbar"
         aria-label="Primary"
-        className={`sticky  top-0 left-0 right-0 z-50 transition-[background-color,backdrop-filter,border-color] duration-300 bg-background/95 backdrop-blur-sm border-b border-foreground/10  }`}
+        className="fixed top-0 left-0 right-0 z-[100] transition-all duration-300 bg-background/95 backdrop-blur-md border-b border-foreground/10"
       >
-        <div className="px-8 py-5">
+        <div className="px-6 py-5 md:px-8"> {/* Reduje un poco el padding en móvil */}
           <div className="w-full max-w-7xl mx-auto flex items-center justify-between">
             <motion.a
               href="#home"
               onClick={(e) => { e.preventDefault(); handleNavClick('#home'); }}
-              className={`inline-flex text-xl font-extrabold tracking-tight uppercase text-foreground hover:opacity-60 ${blurHover}`}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
+              className={`inline-flex text-xl font-extrabold tracking-tight uppercase text-foreground ${blurHover}`}
               aria-label="Back to top"
             >
               CS.
             </motion.a>
 
             {/* Desktop Navigation */}
-            <motion.ul
-              className="hidden md:flex items-center gap-10"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-            >
+            <ul className="hidden md:flex items-center gap-10">
               {navItems.map((item) => (
                 <li key={item.href}>
-                  <motion.a
+                  <a
                     href={item.href}
                     onClick={(e) => { e.preventDefault(); handleNavClick(item.href); }}
-                    className={`inline-flex text-xs font-semibold tracking-widest text-foreground/70 hover:text-foreground ${blurHover} link-anim`}
+                    className={`text-xs font-semibold tracking-widest text-foreground/70 hover:text-foreground ${blurHover}`}
                   >
                     {item.label}
-                  </motion.a>
+                  </a>
                 </li>
               ))}
-            </motion.ul>
+            </ul>
 
-            {/* Botones de acción (Tema, CV, Idioma, Menú móvil) */}
-            <div className="flex items-center gap-4">
+            {/* Botones de acción */}
+            <div className="flex items-center gap-6 md:gap-8">
+              {/* Dropdown Idioma */}
               <DropdownMenu modal={false}>
                 <DropdownMenuTrigger asChild>
-                  <motion.button
-                    type="button"
-                    className={`inline-flex px-2 py-1 text-xs font-semibold tracking-widest text-foreground/80 rounded-none hover:text-foreground ${buttonBlurHover}`}
-                    aria-label={t.nav.language}
-                  >
+                  <button className={`px-2 py-1 text-xs font-semibold ${buttonBlurHover}`}>
                     {locale.toUpperCase()}
-                  </motion.button>
+                  </button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="min-w-20 rounded-none border-foreground/20 bg-background p-0 z-[200]">
-                  <DropdownMenuItem onClick={() => setLocale('en')} className={`justify-between rounded-none px-3 py-2 cursor-pointer ${buttonBlurHover}`}>
-                    EN {locale === 'en' && <span>✓</span>}
-                  </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => setLocale('es')} className={`justify-between rounded-none px-3 py-2 cursor-pointer ${buttonBlurHover}`}>
-                    ES {locale === 'es' && <span>✓</span>}
-                  </DropdownMenuItem>
+                <DropdownMenuContent align="end" className="z-[110] bg-background">
+                  <DropdownMenuItem onClick={() => setLocale('en')}>EN</DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => setLocale('es')}>ES</DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
 
-              <motion.button
-                type="button"
-                onClick={() => setIsDownloadDialogOpen(true)}
-                className={`group relative inline-flex p-2 text-foreground/60 hover:text-foreground ${buttonBlurHover}`}
-                aria-label={t.nav.downloadCv}
-              >
-                <motion.span className="block">
-                  <Download className="w-4 h-4" aria-hidden="true" />
-                </motion.span>
-                <span className="pointer-events-none absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-foreground text-background px-3 py-1.5 text-[10px] font-semibold tracking-widest opacity-0 translate-y-1 transition-[opacity,transform] duration-200 group-hover:opacity-100 group-hover:translate-y-0">
-                  {t.nav.downloadCv}
-                </span>
-              </motion.button>
+              {/* Botón CV y Tema (Ocultos o simplificados en móvil si ocupan mucho) */}
+              <button onClick={() => setIsDownloadDialogOpen(true)} className={buttonBlurHover}>
+                <Download className="w-4 h-4" />
+              </button>
 
-              <motion.button
-                type="button"
-                onClick={toggleDark}
-                className={`inline-flex p-2 text-foreground/60 hover:text-foreground ${buttonBlurHover}`}
-                aria-label="Toggle dark mode"
-              >
-                {isDark ? <Sun className="w-4 h-4" aria-hidden="true" /> : <Moon className="w-4 h-4" aria-hidden="true" />}
-              </motion.button>
+              <button onClick={toggleDark} className={buttonBlurHover}>
+                {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+              </button>
 
-              <motion.button
+              {/* BOTÓN MENÚ MÓVIL: Siempre visible porque el nav tiene z-100 */}
+              <button
                 type="button"
-                className={`md:hidden inline-flex p-2 text-foreground hover:opacity-60 ${buttonBlurHover}`}
+                className="md:hidden p-2 text-foreground z-[110]" 
                 onClick={() => setIsOpen((v) => !v)}
                 aria-label="Toggle menu"
-                aria-expanded={isOpen}
-                aria-controls={mobileMenuId}
               >
-                {isOpen ? <X className="w-6 h-6" aria-hidden="true" /> : <Menu className="w-6 h-6" aria-hidden="true" />}
-              </motion.button>
+                {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
             </div>
           </div>
         </div>
       </nav>
 
-      {/* Menú móvil */}
+      {/* 2. MENÚ MÓVIL: z-[90] para que el nav (X) quede encima */}
       {isOpen && (
         <div
           id={mobileMenuId}
-      
-          className="fixed inset-0 z-40 h-[100dvh] pt-20 bg-background/98 backdrop-blur-md md:hidden flex flex-col items-start"
+          className="fixed inset-0 z-[90] h-[100dvh] pt-24 bg-background/98 backdrop-blur-xl md:hidden flex flex-col items-start overflow-y-auto"
           role="dialog"
-          aria-modal="true"
-          aria-label="Mobile navigation menu"
         >
-          <div className="px-6 pt-8 flex items-center gap-4">
-            <motion.button
-              type="button"
-              onClick={() => setLocale('en')}
-              className={`inline-flex  py-1 text-sm font-semibold tracking-widest ${buttonBlurHover} ${locale === 'en' ? 'text-foreground' : 'text-foreground/50 hover:text-foreground/80'}`}
-              aria-label="Switch to English"
-            >
-              EN
-            </motion.button>
-            <motion.button
-              type="button"
-              onClick={() => setLocale('es')}
-              className={`inline-flex px-2 py-1 text-sm font-semibold tracking-widest ${buttonBlurHover} ${locale === 'es' ? 'text-foreground' : 'text-foreground/50 hover:text-foreground/80'}`}
-              aria-label="Cambiar a español"
-            >
-              ES
-            </motion.button>
+          <div className="px-8 pt-4 flex items-center gap-4 border-b border-foreground/5 w-full pb-4">
+             <button onClick={() => setLocale('en')} className={`text-sm font-bold ${locale === 'en' ? 'text-foreground' : 'text-foreground/40'}`}>EN</button>
+             <button onClick={() => setLocale('es')} className={`text-sm font-bold ${locale === 'es' ? 'text-foreground' : 'text-foreground/40'}`}>ES</button>
           </div>
-          <ul className="flex flex-col px-6 pt-4 space-y-4">
+          
+          <ul className="flex flex-col px-8 pt-8 space-y-6 w-full">
             {navItems.map((item) => (
-              <li key={item.href}>
-                <motion.a
+              <li key={item.href} className="w-full">
+                <a
                   href={item.href}
                   onClick={(e) => { e.preventDefault(); handleNavClick(item.href); }}
-                  className={`inline-flex text-xl font-extrabold tracking-tight text-foreground leading-none ${buttonBlurHover}`}
+                  /* break-words evita que el texto se salga */
+                  className={`text-3xl font-black tracking-tighter text-foreground break-words block w-full ${buttonBlurHover}`}
                 >
                   {item.label}
-                </motion.a>
+                </a>
               </li>
             ))}
           </ul>
         </div>
       )}
 
-      {/* Modal de descarga de CV */}
-      {isDownloadDialogOpen && (
-        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/50 px-4">
-          <div
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby={dialogTitleId}
-            aria-describedby={dialogDescId}
-            className="w-full max-w-md rounded-lg border border-foreground/15 bg-background p-6 shadow-lg"
-          >
-            <h3 id={dialogTitleId} className="text-lg font-semibold text-foreground">{t.nav.modalTitle}</h3>
-            <p id={dialogDescId} className="mt-2 text-sm text-foreground/60">{t.nav.modalDesc}</p>
-            <div className="mt-6 flex justify-end gap-2">
-              <button
-                ref={closeDialogButtonRef}
-                type="button"
-                onClick={() => setIsDownloadDialogOpen(false)}
-                className={`px-4 py-2 text-sm font-medium border border-foreground/20 text-foreground hover:bg-foreground/5 ${buttonBlurHover}`}
-              >
-                {t.nav.cancel}
-              </button>
-              <button
-                type="button"
-                onClick={handleDownloadCv}
-                className={`px-4 py-2 text-sm font-medium bg-foreground text-background hover:opacity-90 ${buttonBlurHover}`}
-              >
-                {t.nav.download}
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      {/* 3. SPACER: Importante para que el contenido no empiece debajo del nav fixed 
+      <div className="h-[70px] md:h-[74px]" /> */}
     </>
   );
 }
