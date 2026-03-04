@@ -506,8 +506,8 @@ html.dark {
 }
 
 
-/* ─── Very High Resolution screens (≥ 1920px) ───────────────────────────── */
-@media (min-width: 1920px) {
+/* ─── Very High Resolution screens (≥ 1980px) ───────────────────────────── */
+@media (min-width: 1980px) {
 
   :root {
     --font-size: 22px;
