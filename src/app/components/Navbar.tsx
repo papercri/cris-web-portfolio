@@ -12,7 +12,6 @@ import {
 export function Navbar() {
   const { locale, setLocale, t } = useI18n();
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [isDark, setIsDark] = useState(false);
   const [isDownloadDialogOpen, setIsDownloadDialogOpen] = useState(false);
   const mobileMenuId = 'mobile-navigation';
@@ -31,29 +30,11 @@ export function Navbar() {
     setIsDownloadDialogOpen(false);
   };
   useEffect(() => {
-    if (isOpen) {
+    if (isOpen || isDownloadDialogOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
     }
-  }, [isOpen]);
-  /* useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []); */
-
-  useEffect(() => {
-    const navbar = document.getElementById('main-navbar');
-
-    if (!isOpen && !isDownloadDialogOpen) {
-      document.body.style.overflow = '';
-      document.body.style.paddingRight = '';
-      if (navbar) navbar.style.paddingRight = '';
-      return;
-    }
-    
-  
   }, [isOpen, isDownloadDialogOpen]);
 
   useEffect(() => {
@@ -92,7 +73,6 @@ export function Navbar() {
   
   if (element) {
     const navbarHeight = document.getElementById('main-navbar')?.offsetHeight || 0;
-    // Calculamos la posición del elemento menos la altura del nav + los 3px de margen
     const elementPosition = element.getBoundingClientRect().top + window.scrollY;
     const offsetPosition = elementPosition - (navbarHeight - 3);
 
@@ -106,13 +86,12 @@ export function Navbar() {
 
   return (
     <>
-      {/* 1. NAVBAR FIJO: z-[100] asegura que siempre esté arriba de todo */}
       <nav
         id="main-navbar"
         aria-label="Primary"
         className="fixed top-0 left-0 right-0 z-[100] transition-all duration-300 bg-background/95 backdrop-blur-md border-b border-foreground/10"
       >
-        <div className="px-6 py-5 md:px-8"> {/* Reduje un poco el padding en móvil */}
+        <div className="px-6 py-5 md:px-8"> 
           <div className="w-full max-w-7xl mx-auto flex items-center justify-between">
             <motion.a
               href="#home"
@@ -163,7 +142,7 @@ export function Navbar() {
                 </DropdownMenuContent>
               </DropdownMenu>
 
-              {/* Botón CV y Tema (Ocultos o simplificados en móvil si ocupan mucho) */}
+              {/* Botón CV */}
               <button onClick={() => setIsDownloadDialogOpen(true)} className={`inline-flex p-2 text-foreground/60 hover:text-foreground ${buttonBlurHover}`} aria-label={t.nav.downloadCv}>
                 <Download className="w-4 h-4" aria-hidden="true" />
               </button>
@@ -186,7 +165,7 @@ export function Navbar() {
         </div>
       </nav>
 
-      {/* 2. MENÚ MÓVIL: z-[90] para que el nav (X) quede encima */}
+      {/* MENÚ MÓVIL: z-[90] para que el nav (X) quede encima */}
       {isOpen && (
         <div
           id={mobileMenuId}
@@ -204,7 +183,7 @@ export function Navbar() {
                 <a
                   href={item.href}
                   onClick={(e) => { e.preventDefault(); handleNavClick(item.href); }}
-                  /* break-words evita que el texto se salga */
+        
                   className={`text-xl font-black tracking-tighter text-foreground break-words block w-full ${buttonBlurHover}`}
                 >
                   {item.label}
@@ -216,7 +195,7 @@ export function Navbar() {
       )}
 
 
-      {/* 4. DOWNLOAD DIALOG */}
+      {/* DOWNLOAD DIALOG */}
       {isDownloadDialogOpen && (
         <div
           className="fixed inset-0 z-[200] flex items-center justify-center bg-black/50 px-4"
@@ -227,7 +206,7 @@ export function Navbar() {
             aria-modal="true"
             aria-labelledby={dialogTitleId}
             aria-describedby={dialogDescId}
-            className="mod w-full max-w-md rounded-lg border border-foreground/15 bg-background p-6 shadow-lg"
+            className="w-full max-w-md rounded-lg border border-foreground/15 bg-background p-6 shadow-lg"
             onClick={(e) => e.stopPropagation()}
           >
             <h3 id={dialogTitleId} className="text-lg font-semibold text-foreground">

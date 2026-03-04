@@ -5,7 +5,6 @@ export function CustomCursor() {
   const [isClicking, setIsClicking] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
-  // 1. Definimos la distancia a la que queremos mantener nuestro cursor "satélite"
   const offsetX = -65; 
   const offsetY = 55; 
 
@@ -29,7 +28,7 @@ export function CustomCursor() {
     if (!shouldShowCursor) return;
 
     const updateMousePosition = (e: MouseEvent) => {
-      // 2. Sumamos el offset aquí. Toda la animación se dirigirá a este nuevo punto.
+     
       mouseX.set(e.clientX + offsetX);
       mouseY.set(e.clientY + offsetY);
     };
