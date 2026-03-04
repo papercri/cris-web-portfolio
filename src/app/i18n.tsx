@@ -209,10 +209,11 @@ export const translations = {
     contact: {
       label: 'CONTACT',
       title: 'let’s\nconnect',
-      text: 'If you want to collaborate, discuss a project, or just say hi, reach me directly by',
+      text: 'If you’d like to discuss a project or explore a potential collaboration, you can reach out to me through',
       email: 'Email',
       linkedin: 'LinkedIn',
       ending: '.',
+      join: 'or connect with me on',
     },
     footer: {
       rights: 'All rights reserved.',
@@ -243,43 +244,43 @@ export const translations = {
     },
     hero: {
       eyebrow: 'FRONT END DEVELOPER · BARCELONA, ESPAÑA ',
-      bio: 'Construyo experiencias digitales rápidas, accesibles y visualmente claras. Durante los últimos años me he enfocado en crear interfaces que no solo se vean bien, sino que también resulten intuitivas y consistentes en cualquier dispositivo.',
+      bio: 'Construyo experiencias digitales que funcionan de verdad. Rápidas, accesibles y claras desde el primer vistazo. A lo largo de los años, me he centrado en crear interfaces que no solo se vean bien, sino que sean intuitivas y consistentes en cualquier dispositivo.',
     },
     scrolling: {
       items: ['Desarrollo FrontEnd', '/ ', 'UX & UI', '/ ', 'Accesibilidad Web', '/ ', 'React', '/ ', 'Next.js', '. ', 'Vue.js', '/ ', 'HTML & CSS', '/ '],
     },
     about: {
       label: 'SOBRE MÍ',
-      title: 'Convirtiendo ideas\nen realidad.',
-      p1: 'Mi base está en HTML y CSS, donde la estructura, el detalle y la accesibilidad son clave. Trabajo con soltura con React y herramientas front-end modernas, y colaboro de forma cercana con equipos de diseño y backend para convertir ideas complejas en código sólido y mantenible.',
-      p2: 'El rendimiento y la usabilidad no son algo secundario en mi trabajo: son parte de la base. Cuido componentes limpios, estructuras escalables y layouts que se comporten como deben en el mundo real.',
-      p3: 'También estoy explorando desarrollo asistido por IA para agilizar flujos de trabajo y construir interfaces más inteligentes cuando tiene sentido.',
-      p4: 'He reforzado mi base técnica con un Bootcamp de Front-End centrado en React en IT Academy. Antes cursé un Bootcamp de Vue.js en CodeOp y una formación en PHP y MySQL para comprender mejor la lógica de backend y el flujo de datos. Además, soy licenciada en Ciencias de la Comunicación, una formación que influye en mi forma de entender la experiencia de usuario, la claridad y la estructura visual.',
+      title: 'Convertir ideas en interfaces sólidas.',
+      p1: 'Mi base es HTML y CSS. Ahí es donde empieza todo: estructura clara, semántica correcta y atención real a la accesibilidad. Desde esa base construyo componentes limpios y layouts que responden como deben en el mundo real. Trabajo con React y herramientas front-end modernas, siempre en colaboración estrecha con diseño y backend. Mi papel es traducir conceptos y mockups en código mantenible, escalable y fiel a la intención original.',
+      p2: 'El rendimiento y la usabilidad no son mejoras finales. Forman parte del planteamiento inicial. Pienso en jerarquía, en tiempos de carga, en cómo navega el usuario y en qué necesita en cada pantalla. ',
+      p3: 'Exploro también el desarrollo asistido por IA para optimizar procesos y crear soluciones más eficientes cuando aporta valor real.',
+      p4: 'He reforzado mi base técnica con un Bootcamp de Front-End centrado en React en IT Academy, un Bootcamp de Vue.js en CodeOp y formación en PHP y MySQL para comprender mejor la lógica de backend y el flujo de datos. Mi formación en Ciencias de la Comunicación influye directamente en mi manera de estructurar la información y entender la experiencia de usuario.',
       highlights: [
         {
           number: '01',
           title: 'Mobile First',
-          description: 'Diseño y desarrollo interfaces responsive, mobile-first, rápidas, claras y fáciles de usar en cualquier pantalla.',
+          description: 'Diseño interfaces responsive desde el móvil hacia arriba. Prioridad en claridad, rendimiento y facilidad de uso.',
         },
         {
           number: '02',
           title: 'Accesibilidad',
-          description: 'Creo interfaces accesibles con HTML semántico, estructura clara y atención real a los estándares WCAG.',
+          description: 'Trabajo con HTML semántico y estructuras claras, aplicando criterios WCAG para que la experiencia sea usable para más personas.',
         },
         {
           number: '03',
           title: 'Rendimiento y SEO',
-          description: 'Optimizo velocidad, estructura y semántica para mejorar rendimiento, visibilidad en buscadores y experiencia de usuario.',
+          description: 'Optimizo código, estructura y carga para mejorar velocidad, indexación y experiencia general.',
         },
         {
           number: '04',
           title: 'Código Limpio',
-          description: 'Escribo código mantenible y escalable siguiendo buenas prácticas y patrones probados.',
+          description: 'Escribo código claro, mantenible y preparado para crecer sin perder coherencia.',
         },
         {
           number: '05',
           title: 'Colaboración y visión UX/UI',
-          description: 'I work closely with design and backend teams to translate mockups into accurate, consistent, and functional interfaces. I bring a strong UX mindset, pay attention to visual detail, and keep the end user in mind in every technical decision.',
+          description: 'Colaboro de forma cercana con equipos de diseño y backend para transformar propuestas visuales en interfaces precisas, consistentes y funcionales. Cada decisión técnica tiene en cuenta al usuario final.',
         },
       ],
     },
@@ -348,10 +349,11 @@ export const translations = {
     contact: {
       label: 'CONTACTO',
       title: 'conectemos',
-      text: 'Si quieres colaborar, hablar de un proyecto o simplemente saludar, escríbeme directamente por',
+      text: 'Si quieres hablar de un proyecto o explorar una posible colaboración, puedes escribirme por',
       email: 'Email',
       linkedin: 'LinkedIn',
       ending: '.',
+      join: 'o contactarme en',
     },
     footer: {
       rights: 'Todos los derechos reservados.',

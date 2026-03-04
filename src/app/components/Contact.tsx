@@ -52,7 +52,7 @@ export function Contact() {
             aria-label="Email"
           >
             {t.contact.email}
-          </a> or <a
+          </a> {t.contact.join} <a
             href="https://www.linkedin.com/in/cristianasollini/"
             target="_blank"
             rel="noopener noreferrer"

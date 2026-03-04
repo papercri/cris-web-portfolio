@@ -215,8 +215,6 @@ export function Navbar() {
         </div>
       )}
 
-      {/* 3. SPACER: Importante para que el contenido no empiece debajo del nav fixed 
-      <div className="h-[70px] md:h-[74px]" /> */}
 
       {/* 4. DOWNLOAD DIALOG */}
       {isDownloadDialogOpen && (
