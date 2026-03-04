@@ -163,8 +163,36 @@ html.dark {
     scroll-margin-top: 4.3rem;
   }
   section#home {
-    padding-top: 90px!important;
+    padding-top: 120px!important;
   }
+  /* Scrolling text strip — always capped so it never takes over the screen */
+  section#home > div:last-child {
+    max-height: 20vh !important;
+    overflow: hidden !important;
+  }
+
+/* ─── Landscape orientation — mobile/tablet only (max 1024px) ── */
+@media (orientation: landscape) and (max-width: 1024px) {
+  section#home {
+    justify-content: flex-start !important;
+  }
+
+  /* Content + photo block: stays at the top, never grows */
+  section#home > div:first-child {
+    flex-shrink: 0 !important;
+    flex-grow: 0 !important;
+    align-self: flex-start !important;
+  }
+
+  /* Scrolling text: pushed all the way to the bottom */
+  section#home > div:last-child {
+    margin-top: auto !important;
+    flex-shrink: 0 !important;
+    flex-grow: 0 !important;
+    align-self: flex-end !important;
+    width: 100% !important;
+  }
+}
   h1 {
     font-family: 'DM Sans', system-ui, sans-serif;
     font-weight: 800;
@@ -410,4 +438,65 @@ html.dark {
     padding: 6px;
     max-width: 90%;
   }
+  section#home {
+    padding-top: 50px!important;
+  }
  } 
+
+/* ─── Very High Resolution screens (≥ 1920px) ───────────────────────────── */
+@media (min-width: 1920px) {
+
+  /* Scale up base font — every rem-sized element grows automatically */
+  :root {
+    --font-size: 22px;
+  }
+
+  /* Wider content containers */
+  .section-container {
+    max-width: 100rem;
+  }
+
+  /* ── Hero layout ── */
+  section#home {
+    padding-top: 140px !important;
+  }
+
+  /* Cap the scrolling strip so it never squeezes out — let flex-1 give it
+     what's left, but never more than 22vh */
+  section#home > div:last-child {
+    max-height: 22vh !important;
+    min-height: 10vh !important;
+    overflow: hidden !important;
+  }
+
+  /* Scale the marquee text to fill its container */
+  .marquee-track {
+    font-size: 100cqh !important;
+  }
+}
+
+/* ─── Ultra High Resolution / 4K screens (≥ 2560px) ─────────────────────── */
+@media (min-width: 2560px) {
+
+  :root {
+    --font-size: 26px;
+  }
+
+  .section-container {
+    max-width: 120rem;
+  }
+
+  section#home {
+    padding-top: 160px !important;
+  }
+
+  section#home > div:last-child {
+    max-height: 24vh !important;
+    min-height: 12vh !important;
+    overflow: hidden !important;
+  }
+
+  .marquee-track {
+    font-size: 100cqh !important;
+  }
+}

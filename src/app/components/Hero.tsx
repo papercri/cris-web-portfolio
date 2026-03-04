@@ -15,7 +15,7 @@ export function Hero() {
     >
       <div className="flex w-full justify-between flex-wrap lg:flex-nowrap max-w-7xl mx-auto ">
         <div className="w-full flex flex-col justify-start mx-auto relative lg:flex-[2_2_0%] min-w-0 items-end">
-        <div className="w-full flex flex-col justify-start py-5">
+        <div className="w-full flex flex-col justify-start sm:py-5 py-2">
           <motion.div
             className="section-label-row md:mb-12 mb-8"
             initial={{ opacity: 0, x: -40 }}

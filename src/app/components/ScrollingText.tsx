@@ -29,7 +29,7 @@ export function ScrollingText() {
         }
       `}</style>}
       <div className="w-full overflow-hidden bg-transparent select-none">
-        <div className={`${shouldReduceMotion ? 'flex flex-wrap justify-center' : 'marquee-track'} text-foreground text-[90vh] lg:text-[110cqh] font-extrabold tracking-wide items-center leading-[70%] uppercase`}>
+        <div className={`${shouldReduceMotion ? 'flex flex-wrap justify-center' : 'marquee-track'} text-foreground text-[90vh] lg:text-[140cqh] font-extrabold tracking-wide items-center leading-[70%] uppercase`}>
           <span className="flex items-center gap-0 pr-16">{line}</span>
           {!shouldReduceMotion && <span className="flex items-center gap-0 pr-16">{line}</span>}
           {!shouldReduceMotion && <span className="flex items-center gap-0 pr-16" aria-hidden>{line}</span>}
