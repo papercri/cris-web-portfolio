@@ -167,9 +167,38 @@ html.dark {
   }
   /* Scrolling text strip — always capped so it never takes over the screen */
   section#home > div:last-child {
-    max-height: 20vh !important;
+    max-height: 30vh !important;
+    min-height: 20vh !important;
     overflow: hidden !important;
+    flex-shrink: 0 !important;
   }
+
+/* ─── Short viewport heights (≤ 820px, desktop) — prevent slider clipping ── */
+@media (max-height: 820px) and (min-width: 1024px) {
+
+  section#home {
+    padding-top: 70px !important;
+    overflow: visible !important;
+  }
+
+  section#home > div:last-child {
+    max-height: 18vh !important;
+    min-height: 12vh !important;
+  }
+}
+
+/* ─── Very short viewports (≤ 680px height) ─────────────────────────────── */
+@media (max-height: 680px) and (min-width: 1024px) {
+
+  section#home {
+    padding-top: 50px !important;
+  }
+
+  section#home > div:last-child {
+    max-height: 14vh !important;
+    min-height: 10vh !important;
+  }
+}
 
 /* ─── Landscape orientation — mobile/tablet only (max 1024px) ── */
 @media (orientation: landscape) and (max-width: 1024px) {
@@ -443,33 +472,63 @@ html.dark {
   }
  } 
 
+/* ─── Desktop (≥ 1024px) — slider always pinned to bottom ───────────────── */
+@media (min-width: 1024px) {
+
+  /* space-between pushes the slider to the very bottom of the 100vh section */
+  section#home {
+    justify-content: space-between !important;
+  }
+
+  /* Content block must NOT grow — prevents it from eating the slider's space */
+  section#home > div:first-child {
+    flex-grow: 0 !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Slider must not grow either — space-between handles positioning */
+  section#home > div:last-child {
+    flex-grow: 0 !important;
+  }
+}
+
+/* ─── 2XL screens (≥ 1536px) — start scaling up ─────────────────────────── */
+@media (min-width: 1536px) {
+
+  :root {
+    --font-size: 18px;
+  }
+
+  section#home {
+    padding-top: 100px !important;
+  }
+
+  .section-base {
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
+  }
+}
+
 /* ─── Very High Resolution screens (≥ 1920px) ───────────────────────────── */
 @media (min-width: 1920px) {
 
-  /* Scale up base font — every rem-sized element grows automatically */
   :root {
     --font-size: 22px;
   }
 
-  /* Wider content containers */
   .section-container {
     max-width: 100rem;
   }
 
-  /* ── Hero layout ── */
   section#home {
-    padding-top: 140px !important;
+    padding-top: 120px !important;
   }
 
-  /* Cap the scrolling strip so it never squeezes out — let flex-1 give it
-     what's left, but never more than 22vh */
   section#home > div:last-child {
-    max-height: 22vh !important;
-    min-height: 10vh !important;
-    overflow: hidden !important;
+    max-height: 32vh !important;
+    min-height: 22vh !important;
   }
 
-  /* Scale the marquee text to fill its container */
   .marquee-track {
     font-size: 100cqh !important;
   }
@@ -491,9 +550,8 @@ html.dark {
   }
 
   section#home > div:last-child {
-    max-height: 24vh !important;
-    min-height: 12vh !important;
-    overflow: hidden !important;
+    max-height: 35vh !important;
+    min-height: 25vh !important;
   }
 
   .marquee-track {
