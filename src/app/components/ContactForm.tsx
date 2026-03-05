@@ -97,9 +97,9 @@ export default function ContactForm() {
       'placeholder:text-background/30 ' +
       'focus:outline-none transition-[border-color,background-color] duration-300 ' +
       (hasError(id)
-        ? ' border-red-500 focus:border-red-400'
+        ? ' focus:border-red-400'
         : isValid(id)
-          ? ' border-emerald-400 focus:border-emerald-300'
+          ? 'focus:border-emerald-300'
           : filled
             ? 'bg-transparent border-background/40 focus:border-background/70'
             : 'bg-transparent border-background/20 focus:border-background/60')
