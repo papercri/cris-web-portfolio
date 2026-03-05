@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 import { useI18n } from '../i18n';
 import { ease } from '../lib/animation';
 
@@ -35,33 +36,36 @@ export function Footer() {
         </motion.p>
 
         <motion.div
-          className="flex items-center gap-6"
+          className="flex items-center gap-5"
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={VP}
           transition={{ duration: 0.7, ease, delay: 0.15 }}
         >
           <a
-            href="https://github.com/papercri"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="link-small focus-ring link-anim"
+            href="mailto:cristiana.sollini@gmail.com"
+            aria-label={t.footer.email}
+            className="text-foreground/40 hover:text-foreground transition-colors focus-ring"
           >
-            {t.footer.github}
+            <Mail className="w-4 h-4" />
           </a>
           <a
             href="https://www.linkedin.com/in/cristianasollini/"
             target="_blank"
             rel="noopener noreferrer"
-            className="link-small focus-ring link-anim"
+            aria-label={t.footer.linkedin}
+            className="text-foreground/40 hover:text-foreground transition-colors focus-ring"
           >
-            {t.footer.linkedin}
+            <Linkedin className="w-4 h-4" />
           </a>
           <a
-            href="mailto:cristiana.sollini@gmail.com"
-            className="link-small focus-ring link-anim"
+            href="https://github.com/papercri"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={t.footer.github}
+            className="text-foreground/40 hover:text-foreground transition-colors focus-ring"
           >
-            {t.footer.email}
+            <Github className="w-4 h-4" />
           </a>
         </motion.div>
       </div>

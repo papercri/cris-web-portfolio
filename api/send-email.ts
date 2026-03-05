@@ -75,7 +75,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       from: `"${name}" <${process.env.EMAIL_USER}>`,
       to: process.env.EMAIL_USER,
       replyTo: email,
-      subject: `🚀 Web Contact: ${name}`,
+      subject: `Mensaje desde tu Web: ${name}`,
       text: `From: ${name} (${email})\n\n${message}`,
       html: `
         <div style="font-family: sans-serif; color: #333; max-width: 600px; border: 1px solid #eee; padding: 20px;">
