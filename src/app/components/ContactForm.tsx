@@ -9,6 +9,9 @@ type Errors = Partial<Record<keyof Fields, string>>;
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const COOLDOWN_MS = 60_000;
+const MAX_NAME    = 100;
+const MAX_EMAIL   = 200;
+const MAX_MESSAGE = 2000;
 
 export default function ContactForm() {
   const { t } = useI18n();
@@ -23,9 +26,9 @@ export default function ContactForm() {
 
   const validate = (v: Fields): Errors => {
     const e: Errors = {};
-    if (!v.name.trim())          e.name    = f.nameError;
-    if (!EMAIL_RE.test(v.email)) e.email   = f.emailError;
-    if (!v.message.trim())       e.message = f.messageError;
+    if (!v.name.trim() || v.name.trim().length < 2) e.name    = f.nameError;
+    if (!EMAIL_RE.test(v.email))                    e.email   = f.emailError;
+    if (!v.message.trim() || v.message.trim().length < 5) e.message = f.messageError;
     return e;
   };
 
@@ -81,30 +84,30 @@ export default function ContactForm() {
   };
 
   const topFields = [
-    { id: 'name'  as const, label: f.nameLabel,  type: 'text',  placeholder: f.namePlaceholder },
-    { id: 'email' as const, label: f.emailLabel, type: 'email', placeholder: f.emailPlaceholder },
+    { id: 'name'  as const, label: f.nameLabel,  type: 'text',  placeholder: f.namePlaceholder,  maxLength: MAX_NAME },
+    { id: 'email' as const, label: f.emailLabel, type: 'email', placeholder: f.emailPlaceholder, maxLength: MAX_EMAIL },
   ];
 
   const inputCls = (id: keyof Fields) => {
     const filled = values[id].trim() !== '';
     return (
-      'w-full px-5 py-[14px] pr-12 text-background text-base border ' +
+      'w-full px-3 py-2  text-background text-base border ' +
       'placeholder:text-background/30 ' +
       'focus:outline-none transition-[border-color,background-color] duration-300 ' +
       (hasError(id)
-        ? 'bg-red-500/10 border-red-500 focus:border-red-400'
+        ? ' border-red-500 focus:border-red-400'
         : isValid(id)
-          ? 'bg-emerald-500/10 border-emerald-400 focus:border-emerald-300'
+          ? ' border-emerald-400 focus:border-emerald-300'
           : filled
             ? 'bg-transparent border-background/40 focus:border-background/70'
-            : 'bg-transparent border-background/20 focus:border-background/60 focus:bg-white/[0.06]')
+            : 'bg-transparent border-background/20 focus:border-background/60')
     );
   };
 
-  const labelCls = 'block mb-2 text-[0.68rem] font-bold tracking-[0.15em] uppercase text-background/40';
+  const labelCls = 'block mb-1 text-[0.8rem] font-bold tracking-[0.15em] uppercase text-background/60';
   /* Fixed-height error slot — always rendered to prevent layout shift */
   const ErrorSlot = ({ id, isMsg = false }: { id: keyof Fields; isMsg?: boolean }) => (
-    <div className="h-5 mt-1.5" aria-live="polite">
+    <div className="h-5 mt-1" aria-live="polite">
       <AnimatePresence>
         {hasError(id) && (
           <motion.p
@@ -123,7 +126,7 @@ export default function ContactForm() {
 
   return (
     <>
-      <form onSubmit={enviarMail} className="space-y-6" noValidate>
+      <form onSubmit={enviarMail} className="space-y-1" noValidate>
 
         {/* Honeypot */}
         <input
@@ -141,12 +144,13 @@ export default function ContactForm() {
             transition={{ duration: 0.65, delay: 0.08 + i * 0.1, ease }}
           >
             <label htmlFor={field.id} className={labelCls}>{field.label}</label>
-            <div className="relative">
+            <div className="relative max-w-[500px] lg:max-w-none">
               <input
                 type={field.type} id={field.id} name={field.id}
                 value={values[field.id]}
                 onChange={handleChange}
                 placeholder={field.placeholder}
+                maxLength={field.maxLength}
                 aria-invalid={hasError(field.id)}
                 aria-describedby={`${field.id}-error`}
                 className={inputCls(field.id)}
@@ -175,12 +179,13 @@ export default function ContactForm() {
           transition={{ duration: 0.65, delay: 0.28, ease }}
         >
           <label htmlFor="message" className={labelCls}>{f.messageLabel}</label>
-          <div className="relative">
+          <div className="relative max-w-[500px] lg:max-w-none">
             <textarea
               id="message" name="message"
               value={values.message}
               onChange={handleChange}
               rows={5} placeholder={f.messagePlaceholder}
+              maxLength={MAX_MESSAGE}
               aria-invalid={hasError('message')}
               aria-describedby="message-error"
               className={`${inputCls('message')} resize-none`}
@@ -202,7 +207,7 @@ export default function ContactForm() {
 
         {/* Submit */}
         <motion.div
-          className="pt-2"
+          className=""
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={VP2}
@@ -212,7 +217,7 @@ export default function ContactForm() {
             type="submit"
             disabled={enviando}
             className={
-              'inline-flex items-center gap-2.5 px-10 py-5 ' +
+              'inline-flex items-center gap-2 px-5 py-3 ' +
               'bg-white text-[#1A1A1A] text-sm font-bold tracking-[0.12em] uppercase ' +
               'border border-white ' +
               'disabled:opacity-40 disabled:cursor-not-allowed'

@@ -31,13 +31,13 @@ export function Contact() {
         </motion.div>
 
         {/* Two-column layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-24 w-full">
 
           {/* Left — copy + links */}
           <div className="flex flex-col">
             <motion.h2
               id="contact-title"
-              className="text-5xl md:text-7xl font-extrabold tracking-tight text-background leading-[0.95] mb-10 [text-wrap:balance]"
+              className="text-5xl md:text-8xl font-extrabold tracking-tight text-background leading-[0.95] md:mb-10 mb-4 [text-wrap:balance]"
               initial={{ opacity: 0, x: -80 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={VP}
@@ -52,7 +52,7 @@ export function Contact() {
             </motion.h2>
 
             <motion.p
-              className="text-background/45 text-base md:text-lg leading-relaxed mb-auto max-w-xs"
+              className="text-background/45 text-base lg:text-lg leading-relaxed mb-auto lg:max-w-xs max-w-none"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={VP2}
@@ -63,7 +63,7 @@ export function Contact() {
 
             {/* Icon-only social links */}
             <motion.div
-              className="flex items-center gap-5 mt-14 pt-8 border-t border-background/10"
+              className="flex items-center gap-5 lg:mt-14 pt-8 lg:border-t border-background/10"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={VP2}
