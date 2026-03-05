@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { Check, Loader2, X } from 'lucide-react';
 import { useI18n } from '../i18n';
@@ -23,6 +23,14 @@ export default function ContactForm() {
   const [enviando, setEnviando] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const lastSent = useRef<number>(0);
+
+  // Cerrar modal con Escape
+  useEffect(() => {
+    if (!showModal) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setShowModal(false); };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [showModal]);
 
   const validate = (v: Fields): Errors => {
     const e: Errors = {};
@@ -84,8 +92,8 @@ export default function ContactForm() {
   };
 
   const topFields = [
-    { id: 'name'  as const, label: f.nameLabel,  type: 'text',  placeholder: f.namePlaceholder,  maxLength: MAX_NAME },
-    { id: 'email' as const, label: f.emailLabel, type: 'email', placeholder: f.emailPlaceholder, maxLength: MAX_EMAIL },
+    { id: 'name'  as const, label: f.nameLabel,  type: 'text',  placeholder: f.namePlaceholder,  maxLength: MAX_NAME,  autoComplete: 'name' },
+    { id: 'email' as const, label: f.emailLabel, type: 'email', placeholder: f.emailPlaceholder, maxLength: MAX_EMAIL, autoComplete: 'email' },
   ];
 
   const inputCls = (id: keyof Fields) => {
@@ -105,14 +113,17 @@ export default function ContactForm() {
   };
 
   const labelCls = 'block mb-1 text-[0.8rem] font-bold tracking-[0.15em] uppercase text-background/60';
-  /* Fixed-height error slot — always rendered to prevent layout shift */
+  /* Fixed-height error slot — id on outer div so aria-describedby always resolves */
   const ErrorSlot = ({ id, isMsg = false }: { id: keyof Fields; isMsg?: boolean }) => (
-    <div className="h-5 mt-1" aria-live="polite">
+    <div
+      id={isMsg ? 'message-error' : `${id}-error`}
+      className="h-5 mt-1"
+      aria-live="assertive"
+      aria-atomic="true"
+    >
       <AnimatePresence>
         {hasError(id) && (
           <motion.p
-            id={isMsg ? 'message-error' : `${id}-error`}
-            role="alert"
             className="text-xs font-bold text-red-500 leading-5"
             initial={{ opacity: 0 }} animate={{ opacity: 1 }}
             exit={{ opacity: 0 }} transition={{ duration: 0.15 }}
@@ -151,6 +162,9 @@ export default function ContactForm() {
                 onChange={handleChange}
                 placeholder={field.placeholder}
                 maxLength={field.maxLength}
+                autoComplete={field.autoComplete}
+                required
+                aria-required="true"
                 aria-invalid={hasError(field.id)}
                 aria-describedby={`${field.id}-error`}
                 className={inputCls(field.id)}
@@ -186,6 +200,9 @@ export default function ContactForm() {
               onChange={handleChange}
               rows={5} placeholder={f.messagePlaceholder}
               maxLength={MAX_MESSAGE}
+              autoComplete="off"
+              required
+              aria-required="true"
               aria-invalid={hasError('message')}
               aria-describedby="message-error"
               className={`${inputCls('message')} resize-none`}
@@ -216,6 +233,8 @@ export default function ContactForm() {
           <motion.button
             type="submit"
             disabled={enviando}
+            aria-busy={enviando}
+            aria-label={enviando ? f.sending : f.submit}
             className={
               'inline-flex items-center gap-2 px-5 py-3 ' +
               'bg-white text-[#1A1A1A] text-sm font-bold tracking-[0.12em] uppercase ' +
@@ -278,6 +297,7 @@ export default function ContactForm() {
 
               <button
                 onClick={() => setShowModal(false)}
+                autoFocus
                 className={
                   'px-8 py-3 bg-white text-[#111] text-xs font-bold tracking-[0.12em] uppercase ' +
                   'border border-white transition-[background-color,color] duration-300 ' +

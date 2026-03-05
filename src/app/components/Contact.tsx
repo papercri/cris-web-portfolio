@@ -18,7 +18,7 @@ export function Contact() {
 
         {/* Section label */}
         <motion.div
-          className="section-label-row mb-16"
+          className="section-label-row lg:mb-16 mb-4"
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={VP}
