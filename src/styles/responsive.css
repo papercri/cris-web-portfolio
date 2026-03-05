@@ -86,24 +86,6 @@ section#home > div:last-child {
 }
 }
 
-/* @media (min-width: 1024px) {
-
-
-section#home {
-    justify-content: space-between !important;
-}
-
-
-section#home > div:first-child {
-    flex-grow: 0 !important;
-    flex-shrink: 0 !important;
-}
-
-
-section#home > div:last-child {
-    flex-grow: 0 !important;
-}
-} */
 
 /* ─── Very High Resolution screens (≥ 1980px) ───────────────────────────── */
 @media (min-width: 1980px) {

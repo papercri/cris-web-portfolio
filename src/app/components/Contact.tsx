@@ -30,10 +30,8 @@ export function Contact() {
           </span>
         </motion.div>
 
-        {/* Two-column layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-24 w-full">
 
-          {/* Left — copy + links */}
           <div className="flex flex-col">
             <motion.h2
               id="contact-title"
@@ -52,7 +50,7 @@ export function Contact() {
             </motion.h2>
 
             <motion.p
-              className="text-background/45 text-base lg:text-lg leading-relaxed mb-auto lg:max-w-xs max-w-none"
+              className="text-background/65 text-base lg:text-lg leading-relaxed mb-auto lg:max-w-xs max-w-none"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={VP2}
@@ -61,9 +59,8 @@ export function Contact() {
               {t.contact.text}
             </motion.p>
 
-            {/* Icon-only social links */}
             <motion.div
-              className="flex items-center gap-5 lg:mt-14 pt-8 lg:border-t border-background/10"
+              className="hidden md:flex items-center gap-5 lg:mt-14 pt-8 lg:border-t border-background/10"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={VP2}
@@ -97,8 +94,40 @@ export function Contact() {
             </motion.div>
           </div>
 
-          {/* Right — form */}
           <ContactForm />
+          <motion.div
+              className="flex md:hidden items-center gap-5 lg:mt-14 pt-8 lg:border-t border-background/10"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={VP2}
+              transition={{ duration: 0.7, ease, delay: 0.32 }}
+            >
+              <a
+                href="mailto:cristiana.sollini@gmail.com"
+                aria-label="Email"
+                className="group flex items-center justify-center w-11 h-11 rounded-full border border-background/15 text-background/50 hover:text-background hover:border-background/50 transition-all duration-200 focus-ring-inv"
+              >
+                <Mail className="w-5 h-5" aria-hidden="true" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/cristianasollini/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="group flex items-center justify-center w-11 h-11 rounded-full border border-background/15 text-background/50 hover:text-background hover:border-background/50 transition-all duration-200 focus-ring-inv"
+              >
+                <Linkedin className="w-5 h-5" aria-hidden="true" />
+              </a>
+              <a
+                href="https://github.com/papercri"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                className="group flex items-center justify-center w-11 h-11 rounded-full border border-background/15 text-background/50 hover:text-background hover:border-background/50 transition-all duration-200 focus-ring-inv"
+              >
+                <Github className="w-5 h-5" aria-hidden="true" />
+              </a>
+            </motion.div>
         </div>
       </div>
     </section>

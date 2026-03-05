@@ -110,7 +110,7 @@ export default function ContactForm() {
   const ErrorSlot = ({ id, isMsg = false }: { id: keyof Fields; isMsg?: boolean }) => (
     <div
       id={isMsg ? 'message-error' : `${id}-error`}
-      className="h-5 mt-1"
+      className="h-5"
       aria-live="assertive"
       aria-atomic="true"
     >
@@ -186,7 +186,7 @@ export default function ContactForm() {
           transition={{ duration: 0.65, delay: 0.28, ease }}
         >
           <label htmlFor="message" className={labelCls}>{f.messageLabel}</label>
-          <div className="relative max-w-[500px] lg:max-w-none">
+          <div className="relative max-w-[500px] lg:max-w-none text-[0] leading-[0]">
             <textarea
               id="message" name="message"
               value={values.message}
@@ -217,7 +217,7 @@ export default function ContactForm() {
 
         {/* Submit */}
         <motion.div
-          className=""
+          className="mt-2"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={VP2}
@@ -229,7 +229,7 @@ export default function ContactForm() {
             aria-busy={enviando}
             aria-label={enviando ? f.sending : f.submit}
             className={
-              'inline-flex items-center gap-2 px-5 py-3 ' +
+              'inline-flex items-center px-5 py-3 ' +
               'bg-white text-[#1A1A1A] text-sm font-bold tracking-[0.12em] uppercase ' +
               'border border-white ' +
               'disabled:opacity-40 disabled:cursor-not-allowed'
