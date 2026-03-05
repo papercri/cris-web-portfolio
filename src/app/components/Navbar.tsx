@@ -22,7 +22,7 @@ export function Navbar() {
 
   const handleDownloadCv = () => {
     const link = document.createElement('a');
-    const cvPath = locale === 'es' ? '/CV-ES-Cristiana-Sollini.pdf' : locale === 'it' ? '/CV-IT-min-Cristiana-Sollini.pdf' : '/CV-EN-Cristiana-Sollini.pdf';
+    const cvPath = locale === 'es' ? '/CV-ES-Cristiana-Sollini.pdf' : locale === 'it' ? '/CV-IT-Cristiana-Sollini.pdf' : '/CV-EN-Cristiana-Sollini.pdf';
     link.href = cvPath;
     link.download = cvPath.split('/').pop() || 'CV.pdf';
     document.body.appendChild(link);

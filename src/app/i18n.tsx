@@ -405,7 +405,7 @@ export const translations = {
   it: {
     seo: {
       title: 'Cristiana Sollini | Portfolio Front-End Developer',
-      description: 'Portfolio di sviluppo front-end focalizzato su accessibilità, prestazioni e SEO, realizzato con React e strumenti moderni.',
+      description: 'Sviluppo front-end focalizzato su accessibilità, prestazioni e SEO, realizzato con React e strumenti moderni.',
     },
     nav: {
       home: 'HOME',
@@ -424,33 +424,33 @@ export const translations = {
     },
     hero: {
       eyebrow: 'FRONT END DEVELOPER · BARCELLONA, SPAGNA',
-      bio: 'Creo esperienze digitali veloci, accessibili e visivamente chiare. Nel tempo mi sono concentrata sulla realizzazione di interfacce che non solo risultano belle, ma che siano intuitive e coerenti su qualsiasi dispositivo.',
+      bio: 'Creo esperienze digitali veloci, accessibili e visivamente chiare. Mi concentro sulla realizzazione di interfacce non solo esteticamente gradevoli, ma intuitive e coerenti su qualsiasi dispositivo.',
     },
     scrolling: {
       items: ['Sviluppo FrontEnd', '/ ', 'UX/UI & Accessibilità Web', '/ ', 'React', '/ ', 'Next.js', '/ ', 'Vue.js', '/ ', 'HTML & CSS', '/ '],
     },
     about: {
       label: 'CHI SONO',
-      title: 'Trasformare idee\nin interfacce solide.',
-      p1: 'La mia base è l\'HTML e il CSS. Da lì costruisco componenti puliti e layout che funzionano davvero nel mondo reale. Lavoro con React e strumenti front-end moderni, in stretta collaborazione con i team di design e backend per tradurre concetti complessi in codice manutenibile e scalabile.',
-      p2: 'Le prestazioni e l\'usabilità non sono un pensiero finale nel mio lavoro, ma fanno parte delle fondamenta. Presto attenzione alla gerarchia visiva, ai tempi di caricamento e alle esigenze dell\'utente in ogni schermata.',
-      p3: 'Esploro anche lo sviluppo assistito dall\'AI per ottimizzare i flussi di lavoro e costruire interfacce più intelligenti quando ha senso farlo.',
-      p4: 'Ho consolidato la mia base tecnica con un Bootcamp di Front-End focalizzato su React presso IT Academy, un Bootcamp di Vue.js presso CodeOp e un corso di PHP e MySQL per comprendere meglio la logica backend e il flusso dei dati. La mia laurea in Scienze della Comunicazione mi guida nell\'approccio alla UX, alla chiarezza e alla struttura visiva.',
+      title: 'Trasformo idee\nin interfacce solide.',
+      p1: 'La mia base è l’HTML e il CSS. Da qui costruisco componenti puliti e layout che funzionano nel mondo reale. Lavoro con React e strumenti moderni di front-end, collaborando a stretto contatto con designer e team backend per trasformare concetti complessi in codice chiaro, manutenibile e scalabile.',
+      p2: 'Prestazioni e usabilità non sono un pensiero finale, ma parte delle fondamenta: curo la gerarchia visiva, i tempi di caricamento e le esigenze dell’utente in ogni schermata.',
+      p3: 'Sperimentando lo sviluppo assistito dall’AI, ottimizzo flussi di lavoro e creo interfacce più intelligenti quando ha senso farlo.',
+      p4: 'Ho consolidato la mia base tecnica con un Bootcamp di Front-End focalizzato su React presso IT Academy, un Bootcamp di Vue.js presso CodeOp e un corso di PHP e MySQL per comprendere meglio la logica backend e il flusso dei dati. La laurea in Scienze della Comunicazione guida il mio approccio alla UX, alla chiarezza e alla struttura visiva.',
       highlights: [
         {
           number: '01',
           title: 'Mobile First',
-          description: 'Progetto e sviluppo interfacce responsive mobile-first che siano veloci, chiare e facili da usare su qualsiasi schermo.',
+          description: 'Progetto interfacce responsive mobile-first, rapide e semplici da usare su qualsiasi schermo.',
         },
         {
           number: '02',
           title: 'Accessibilità',
-          description: 'Creo interfacce accessibili con HTML semantico, struttura chiara e grande attenzione agli standard WCAG.',
+          description: 'Creo interfacce accessibili con HTML semantico e attenzione agli standard WCAG.',
         },
         {
           number: '03',
           title: 'Prestazioni & SEO',
-          description: 'Ottimizo velocità, struttura e markup semantico per migliorare prestazioni, visibilità sui motori di ricerca ed esperienza utente.',
+          description: 'Ottimizzo velocità, struttura e markup per migliorare prestazioni, visibilità e esperienza utente.',
         },
         {
           number: '04',
@@ -459,14 +459,14 @@ export const translations = {
         },
         {
           number: '05',
-          title: 'Collaborazione e visione UX/UI',
-          description: 'Collaboro a stretto contatto con team di design e backend per tradurre mockup in interfacce precise, coerenti e funzionali. Porto una forte mentalità UX e tengo sempre presente l\'utente finale in ogni decisione tecnica.',
+          title: 'Collaborazione e UX/UI',
+          description: 'Trasformo mockup in interfacce precise e funzionali, portando una forte mentalità UX e tenendo sempre l’utente finale al centro.',
         },
       ],
     },
     skills: {
       label: 'SKILLS & EXPERTISE',
-      title: 'Con cosa lavoro ogni giorno.',
+      title: 'Tecnologie che uso ogni giorno',
       categories: [
         { category: 'Frontend', skills: ['HTML & CSS', 'LESS', 'SASS', 'Tailwind', 'Bootstrap'] },
         { category: 'JS & Framework', skills: ['JavaScript', 'TypeScript', 'React', 'Next.js', 'Vue.js'] },
@@ -514,11 +514,11 @@ export const translations = {
           title: 'Prompt Composer',
           imageUrl: '/prompt-composer.jpg',
           description:
-            'Strumento online per costruire e organizzare prompt. Gli utenti possono creare, organizzare e salvare modelli di prompt in cartelle, con archiviazione cloud dopo l\'accesso con un account.',
+            'Strumento online per creare e organizzare prompt. Gli utenti possono costruire, classificare e salvare modelli di prompt in cartelle, con archiviazione cloud tramite il proprio account Google.',
           highlights: [
-            'Salvataggio cloud e organizzazione in cartelle per gestire i modelli di prompt nel tempo.',
-            'Accesso semplice con Google per archiviare e gestire i prompt personali.',
-            'Focus sulla riutilizzabilità per velocizzare la scrittura e l\'iterazione dei prompt.',
+            'Salvataggio cloud e organizzazione in cartelle per gestire i modelli nel tempo.',
+            'Accesso semplice con Google per archiviare e gestire i propri prompt.',
+            'Focus sulla riutilizzabilità per velocizzare la scrittura e l’iterazione dei prompt.',
           ],
           tags: ['NEXT', 'TAILWIND', 'TYPESCRIPT', 'FIREBASE', 'GOOGLE AUTH'],
           liveUrl: 'https://prompt-composer-ai.vercel.app/',
@@ -528,7 +528,7 @@ export const translations = {
     },
     contact: {
       label: 'CONTATTI',
-      title: 'parliamoci',
+      title: 'Contattami',
       text: 'Sempre aperta a nuovi progetti e collaborazioni. Se hai una domanda o un\'idea, scrivimi.',
       email: 'Email',
       linkedin: 'LinkedIn',
@@ -540,7 +540,7 @@ export const translations = {
         emailLabel: 'Email',
         emailPlaceholder: 'tua@email.com',
         messageLabel: 'Messaggio',
-        messagePlaceholder: 'Raccontami del tuo progetto...',
+        messagePlaceholder: 'Scrivi il tuo messaggio...',
         submit: 'Invia messaggio',
         sending: 'Invio in corso...',
         success: 'Messaggio inviato!',
