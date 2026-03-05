@@ -31,7 +31,7 @@ export function Hero() {
           <div className="md:mb-10 mb-4">
             <motion.h1
               id="hero-title"
-              className="text-[clamp(3.5rem,9vw,8rem)] leading-none font-extrabold tracking-normal text-foreground"
+              className="text-[clamp(3.5rem,9vw,7rem)] leading-none font-extrabold tracking-normal text-foreground"
               aria-label="Cristiana Sollini"
             >
               <motion.span
@@ -54,7 +54,7 @@ export function Hero() {
           </div>
           <div className="relative z-10 flex flex-wrap items-end gap-8 w-full 2xl:flex-nowrap 2xl:gap-24 justify-start">
             <motion.p
-              className="text-lg text-foreground/80 max-w-md leading-relaxed font-light"
+              className="text-lg text-foreground/80 max-w-lg leading-relaxed font-light"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.9, delay: 0.32, ease }}

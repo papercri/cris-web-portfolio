@@ -196,7 +196,7 @@ input, input:valid {
 @media (max-height: 820px) and (min-width: 1024px) {
 
   section#home {
-    padding-top: 70px !important;
+  
     overflow: visible !important;
   }
 
