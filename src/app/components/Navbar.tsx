@@ -159,8 +159,6 @@ export function Navbar() {
               <button onClick={toggleDark} className={`inline-flex p-2 text-foreground/60 hover:text-foreground ${buttonBlurHover}`} aria-label="Toggle dark mode">
                 {isDark ? <Sun className="w-4 h-4" aria-hidden="true" /> : <Moon className="w-4 h-4" aria-hidden="true" />}
               </button>
-
-              {/* BOTÓN MENÚ MÓVIL: Siempre visible porque el nav tiene z-100 */}
               <button
                 type="button"
                 className="md:hidden p-2 text-foreground z-[110]" 
@@ -173,8 +171,6 @@ export function Navbar() {
           </div>
         </div>
       </nav>
-
-      {/* MENÚ MÓVIL: z-[90] para que el nav (X) quede encima */}
       {isOpen && (
         <div
           id={mobileMenuId}
@@ -207,7 +203,7 @@ export function Navbar() {
       {/* DOWNLOAD DIALOG */}
       {isDownloadDialogOpen && (
         <div
-          className="fixed inset-0 z-[200] flex items-center justify-center bg-black/50 px-4"
+          className="fixed inset-0 z-[200] flex items-center justify-center bg-black/70 px-4"
           onClick={() => setIsDownloadDialogOpen(false)}
         >
           <div
@@ -215,7 +211,7 @@ export function Navbar() {
             aria-modal="true"
             aria-labelledby={dialogTitleId}
             aria-describedby={dialogDescId}
-            className="w-full max-w-md rounded-lg border border-foreground/15 bg-background p-6 shadow-lg"
+            className="w-full max-w-md rounded-lg border border-foreground/35 bg-background p-6 shadow-lg"
             onClick={(e) => e.stopPropagation()}
           >
             <h3 id={dialogTitleId} className="text-lg font-semibold text-foreground">
