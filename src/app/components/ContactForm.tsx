@@ -1,8 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { Check, Loader2, X } from 'lucide-react';
+import { Check, Loader2 } from 'lucide-react';
 import { useI18n } from '../i18n';
 import { ease, VP2 } from '../lib/animation';
+import { DarkModal } from './ui/DarkModal';
 
 type Fields = { name: string; email: string; message: string };
 type Errors = Partial<Record<keyof Fields, string>>;
@@ -23,14 +24,6 @@ export default function ContactForm() {
   const [enviando, setEnviando] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const lastSent = useRef<number>(0);
-
-  // Cerrar modal con Escape
-  useEffect(() => {
-    if (!showModal) return;
-    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setShowModal(false); };
-    document.addEventListener('keydown', onKey);
-    return () => document.removeEventListener('keydown', onKey);
-  }, [showModal]);
 
   const validate = (v: Fields): Errors => {
     const e: Errors = {};
@@ -253,63 +246,28 @@ export default function ContactForm() {
       </form>
 
       {/* ── Success Modal ── */}
-      <AnimatePresence>
-        {showModal && (
-          <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center p-6"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
-          >
-            <motion.div
-              className="absolute inset-0 bg-black/70 backdrop-blur-sm"
-              onClick={() => setShowModal(false)}
-            />
-            <motion.div
-              role="dialog"
-              aria-modal="true"
-              aria-labelledby="modal-title"
-              className="relative z-10 bg-[#111] border border-white/10 p-10 max-w-sm w-full text-center"
-              initial={{ opacity: 0, y: 28, scale: 0.96 }}
-              animate={{ opacity: 1, y: 0,  scale: 1 }}
-              exit={{    opacity: 0, y: 16, scale: 0.96 }}
-              transition={{ duration: 0.3, ease }}
-            >
-              <button
-                onClick={() => setShowModal(false)}
-                className="absolute top-4 right-4 text-white/25 hover:text-white/70 transition-colors"
-                aria-label={f.modalClose}
-              >
-                <X className="w-4 h-4" />
-              </button>
-
-              <div className="mx-auto mb-7 w-14 h-14 rounded-full border border-emerald-400/25 flex items-center justify-center">
-                <Check className="w-6 h-6 text-emerald-400" aria-hidden="true" />
-              </div>
-
-              <h3 id="modal-title" className="text-white text-xl font-extrabold tracking-tight mb-3">
-                {f.modalTitle}
-              </h3>
-              <p className="text-white/45 text-sm leading-relaxed mb-8">
-                {f.modalText}
-              </p>
-
-              <button
-                onClick={() => setShowModal(false)}
-                autoFocus
-                className={
-                  'px-8 py-3 bg-white text-[#111] text-xs font-bold tracking-[0.12em] uppercase ' +
-                  'border border-white transition-[background-color,color] duration-300 ' +
-                  'hover:bg-transparent hover:text-white'
-                }
-              >
-                {f.modalClose}
-              </button>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <DarkModal
+        open={showModal}
+        onClose={() => setShowModal(false)}
+        titleId="modal-title"
+        icon={<Check className="w-6 h-6 text-emerald-400" aria-hidden="true" />}
+        iconBorderClass="border-emerald-400/25"
+        title={f.modalTitle}
+        description={f.modalText}
+        closeLabel={f.modalClose}
+      >
+        <button
+          onClick={() => setShowModal(false)}
+          autoFocus
+          className={
+            'px-8 py-3 bg-white text-[#111] text-xs font-bold tracking-[0.12em] uppercase ' +
+            'border border-white transition-[background-color,color] duration-300 ' +
+            'hover:bg-transparent hover:text-white'
+          }
+        >
+          {f.modalClose}
+        </button>
+      </DarkModal>
     </>
   );
 }

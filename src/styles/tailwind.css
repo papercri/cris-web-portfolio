@@ -3,6 +3,7 @@
 @source '../app/components/About.tsx';
 @source '../app/components/Contact.tsx';
 @source '../app/components/ContactForm.tsx';
+@source '../app/components/ui/DarkModal.tsx';
 @source '../app/components/CustomCursor.tsx';
 @source '../app/components/Footer.tsx';
 @source '../app/components/Hero.tsx';
