@@ -31,7 +31,7 @@ export function Hero() {
           <div className="md:mb-10 mb-4">
             <motion.h1
               id="hero-title"
-              className="text-[clamp(3.5rem,9vw,7rem)] leading-none font-extrabold tracking-normal text-foreground"
+              className="text-[clamp(3.5rem,9vw,8rem)] leading-none font-extrabold tracking-normal text-foreground"
               aria-label="Cristiana Sollini"
             >
               <motion.span
