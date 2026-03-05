@@ -13,7 +13,7 @@ export function Projects() {
       <div className="section-container">
         <h2 id="projects-title" className="sr-only">{t.nav.projects}</h2>
         <motion.div
-          className="sm:sticky sm:top-20 sm:z-30 bg-background/10 sm:py-5 flex flex-wrap items-center gap-4 md:gap-6 backdrop-blur-sm"
+          className="sm:sticky sm:top-18 sm:z-30 bg-background/95 sm:py-5 flex flex-wrap items-center gap-4 md:gap-6 "
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={VP}
@@ -42,7 +42,7 @@ export function Projects() {
             <motion.div
               key={index}
               id={project.id}
-              className="group min-h-[100svh] flex items-start py-8 scroll-mt-40 border-foreground/10 "
+              className="group min-h-[100svh] flex items-start py-8 scroll-mt-40 border-t border-foreground/10 sm:border-t-0 first:border-t-0 "
               initial={{ opacity: 0, x: -70 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={VP2}

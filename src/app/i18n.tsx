@@ -202,7 +202,7 @@ export const translations = {
     contact: {
       label: 'CONTACT',
       title: 'let’s\nconnect',
-      text: 'Always open to interesting projects and great collaborations. Whether you have a question or just want to say hi — reach out.',
+      text: 'Always open to new projects and collaborations. If you have a question or an idea, feel free to write.',
       email: 'Email',
       linkedin: 'LinkedIn',
       ending: '.',
@@ -364,7 +364,7 @@ export const translations = {
     contact: {
       label: 'CONTACTO',
       title: 'conectemos',
-      text: 'Siempre abierta a proyectos interesantes y colaboraciones. Si tienes una pregunta o simplemente quieres saludar — escríbeme.',
+      text: 'Siempre abierta a nuevos proyectos y colaboraciones. Si tienes una pregunta o una idea, escríbeme.',
       email: 'Email',
       linkedin: 'LinkedIn',
       ending: '.',

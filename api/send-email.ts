@@ -1,7 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import nodemailer from 'nodemailer';
 
-// ── Rate limit: 2 requests / 60s por IP ────────────────────────────────────
 const rateMap = new Map<string, { count: number; reset: number }>();
 function isRateLimited(ip: string): boolean {
   const now = Date.now();
@@ -15,9 +14,9 @@ function isRateLimited(ip: string): boolean {
 // ── Sanitize: elimina etiquetas HTML y caracteres peligrosos ───────────────
 function sanitize(raw: string): string {
   return raw
-    .replace(/<[^>]*>/g, '')      // strip HTML tags
-    .replace(/&[a-z#0-9]+;/gi, ' ') // decode HTML entities
-    .replace(/[<>"'`]/g, '')      // remove remaining dangerous chars
+    .replace(/<[^>]*>/g, '')      
+    .replace(/&[a-z#0-9]+;/gi, ' ') 
+    .replace(/[<>"'`]/g, '')      
     .trim();
 }
 

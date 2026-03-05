@@ -62,28 +62,27 @@ export function Navbar() {
 
 
   const handleNavClick = (href: string) => {
-    // Force-clear overflow immediately so it doesn't corrupt position measurements
     document.body.style.overflow = '';
     setIsOpen(false);
 
     const scrollToTarget = (attempts = 0) => {
-      // Query inside the callback so lazy-loaded sections have time to mount
-      const element = document.querySelector(href);
+      const element = document.querySelector(href) as HTMLElement | null;
       if (!element) {
-        // Section not yet in DOM (React.lazy still loading) — retry up to 15× (1.5 s total)
-        if (attempts < 15) {
-          setTimeout(() => scrollToTarget(attempts + 1), 100);
-        }
+        if (attempts < 15) setTimeout(() => scrollToTarget(attempts + 1), 100);
         return;
       }
-      const navbarHeight = document.getElementById('main-navbar')?.offsetHeight || 0;
-      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-      const offsetPosition = elementPosition - (navbarHeight - 3);
-      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+      // Set scroll-margin-top dynamically so scrollIntoView accounts for the navbar.
+      // This is more reliable than getBoundingClientRect() + scrollY because the
+      // browser runs scrollIntoView AFTER layout is stable, avoiding the race
+      // condition that occurs on mobile when the menu closes and layout reflows.
+      const navbarHeight = document.getElementById('main-navbar')?.offsetHeight ?? 0;
+      element.style.scrollMarginTop = `${navbarHeight}px`;
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
 
-    // 150 ms: enough for the mobile-menu overlay to unmount and layout to stabilise
-    setTimeout(() => scrollToTarget(), 150);
+    // 250 ms: gives the mobile-menu close animation time to fully complete
+    // before layout is measured by scrollIntoView.
+    setTimeout(() => scrollToTarget(), 250);
   };
 
 

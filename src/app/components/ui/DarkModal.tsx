@@ -6,17 +6,12 @@ import { ease } from '../../lib/animation';
 interface DarkModalProps {
   open: boolean;
   onClose: () => void;
-  /** Unique id used for aria-labelledby on the dialog */
   titleId: string;
-  /** Icon rendered inside the top circle */
   icon: React.ReactNode;
-  /** Border/color class for the icon circle, e.g. "border-emerald-400/25" */
   iconBorderClass?: string;
   title: string;
   description?: string;
-  /** aria-label for the X close button */
   closeLabel: string;
-  /** Action buttons rendered at the bottom */
   children: React.ReactNode;
 }
 

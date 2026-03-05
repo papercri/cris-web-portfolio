@@ -25,7 +25,6 @@ export function About() {
 
  
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
-          {/* Left: headline + bio — slide in from left */}
           <div>
             <motion.h2
               className="text-5xl md:text-6xl font-extrabold tracking-wide text-foreground leading-none mb-2"
@@ -83,7 +82,6 @@ export function About() {
             </motion.p>
           </div>
 
-          {/* Right: numbered list — slide in from right */}
           <div className="space-y-0">
             {highlights.map((item, index) => (
               <motion.div
