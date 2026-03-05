@@ -5,8 +5,8 @@ export function CustomCursor() {
   const [isClicking, setIsClicking] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
-  const offsetX = -65; 
-  const offsetY = 55; 
+  const offsetX = -75; 
+  const offsetY = 65; 
 
   const mouseX = useMotionValue(-100);
   const mouseY = useMotionValue(-100);
@@ -49,14 +49,14 @@ export function CustomCursor() {
 
   if (!isVisible) return null;
 
-  const ringSize = isClicking ? 60 : 36;
+  const ringSize = isClicking ? 70 : 36;
   const dotSize = isClicking ? 20 : 10;
 
   return (
     <>
       {/* Anillo exterior */}
       <motion.div
-        className="fixed top-0 left-0 rounded-full pointer-events-none z-300 bg-transparent border-[1.5px] border-chart-4/70 dark:border-chart-4/70"
+        className="fixed top-0 left-0 rounded-full pointer-events-none z-300 bg-transparent border-[1.5px] border-chart-4/60 dark:border-chart-4/60"
         style={{
           x: ringX,
           y: ringY,
@@ -72,7 +72,7 @@ export function CustomCursor() {
 
       {/* Punto central */}
       <motion.div
-        className="fixed top-0 left-0 rounded-full pointer-events-none z-300 bg-chart-4/60 dark:bg-chart-4/60 blur-[1px]"
+        className="fixed top-0 left-0 rounded-full pointer-events-none z-300 bg-chart-4/50 dark:bg-chart-4/50 blur-[1px]"
         style={{
           x: dotX,
           y: dotY,
