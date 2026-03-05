@@ -4,6 +4,7 @@ import { Check, Loader2 } from 'lucide-react';
 import { useI18n } from '../i18n';
 import { ease, VP2 } from '../lib/animation';
 import { DarkModal } from './ui/DarkModal';
+import { AnimatedButton } from './ui/AnimatedButton';
 
 type Fields = { name: string; email: string; message: string };
 type Errors = Partial<Record<keyof Fields, string>>;
@@ -223,24 +224,16 @@ export default function ContactForm() {
           viewport={VP2}
           transition={{ duration: 0.6, delay: 0.4, ease }}
         >
-          <motion.button
+          <AnimatedButton
             type="submit"
             disabled={enviando}
             aria-busy={enviando}
             aria-label={enviando ? f.sending : f.submit}
-            className={
-              'inline-flex items-center px-5 py-3 ' +
-              'bg-white text-[#1A1A1A] text-sm font-bold tracking-[0.12em] uppercase ' +
-              'border border-white ' +
-              'disabled:opacity-40 disabled:cursor-not-allowed'
-            }
-            whileHover={enviando ? {} : { scale: 1.03, backgroundColor: '#e5e5e5' }}
-            whileTap={enviando ? {} : { scale: 0.97 }}
-            transition={{ duration: 0.18, ease: 'easeOut' }}
+            variant="light"
           >
             {enviando && <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" />}
             <span>{enviando ? f.sending : f.submit}</span>
-          </motion.button>
+          </AnimatedButton>
         </motion.div>
 
       </form>

@@ -1,10 +1,26 @@
+import { useState } from 'react';
+import { Download } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useI18n } from '../i18n';
 import { ease, VP } from '../lib/animation';
+import { DarkModal } from './ui/DarkModal';
+import { AnimatedButton } from './ui/AnimatedButton';
 
 export function About() {
-  const { t } = useI18n();
+  const { locale, t } = useI18n();
   const highlights = t.about.highlights;
+  const [showCvModal, setShowCvModal] = useState(false);
+
+  const handleDownloadCv = () => {
+    const cvPath = locale === 'es' ? '/CV-ES-min-Cristiana-Sollini.pdf' : '/CV-EN-min-Cristiana-Sollini.pdf';
+    const link = document.createElement('a');
+    link.href = cvPath;
+    link.download = cvPath.split('/').pop() || 'CV.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    setShowCvModal(false);
+  };
 
   return (
     <section id="about" className="section-base pb-10">
@@ -101,9 +117,80 @@ export function About() {
                 </div>
               </motion.div>
             ))}
+
+          <motion.div
+          className="pt-8 flex justify-end"
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={VP}
+          transition={{ duration: 0.6, delay: 0.1 + highlights.length * 0.1, ease }}
+        >
+            <motion.button
+              onClick={() => setShowCvModal(true)}
+              className={`
+                relative overflow-hidden group
+                inline-flex items-center gap-2 px-6 py-3
+                bg-foreground text-background text-xs font-bold tracking-[0.15em] uppercase
+                border border-foreground transition-colors duration-500
+              `}
+              whileTap={{ scale: 0.98 }}
+              aria-label={t.nav.downloadCv}
+            >
+              <span className="absolute inset-0 z-0 bg-background translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500 ease-[0.19,1,0.22,1]" />
+
+              <div className="relative z-10 flex items-center gap-2 group-hover:text-foreground transition-colors duration-500">
+                <motion.div
+                  variants={{
+                    hover: { y: -2, x: 1 }
+                  }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                >
+                  <Download className="w-3.5 h-3.5" aria-hidden="true" />
+                </motion.div>
+                      <span className="relative overflow-hidden">
+                        <span className="inline-block transition-transform duration-500 ease-out group-hover:-translate-y-[120%]">
+                          {t.nav.download}
+                        </span>
+                        <span className="absolute left-0 top-0 inline-block translate-y-[120%] transition-transform duration-500 ease-out group-hover:translate-y-0">
+                          {t.nav.download}
+                        </span>
+                      </span>
+                    </div>
+            </motion.button>
+          </motion.div>
           </div>
         </div>
+
       </div>
+
+      <DarkModal
+        open={showCvModal}
+        onClose={() => setShowCvModal(false)}
+        titleId="about-cv-modal-title"
+        icon={<Download className="w-6 h-6 text-white/70" aria-hidden="true" />}
+        iconBorderClass="border-white/15"
+        title={t.nav.modalTitle}
+        description={t.nav.modalDesc}
+        closeLabel={t.nav.cancel}
+      >
+        <div className="flex flex-col sm:flex-row justify-center gap-3">
+          <button
+            type="button"
+            onClick={() => setShowCvModal(false)}
+            className="px-6 py-3 text-xs font-bold tracking-[0.12em] uppercase border border-white/20 text-white/50 hover:text-white hover:border-white/50 transition-colors"
+          >
+            {t.nav.cancel}
+          </button>
+          <button
+            type="button"
+            onClick={handleDownloadCv}
+            autoFocus
+            className="px-6 py-3 bg-white text-[#111] text-xs font-bold tracking-[0.12em] uppercase border border-white hover:bg-[#e5e5e5] transition-colors"
+          >
+            {t.nav.download}
+          </button>
+        </div>
+      </DarkModal>
     </section>
   );
 }
