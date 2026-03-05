@@ -22,7 +22,7 @@ export function Navbar() {
 
   const handleDownloadCv = () => {
     const link = document.createElement('a');
-    const cvPath = locale === 'es' ? '/CV-ES-Cristiana-Sollini.pdf' : '/CV-EN-Cristiana-Sollini.pdf';
+    const cvPath = locale === 'es' ? '/CV-ES-Cristiana-Sollini.pdf' : locale === 'it' ? '/CV-IT-min-Cristiana-Sollini.pdf' : '/CV-EN-Cristiana-Sollini.pdf';
     link.href = cvPath;
     link.download = cvPath.split('/').pop() || 'CV.pdf';
     document.body.appendChild(link);
@@ -141,6 +141,12 @@ export function Navbar() {
                   >
                     ES
                   </DropdownMenuItem>
+                  <DropdownMenuItem
+                    onClick={() => setLocale('it')}
+                    className={`px-4 py-2 text-xs font-semibold cursor-pointer hover:bg-foreground/8 transition-colors ${locale === 'it' ? 'text-foreground' : 'text-foreground/50'}`}
+                  >
+                    IT
+                  </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
 
@@ -173,6 +179,7 @@ export function Navbar() {
           <div className="px-8 pt-4 flex items-center gap-4 border-b border-foreground/5 w-full pb-4">
              <button onClick={() => setLocale('en')} className={`text-sm font-bold ${locale === 'en' ? 'text-foreground' : 'text-foreground/40'}`}>EN</button>
              <button onClick={() => setLocale('es')} className={`text-sm font-bold ${locale === 'es' ? 'text-foreground' : 'text-foreground/40'}`}>ES</button>
+             <button onClick={() => setLocale('it')} className={`text-sm font-bold ${locale === 'it' ? 'text-foreground' : 'text-foreground/40'}`}>IT</button>
           </div>
           
           <ul className="flex flex-col px-8 pt-8 space-y-6 w-full">
