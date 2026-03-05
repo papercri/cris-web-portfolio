@@ -12,7 +12,7 @@ export function About() {
   const [showCvModal, setShowCvModal] = useState(false);
 
   const handleDownloadCv = () => {
-    const cvPath = locale === 'es' ? '/CV-ES-min-Cristiana-Sollini.pdf' : '/CV-EN-min-Cristiana-Sollini.pdf';
+    const cvPath = locale === 'es' ? '/CV-ES-Cristiana-Sollini.pdf' : '/CV-EN-Cristiana-Sollini.pdf';
     const link = document.createElement('a');
     link.href = cvPath;
     link.download = cvPath.split('/').pop() || 'CV.pdf';
