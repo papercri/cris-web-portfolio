@@ -20,7 +20,7 @@
   --destructive-foreground: #ffffff;
   --border: rgba(26, 26, 26, 0.12);
   --input: transparent;
-  --input-background: #EFEFEB;
+  --input-background: transparent;
   --switch-background: #C8C5BF;
   --font-weight-medium: 500;
   --font-weight-normal: 400;
@@ -96,7 +96,11 @@ html.dark {
 }
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px transparent inset!important;
-  -webkit-text-fill-color: inherit!important;
+  -webkit-text-fill-color: white!important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+input, input:valid {
+  background: transparent;
 }
 /* Sections that are always dark (inverted) regardless of color-scheme */
 .inverted-section {
@@ -104,6 +108,7 @@ input:-webkit-autofill {
   --foreground: #1A1A1A;
   --border: rgba(248, 246, 242, 0.12);
 }
+
 
 @theme inline {
   --color-background: var(--background);
