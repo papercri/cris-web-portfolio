@@ -58,7 +58,7 @@ export function Navbar() {
   ];
   const blurHover = 'transition-all duration-500 ease-in-out hover:opacity-70 hover:filter hover:blur-[0.5px] focus-ring';
 
-  const buttonBlurHover = 'transition-all duration-700 ease-in-out hover:text-foreground hover:drop-shadow-[0_0_15px_rgba(150,150,150,0.25)] dark:hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.18)] focus-ring';
+  const buttonBlurHover = 'inline-flex items-center justify-center w-9 h-9 rounded-full opacity-50 hover:opacity-100 hover:bg-foreground/[0.07] hover:backdrop-blur-sm hover:drop-shadow-[0_0_12px_rgba(100,100,100,0.2)] transition-all duration-300 ease-out focus-ring';
 
 
   const handleNavClick = (href: string) => {
@@ -124,7 +124,7 @@ export function Navbar() {
               {/* Dropdown Idioma */}
               <DropdownMenu modal={false}>
                 <DropdownMenuTrigger asChild>
-                  <button className={`px-2 py-1 text-xs font-semibold ${buttonBlurHover}`}>
+                  <button className={`text-xs font-semibold ${buttonBlurHover}`}>
                     {locale.toUpperCase()}
                   </button>
                 </DropdownMenuTrigger>
@@ -145,11 +145,11 @@ export function Navbar() {
               </DropdownMenu>
 
               {/* Botón CV */}
-              <button onClick={() => setIsDownloadDialogOpen(true)} className={`inline-flex p-2 text-foreground/80 hover:text-foreground ${buttonBlurHover}`} aria-label={t.nav.downloadCv}>
+              <button onClick={() => setIsDownloadDialogOpen(true)} className={`text-foreground ${buttonBlurHover}`} aria-label={t.nav.downloadCv}>
                 <Download className="w-4 h-4" aria-hidden="true" />
               </button>
 
-              <button onClick={toggleDark} className={`inline-flex p-2 text-foreground/80 hover:text-foreground ${buttonBlurHover}`} aria-label="Toggle dark mode">
+              <button onClick={toggleDark} className={`text-foreground ${buttonBlurHover}`} aria-label="Toggle dark mode">
                 {isDark ? <Sun className="w-4 h-4" aria-hidden="true" /> : <Moon className="w-4 h-4" aria-hidden="true" />}
               </button>
               <button

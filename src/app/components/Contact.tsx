@@ -69,27 +69,36 @@ export function Contact() {
               <a
                 href="mailto:cristiana.sollini@gmail.com"
                 aria-label="Email"
-                className="group flex items-center justify-center w-11 h-11 rounded-full border border-background/15 text-background/50 hover:text-background hover:border-background/50 transition-all duration-200 focus-ring-inv"
+                className="group relative flex items-center justify-center w-11 h-11 rounded-full border border-background/15 text-background/50 overflow-hidden hover:border-background/50 transition-colors duration-300 focus-ring-inv"
               >
-                <Mail className="w-5 h-5" aria-hidden="true" />
+                <span aria-hidden="true" className="absolute inset-0 rounded-full bg-background translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500" style={{ transitionTimingFunction: 'cubic-bezier(0.19,1,0.22,1)' }} />
+                <span className="relative z-10 group-hover:text-foreground transition-colors duration-300">
+                  <Mail className="w-5 h-5" aria-hidden="true" />
+                </span>
               </a>
               <a
                 href="https://www.linkedin.com/in/cristianasollini/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="group flex items-center justify-center w-11 h-11 rounded-full border border-background/15 text-background/50 hover:text-background hover:border-background/50 transition-all duration-200 focus-ring-inv"
+                className="group relative flex items-center justify-center w-11 h-11 rounded-full border border-background/15 text-background/50 overflow-hidden hover:border-background/50 transition-colors duration-300 focus-ring-inv"
               >
-                <Linkedin className="w-5 h-5" aria-hidden="true" />
+                <span aria-hidden="true" className="absolute inset-0 rounded-full bg-background translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500" style={{ transitionTimingFunction: 'cubic-bezier(0.19,1,0.22,1)' }} />
+                <span className="relative z-10 group-hover:text-foreground transition-colors duration-300">
+                  <Linkedin className="w-5 h-5" aria-hidden="true" />
+                </span>
               </a>
               <a
                 href="https://github.com/papercri"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
-                className="group flex items-center justify-center w-11 h-11 rounded-full border border-background/15 text-background/50 hover:text-background hover:border-background/50 transition-all duration-200 focus-ring-inv"
+                className="group relative flex items-center justify-center w-11 h-11 rounded-full border border-background/15 text-background/50 overflow-hidden hover:border-background/50 transition-colors duration-300 focus-ring-inv"
               >
-                <Github className="w-5 h-5" aria-hidden="true" />
+                <span aria-hidden="true" className="absolute inset-0 rounded-full bg-background translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500" style={{ transitionTimingFunction: 'cubic-bezier(0.19,1,0.22,1)' }} />
+                <span className="relative z-10 group-hover:text-foreground transition-colors duration-300">
+                  <Github className="w-5 h-5" aria-hidden="true" />
+                </span>
               </a>
             </motion.div>
           </div>
@@ -105,27 +114,36 @@ export function Contact() {
               <a
                 href="mailto:cristiana.sollini@gmail.com"
                 aria-label="Email"
-                className="group flex items-center justify-center w-11 h-11 rounded-full border border-background/15 text-background/50 hover:text-background hover:border-background/50 transition-all duration-200 focus-ring-inv"
+                className="group relative flex items-center justify-center w-11 h-11 rounded-full border border-background/15 text-background/50 overflow-hidden hover:border-background/50 transition-colors duration-300 focus-ring-inv"
               >
-                <Mail className="w-5 h-5" aria-hidden="true" />
+                <span aria-hidden="true" className="absolute inset-0 rounded-full bg-background translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500" style={{ transitionTimingFunction: 'cubic-bezier(0.19,1,0.22,1)' }} />
+                <span className="relative z-10 group-hover:text-foreground transition-colors duration-300">
+                  <Mail className="w-5 h-5" aria-hidden="true" />
+                </span>
               </a>
               <a
                 href="https://www.linkedin.com/in/cristianasollini/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="group flex items-center justify-center w-11 h-11 rounded-full border border-background/15 text-background/50 hover:text-background hover:border-background/50 transition-all duration-200 focus-ring-inv"
+                className="group relative flex items-center justify-center w-11 h-11 rounded-full border border-background/15 text-background/50 overflow-hidden hover:border-background/50 transition-colors duration-300 focus-ring-inv"
               >
-                <Linkedin className="w-5 h-5" aria-hidden="true" />
+                <span aria-hidden="true" className="absolute inset-0 rounded-full bg-background translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500" style={{ transitionTimingFunction: 'cubic-bezier(0.19,1,0.22,1)' }} />
+                <span className="relative z-10 group-hover:text-foreground transition-colors duration-300">
+                  <Linkedin className="w-5 h-5" aria-hidden="true" />
+                </span>
               </a>
               <a
                 href="https://github.com/papercri"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
-                className="group flex items-center justify-center w-11 h-11 rounded-full border border-background/15 text-background/50 hover:text-background hover:border-background/50 transition-all duration-200 focus-ring-inv"
+                className="group relative flex items-center justify-center w-11 h-11 rounded-full border border-background/15 text-background/50 overflow-hidden hover:border-background/50 transition-colors duration-300 focus-ring-inv"
               >
-                <Github className="w-5 h-5" aria-hidden="true" />
+                <span aria-hidden="true" className="absolute inset-0 rounded-full bg-background translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500" style={{ transitionTimingFunction: 'cubic-bezier(0.19,1,0.22,1)' }} />
+                <span className="relative z-10 group-hover:text-foreground transition-colors duration-300">
+                  <Github className="w-5 h-5" aria-hidden="true" />
+                </span>
               </a>
             </motion.div>
         </div>
