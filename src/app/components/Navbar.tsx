@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { Menu, X, Moon, Sun, Download } from 'lucide-react';
-import { motion } from 'motion/react';
+import { AnimatePresence, motion } from 'motion/react';
 import { useI18n } from '../i18n';
+import { ease } from '../lib/animation';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -201,45 +202,72 @@ export function Navbar() {
 
 
       {/* DOWNLOAD DIALOG */}
-      {isDownloadDialogOpen && (
-        <div
-          className="fixed inset-0 z-[200] flex items-center justify-center bg-black/70 px-4"
-          onClick={() => setIsDownloadDialogOpen(false)}
-        >
-          <div
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby={dialogTitleId}
-            aria-describedby={dialogDescId}
-            className="w-full max-w-md rounded-lg border border-foreground/35 bg-background p-6 shadow-lg"
-            onClick={(e) => e.stopPropagation()}
+      <AnimatePresence>
+        {isDownloadDialogOpen && (
+          <motion.div
+            className="fixed inset-0 z-[200] flex items-center justify-center p-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
           >
-            <h3 id={dialogTitleId} className="text-lg font-semibold text-foreground">
-              {t.nav.modalTitle}
-            </h3>
-            <p id={dialogDescId} className="mt-2 text-sm text-foreground/60">
-              {t.nav.modalDesc}
-            </p>
-            <div className="mt-6 flex flex-wrap justify-end gap-2">
+            <motion.div
+              className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+              onClick={() => setIsDownloadDialogOpen(false)}
+            />
+            <motion.div
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby={dialogTitleId}
+              aria-describedby={dialogDescId}
+              className="relative z-10 bg-[#111] border border-white/10 p-10 max-w-sm w-full text-center"
+              initial={{ opacity: 0, y: 28, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 16, scale: 0.96 }}
+              transition={{ duration: 0.3, ease }}
+              onClick={(e) => e.stopPropagation()}
+            >
               <button
-                ref={closeDialogButtonRef}
-                type="button"
                 onClick={() => setIsDownloadDialogOpen(false)}
-                className={`px-4 py-2 text-sm font-medium border border-foreground/20 text-foreground hover:bg-foreground/5 ${buttonBlurHover}`}
+                className="absolute top-4 right-4 text-white/25 hover:text-white/70 transition-colors"
+                aria-label={t.nav.cancel}
               >
-                {t.nav.cancel}
+                <X className="w-4 h-4" />
               </button>
-              <button
-                type="button"
-                onClick={handleDownloadCv}
-                className={`px-4 py-2 text-sm font-medium bg-foreground text-background hover:opacity-90 ${buttonBlurHover}`}
-              >
-                {t.nav.download}
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+
+              <div className="mx-auto mb-7 w-14 h-14 rounded-full border border-white/15 flex items-center justify-center">
+                <Download className="w-6 h-6 text-white/70" aria-hidden="true" />
+              </div>
+
+              <h3 id={dialogTitleId} className="text-white text-xl font-extrabold tracking-tight mb-3">
+                {t.nav.modalTitle}
+              </h3>
+              <p id={dialogDescId} className="text-white/45 text-sm leading-relaxed mb-8">
+                {t.nav.modalDesc}
+              </p>
+
+              <div className="flex flex-col sm:flex-row justify-center gap-3">
+                <button
+                  ref={closeDialogButtonRef}
+                  type="button"
+                  onClick={() => setIsDownloadDialogOpen(false)}
+                  className="px-6 py-3 text-xs font-bold tracking-[0.12em] uppercase border border-white/20 text-white/50 hover:text-white hover:border-white/50 transition-colors"
+                >
+                  {t.nav.cancel}
+                </button>
+                <button
+                  type="button"
+                  onClick={handleDownloadCv}
+                  autoFocus
+                  className="px-6 py-3 bg-white text-[#111] text-xs font-bold tracking-[0.12em] uppercase border border-white hover:bg-[#e5e5e5] transition-colors"
+                >
+                  {t.nav.download}
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }
