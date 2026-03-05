@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 
-export type Locale = 'en' | 'es';
+export type Locale = 'en' | 'es' | 'it';
 
 type I18nValue = {
   locale: Locale;
@@ -15,9 +15,11 @@ const STORAGE_KEY = 'portfolio-locale';
 export function I18nProvider({ children }: { children: React.ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>(() => {
     const stored = window.localStorage.getItem(STORAGE_KEY);
-    if (stored === 'en' || stored === 'es') return stored;
+    if (stored === 'en' || stored === 'es' || stored === 'it') return stored;
     const browserLocale = (window.navigator.languages?.[0] || window.navigator.language).toLowerCase();
-    return browserLocale.startsWith('es') ? 'es' : 'en';
+    if (browserLocale.startsWith('es')) return 'es';
+    if (browserLocale.startsWith('it')) return 'it';
+    return 'en';
   });
 
   useEffect(() => {
@@ -49,7 +51,8 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
     ensureMetaByName('description', description);
     ensureMetaByProperty('og:title', translations[locale].seo.title);
     ensureMetaByProperty('og:description', description);
-    ensureMetaByProperty('og:locale', locale === 'es' ? 'es_ES' : 'en_US');
+    const ogLocale = locale === 'es' ? 'es_ES' : locale === 'it' ? 'it_IT' : 'en_US';
+    ensureMetaByProperty('og:locale', ogLocale);
   }, [locale]);
 
   const value = useMemo<I18nValue>(
@@ -394,6 +397,168 @@ export const translations = {
     },
     footer: {
       rights: 'Todos los derechos reservados.',
+      github: 'GitHub',
+      linkedin: 'LinkedIn',
+      email: 'Email',
+    },
+  },
+  it: {
+    seo: {
+      title: 'Cristiana Sollini | Portfolio Front-End Developer',
+      description: 'Sviluppo front-end focalizzato su accessibilità, prestazioni e SEO, realizzato con React e strumenti moderni.',
+    },
+    nav: {
+      home: 'HOME',
+      about: 'CHI SONO',
+      skills: 'SKILLS',
+      projects: 'PROGETTI',
+      contact: 'CONTATTI',
+      downloadCv: 'SCARICA CV',
+      modalTitle: 'Vuoi scaricare il mio CV?',
+      modalDesc: 'Questo scaricherà il CV in PDF sul tuo dispositivo.',
+      cancel: 'Annulla',
+      download: 'Scarica CV',
+      language: 'Lingua',
+      english: 'Inglese',
+      spanish: 'Spagnolo',
+    },
+    hero: {
+      eyebrow: 'FRONT END DEVELOPER · BARCELLONA, SPAGNA',
+      bio: 'Creo esperienze digitali veloci, accessibili e visivamente chiare. Mi concentro sulla realizzazione di interfacce non solo esteticamente gradevoli, ma intuitive e coerenti su qualsiasi dispositivo.',
+    },
+    scrolling: {
+      items: ['Sviluppo FrontEnd', '/ ', 'UX/UI & Accessibilità Web', '/ ', 'React', '/ ', 'Next.js', '/ ', 'Vue.js', '/ ', 'HTML & CSS', '/ '],
+    },
+    about: {
+      label: 'CHI SONO',
+      title: 'Trasformo idee\nin interfacce solide.',
+      p1: 'La mia base è l’HTML e il CSS. Da qui costruisco componenti puliti e layout che funzionano nel mondo reale. Lavoro con React e strumenti moderni di front-end, collaborando a stretto contatto con designer e team backend per trasformare concetti complessi in codice chiaro, manutenibile e scalabile.',
+      p2: 'Prestazioni e usabilità non sono un pensiero finale, ma parte delle fondamenta: curo la gerarchia visiva, i tempi di caricamento e le esigenze dell’utente in ogni schermata.',
+      p3: 'Sperimentando lo sviluppo assistito dall’AI, ottimizzo flussi di lavoro e creo interfacce più intelligenti quando ha senso farlo.',
+      p4: 'Ho consolidato la mia base tecnica con un Bootcamp di Front-End focalizzato su React presso IT Academy, un Bootcamp di Vue.js presso CodeOp e un corso di PHP e MySQL per comprendere meglio la logica backend e il flusso dei dati. La laurea in Scienze della Comunicazione guida il mio approccio alla UX, alla chiarezza e alla struttura visiva.',
+      highlights: [
+        {
+          number: '01',
+          title: 'Mobile First',
+          description: 'Progetto interfacce responsive mobile-first, rapide e semplici da usare su qualsiasi schermo.',
+        },
+        {
+          number: '02',
+          title: 'Accessibilità',
+          description: 'Creo interfacce accessibili con HTML semantico e attenzione agli standard WCAG.',
+        },
+        {
+          number: '03',
+          title: 'Prestazioni & SEO',
+          description: 'Ottimizzo velocità, struttura e markup per migliorare prestazioni, visibilità e esperienza utente.',
+        },
+        {
+          number: '04',
+          title: 'Codice Pulito',
+          description: 'Scrivo codice manutenibile e scalabile seguendo le best practice e i pattern consolidati.',
+        },
+        {
+          number: '05',
+          title: 'Collaborazione e UX/UI',
+          description: 'Trasformo mockup in interfacce precise e funzionali, portando una forte mentalità UX e tenendo sempre l’utente finale al centro.',
+        },
+      ],
+    },
+    skills: {
+      label: 'SKILLS & EXPERTISE',
+      title: 'Tecnologie che uso ogni giorno',
+      categories: [
+        { category: 'Frontend', skills: ['HTML & CSS', 'LESS', 'SASS', 'Tailwind', 'Bootstrap'] },
+        { category: 'JS & Framework', skills: ['JavaScript', 'TypeScript', 'React', 'Next.js', 'Vue.js'] },
+        { category: 'Backend & CMS', skills: ['PHP', 'MySQL', 'WordPress', 'Contentful', 'Firebase', 'REST APIs'] },
+        { category: 'Strumenti & Workflow', skills: ['Git', 'Docker', 'Figma', 'Jest', 'Accessibilità (WCAG)', 'Design Responsive', 'SEO'] },
+      ],
+    },
+    projects: {
+      label: 'LAVORI SELEZIONATI',
+      liveDemo: 'Live',
+      code: 'Codice',
+      items: [
+        {
+          id: 'travel-planner',
+          title: 'Trip Taylor',
+          imageUrl: '/trip-tailor.jpg',
+          description:
+            'App web di pianificazione viaggi con AI che aiuta gli utenti a scoprire destinazioni e ottenere raccomandazioni personalizzate. Consente di esplorare città, visualizzare informazioni chiave e pianificare i propri viaggi tramite un assistente interattivo.',
+          highlights: [
+            'Genera itinerari personalizzati usando prompt dinamici di OpenAI, adattando i suggerimenti alle preferenze, al budget e allo stile di viaggio dell\'utente.',
+            'Costruita con Next.js, TypeScript, Tailwind e Firebase, con autenticazione e funzionalità CRUD complete per salvare e gestire i viaggi.',
+            'Architettura dati ottimizzata combinando più API di viaggio in un\'unica richiesta, riducendo i tempi di caricamento e migliorando prestazioni ed esperienza utente.',
+          ],
+          tags: ['NEXT', 'TAILWIND', 'TYPESCRIPT', 'API-REST', 'FIREBASE', 'OPENAI', 'RESPONSIVE DESIGN', 'ACCESSIBILITY'],
+          liveUrl: 'https://triptailor-ai.vercel.app/',
+          githubUrl: 'https://github.com/papercri/triptailor',
+        },
+        {
+          id: 'e-commerce',
+          title: 'Fem Shop',
+          imageUrl: '/fem-shop.jpg',
+          description:
+            'Applicazione e-commerce moderna costruita con Vue, orientata a offrire un\'esperienza di acquisto fluida e intuitiva. Include catalogo prodotti, gestione del carrello e autenticazione utenti, con un\'architettura scalabile che separa stato, persistenza e gestione dei dati.',
+          highlights: [
+            'Gestione dello stato con Pinia per una struttura pulita e scalabile di carrello, prodotti e sessioni utente.',
+            'Gestione ibrida dei dati con Firebase per autenticazione e database, e localStorage per la persistenza lato client.',
+            'Integrazione con API esterna per la gestione degli utenti, con flussi di dati asincroni e servizi di terze parti.',
+          ],
+          tags: ['VUE', 'PINIA', 'FIREBASE', 'JAVASCRIPT', 'API-REST', 'TAILWIND', 'RESPONSIVE DESIGN', 'ACCESSIBILITY'],
+          liveUrl: 'https://femshop.vercel.app/',
+          githubUrl: 'https://github.com/papercri/femshop',
+        },
+        {
+          id: 'prompt-composer',
+          title: 'Prompt Composer',
+          imageUrl: '/prompt-composer.jpg',
+          description:
+            'Strumento online per creare e organizzare prompt. Gli utenti possono costruire, classificare e salvare modelli di prompt in cartelle, con archiviazione cloud tramite il proprio account Google.',
+          highlights: [
+            'Salvataggio cloud e organizzazione in cartelle per gestire i modelli nel tempo.',
+            'Accesso semplice con Google per archiviare e gestire i propri prompt.',
+            'Focus sulla riutilizzabilità per velocizzare la scrittura e l’iterazione dei prompt.',
+          ],
+          tags: ['NEXT', 'TAILWIND', 'TYPESCRIPT', 'FIREBASE', 'GOOGLE AUTH'],
+          liveUrl: 'https://prompt-composer-ai.vercel.app/',
+          githubUrl: 'https://github.com/papercri/prompt-composer',
+        },
+      ],
+    },
+    contact: {
+      label: 'CONTATTI',
+      title: 'Contattami',
+      text: 'Sempre aperta a nuovi progetti e collaborazioni. Se hai una domanda o un\'idea, scrivimi.',
+      email: 'Email',
+      linkedin: 'LinkedIn',
+      ending: '.',
+      join: 'o contattami su',
+      form: {
+        nameLabel: 'Nome',
+        namePlaceholder: 'Il tuo nome',
+        emailLabel: 'Email',
+        emailPlaceholder: 'tua@email.com',
+        messageLabel: 'Messaggio',
+        messagePlaceholder: 'Scrivi il tuo messaggio...',
+        submit: 'Invia messaggio',
+        sending: 'Invio in corso...',
+        success: 'Messaggio inviato!',
+        successTitle: 'Messaggio inviato!',
+        successMessage: 'Grazie per avermi scritto. Ti risponderò al più presto.',
+        successClose: 'Chiudi',
+        error: 'Qualcosa è andato storto. Riprova.',
+        nameError: 'Inserisci il tuo nome.',
+        emailError: 'Inserisci un indirizzo email valido.',
+        messageError: 'Scrivi un messaggio.',
+        spamError: 'Attendi un momento prima di inviare di nuovo.',
+        modalTitle: 'Messaggio inviato!',
+        modalText: 'Grazie per avermi scritto. Ti risponderò al più presto.',
+        modalClose: 'Chiudi',
+      },
+    },
+    footer: {
+      rights: 'Tutti i diritti riservati.',
       github: 'GitHub',
       linkedin: 'LinkedIn',
       email: 'Email',
