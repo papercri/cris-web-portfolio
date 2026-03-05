@@ -149,7 +149,7 @@ export const translations = {
     },
     projects: {
       label: 'SELECTED WORK',
-      liveDemo: 'Live Demo',
+      liveDemo: 'Live',
       code: 'Code',
       items: [
         {
@@ -311,7 +311,7 @@ export const translations = {
     },
     projects: {
       label: 'PROYECTOS DESTACADOS',
-      liveDemo: 'Demo',
+      liveDemo: 'Live',
       code: 'Código',
       items: [
         {
