@@ -19,8 +19,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: process.env.EMAIL_USER, // Tu Gmail
-      pass: process.env.EMAIL_PASS, // Tu App Password de 16 letras
+      user: process.env.EMAIL_USER, 
+      pass: process.env.EMAIL_PASS, 
     },
   });
 
@@ -41,7 +41,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; margin-top: 10px;">
             <p style="white-space: pre-wrap;">${message}</p>
           </div>
-          <p style="font-size: 12px; color: #999; margin-top: 20px;">Enviado desde tu portafolio personal.</p>
+          <p style="font-size: 12px; color: #999; margin-top: 20px;">Enviado desde tu https://frontend-ux.website/.</p>
         </div>
       `,
     });
