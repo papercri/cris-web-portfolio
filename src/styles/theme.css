@@ -80,10 +80,19 @@
 
 html {
   color-scheme: light;
+   
 }
 
 html.dark {
   color-scheme: dark;
+}
+@media (min-width: 380px) {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+   
+  }
+
 }
 
 /* Sections that are always dark (inverted) regardless of color-scheme */
