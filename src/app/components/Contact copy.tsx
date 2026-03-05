@@ -2,8 +2,6 @@ import { Linkedin, Mail, Github } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useI18n } from '../i18n';
 import { ease, VP, VP2 } from '../lib/animation';
-import ContactForm from './ContactForm'; 
-
 
 export function Contact() {
   const { t } = useI18n();
@@ -24,7 +22,7 @@ export function Contact() {
             {t.contact.label}
           </span>
         </motion.div>
-        <ContactForm />
+
         <motion.h2
           id="contact-title"
           className="w-full max-w-full min-w-0 text-[clamp(2.75rem,11vw,10rem)] font-extrabold tracking-tight leading-[1] sm:leading-[0.9] md:leading-[0.92] text-background mb-6 break-words [text-wrap:balance]"
