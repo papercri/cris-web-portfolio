@@ -23,7 +23,7 @@ export function Hero() {
             transition={{ duration: 0.8, ease }}
           >
             <span className="section-label-dot bg-foreground/30"></span>
-            <p className="section-label-text text-foreground/60">
+            <p className="section-label-text text-foreground/80">
               {t.hero.eyebrow}
             </p>
           </motion.div>
@@ -54,7 +54,7 @@ export function Hero() {
           </div>
           <div className="relative z-10 flex flex-wrap items-end gap-8 w-full 2xl:flex-nowrap 2xl:gap-24 justify-start">
             <motion.p
-              className="text-lg text-foreground/60 max-w-md leading-relaxed font-light"
+              className="text-lg text-foreground/80 max-w-md leading-relaxed font-light"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.9, delay: 0.32, ease }}

@@ -61,7 +61,7 @@ export function About() {
             />
 
             <motion.p
-              className="text-lg text-foreground/60 leading-relaxed mb-6"
+              className="text-lg text-foreground/80 leading-relaxed mb-6"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={VP}
@@ -70,7 +70,7 @@ export function About() {
               {t.about.p1}
             </motion.p>
             <motion.p
-              className="text-lg text-foreground/60 leading-relaxed mb-6"
+              className="text-lg text-foreground/80 leading-relaxed mb-6"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={VP}
@@ -79,7 +79,7 @@ export function About() {
               {t.about.p2}
             </motion.p>
             <motion.p
-              className="text-lg text-foreground/60 leading-relaxed mb-6"
+              className="text-lg text-foreground/80 leading-relaxed mb-6"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={VP}
@@ -88,7 +88,7 @@ export function About() {
               {t.about.p3}
             </motion.p>
             <motion.p
-              className="text-lg text-foreground/60 leading-relaxed"
+              className="text-lg text-foreground/80 leading-relaxed"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={VP}

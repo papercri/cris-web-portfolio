@@ -55,7 +55,7 @@ export function DarkModal({
             role="dialog"
             aria-modal="true"
             aria-labelledby={titleId}
-            className="relative z-10 bg-[#111] border border-white/10 p-10 max-w-sm w-full text-center"
+            className="relative z-10 bg-[#111] border border-white/60 p-10 max-w-sm w-full text-center "
             initial={{ opacity: 0, y: 28, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 16, scale: 0.96 }}
@@ -65,10 +65,10 @@ export function DarkModal({
             {/* X close */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 text-white/25 hover:text-white/70 transition-colors"
+              className="absolute top-4 right-4 text-white/80 hover:text-white/70 transition-colors font-bold"
               aria-label={closeLabel}
             >
-              <X className="w-4 h-4" />
+              <X className="w-6 h-6" />
             </button>
 
             {/* Icon circle */}
@@ -83,7 +83,7 @@ export function DarkModal({
 
             {/* Description */}
             {description && (
-              <p className="text-white/45 text-sm leading-relaxed mb-8">
+              <p className="text-white/90 text-sm leading-relaxed mb-8">
                 {description}
               </p>
             )}

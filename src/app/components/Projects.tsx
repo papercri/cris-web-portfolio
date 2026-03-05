@@ -55,7 +55,7 @@ export function Projects() {
 
                   <ul className="space-y-2">
                     {project.highlights.map((item, itemIndex) => (
-                      <li key={itemIndex} className="flex items-start gap-2 text-foreground/60 leading-relaxed">
+                      <li key={itemIndex} className="flex items-start gap-2 text-foreground/80 leading-relaxed">
                         <span className="mt-2 inline-block h-1.5 w-1.5 rounded-full bg-foreground/40 shrink-0" />
                         <span>{item}</span>
                       </li>

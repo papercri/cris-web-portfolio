@@ -145,11 +145,11 @@ export function Navbar() {
               </DropdownMenu>
 
               {/* Botón CV */}
-              <button onClick={() => setIsDownloadDialogOpen(true)} className={`inline-flex p-2 text-foreground/60 hover:text-foreground ${buttonBlurHover}`} aria-label={t.nav.downloadCv}>
+              <button onClick={() => setIsDownloadDialogOpen(true)} className={`inline-flex p-2 text-foreground/80 hover:text-foreground ${buttonBlurHover}`} aria-label={t.nav.downloadCv}>
                 <Download className="w-4 h-4" aria-hidden="true" />
               </button>
 
-              <button onClick={toggleDark} className={`inline-flex p-2 text-foreground/60 hover:text-foreground ${buttonBlurHover}`} aria-label="Toggle dark mode">
+              <button onClick={toggleDark} className={`inline-flex p-2 text-foreground/80 hover:text-foreground ${buttonBlurHover}`} aria-label="Toggle dark mode">
                 {isDark ? <Sun className="w-4 h-4" aria-hidden="true" /> : <Moon className="w-4 h-4" aria-hidden="true" />}
               </button>
               <button
