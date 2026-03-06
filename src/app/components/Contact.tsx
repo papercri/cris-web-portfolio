@@ -35,7 +35,7 @@ export function Contact() {
           <div className="flex flex-col">
             <motion.h2
               id="contact-title"
-              className="text-5xl md:text-8xl font-extrabold tracking-tight text-background leading-[0.95] md:mb-10 mb-4 [text-wrap:balance]"
+              className="h2 text-5xl md:text-8xl font-extrabold tracking-tight text-background leading-[0.95] md:mb-10 mb-4 [text-wrap:balance]"
               initial={{ opacity: 0, x: -80 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={VP}

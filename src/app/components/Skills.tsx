@@ -26,7 +26,7 @@ export function Skills() {
         {/* Headline */}
         <motion.h2
           id="skills-title"
-          className="text-5xl md:text-6xl font-extrabold tracking-wide text-background leading-none mb-10"
+          className="h2 text-5xl md:text-6xl font-extrabold tracking-wide text-background leading-none mb-10"
           initial={{ opacity: 0, x: -80 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={VP}
@@ -46,7 +46,7 @@ export function Skills() {
               viewport={VP2}
               transition={{ duration: 0.85, delay: categoryIndex * 0.12, ease }}
             >
-              <h3 className="text-sm font-semibold tracking-widest uppercase text-background/50 w-40 shrink-0 mt-1">
+              <h3 className="h3 text-sm font-semibold tracking-widest uppercase text-background/50 w-40 shrink-0 mt-1">
                 {category.category}
               </h3>
               <div className="flex flex-wrap gap-4">

@@ -36,7 +36,7 @@ export function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
           <div>
             <motion.h2
-              className="text-5xl md:text-6xl font-extrabold tracking-wide text-foreground leading-none mb-2"
+              className="h2 text-5xl md:text-6xl font-extrabold tracking-wide text-foreground leading-none mb-2"
               initial={{ opacity: 0, x: -80 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={VP}

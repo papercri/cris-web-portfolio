@@ -78,8 +78,8 @@ export function useI18n() {
 export const translations = {
   en: {
     seo: {
-      title: 'Cristiana Sollini | Front-End Developer Portfolio',
-      description: 'Front-end developer portfolio focused on accessible, performant, and SEO-friendly web experiences built with React and modern tooling.',
+      title: 'Cristiana Sollini | Front-End Developer | Barcelona',
+      description: 'Front-End Developer focused on accessibility, performance, and SEO best practices, building modern interfaces with React and current web technologies.',
     },
     nav: {
       home: 'HOME',
@@ -242,8 +242,8 @@ export const translations = {
   },
   es: {
     seo: {
-      title: 'Cristiana Sollini | Portfolio Front-End Developer',
-      description: 'Portfolio de desarrollo front-end centrado en accesibilidad, rendimiento y buenas prácticas SEO con React y herramientas modernas.',
+      title: 'Cristiana Sollini |  Front-End Developer | Barcelona',
+      description: 'Front-End Developer especializada en accesibilidad, rendimiento y buenas prácticas SEO, creando interfaces modernas con React y tecnologías web actuales.',
     },
     nav: {
       home: 'INICIO',
@@ -404,8 +404,8 @@ export const translations = {
   },
   it: {
     seo: {
-      title: 'Cristiana Sollini | Portfolio Front-End Developer',
-      description: 'Sviluppo front-end focalizzato su accessibilità, prestazioni e SEO, realizzato con React e strumenti moderni.',
+      title: 'Cristiana Sollini | Front-End Developer | Barcellona',
+      description: 'Front-End Developer focalizzata su accessibilità, performance e buone pratiche SEO, con sviluppo di interfacce moderne in React e tecnologie web attuali.',
     },
     nav: {
       home: 'HOME',

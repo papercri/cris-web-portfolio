@@ -50,7 +50,7 @@ export function Projects() {
             >
               <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                 <div className="space-y-6">
-                  <h3 className="text-3xl md:text-4xl font-bold text-foreground leading-tight">{project.title}</h3>
+                  <h3 className="h3 text-3xl md:text-4xl font-bold text-foreground leading-tight">{project.title}</h3>
                   <p className="text-foreground/65 leading-relaxed max-w-3xl">{project.description}</p>
 
                   <ul className="space-y-2">

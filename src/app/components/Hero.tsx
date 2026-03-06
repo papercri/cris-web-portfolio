@@ -23,13 +23,13 @@ export function Hero() {
             transition={{ duration: 0.8, ease }}
           >
             <span className="section-label-dot bg-foreground/30"></span>
-            <p className="section-label-text text-foreground/80">
+            <h1 className="section-label-text text-foreground/50">
               {t.hero.eyebrow}
-            </p>
+            </h1>
           </motion.div>
 
           <div className="md:mb-10 mb-4">
-            <motion.h1
+            <motion.h3
               id="hero-title"
               className="text-[clamp(3.5rem,9vw,8rem)] leading-none font-extrabold tracking-normal text-foreground"
               aria-label="Cristiana Sollini"
@@ -50,7 +50,7 @@ export function Hero() {
               >
                 Sollini
               </motion.span>
-            </motion.h1>
+            </motion.h3>
           </div>
           <div className="relative z-10 flex flex-wrap items-end gap-8 w-full 2xl:flex-nowrap 2xl:gap-24 justify-start">
             <motion.p
