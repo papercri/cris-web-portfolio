@@ -12,5 +12,6 @@
 @source '../app/components/Projects.tsx';
 @source '../app/components/ScrollingText.tsx';
 @source '../app/components/Skills.tsx';
+@source '../app/lib/animation.ts';
 @source '../main.tsx';
 
