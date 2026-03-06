@@ -14,7 +14,7 @@ const STORAGE_KEY = 'portfolio-locale';
 
 export function I18nProvider({ children }: { children: React.ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>(() => {
-    const stored = window.localStorage.getItem(STORAGE_KEY);
+    const stored = window.sessionStorage.getItem(STORAGE_KEY);
     if (stored === 'en' || stored === 'es' || stored === 'it') return stored;
     const browserLocale = (window.navigator.languages?.[0] || window.navigator.language).toLowerCase();
     if (browserLocale.startsWith('es')) return 'es';
@@ -23,7 +23,7 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
   });
 
   useEffect(() => {
-    window.localStorage.setItem(STORAGE_KEY, locale);
+    window.sessionStorage.setItem(STORAGE_KEY, locale);
     document.documentElement.lang = locale;
     document.title = translations[locale].seo.title;
 

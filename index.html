@@ -23,12 +23,12 @@
         <meta name="google" content="notranslate">
       <script>
         (function(){
-          var stored = localStorage.getItem('portfolio-locale');
-          if (stored === 'en' || stored === 'es') {
+          var stored = sessionStorage.getItem('portfolio-locale');
+          if (stored === 'en' || stored === 'es' || stored === 'it') {
             document.documentElement.lang = stored;
           } else {
             var b = (navigator.languages && navigator.languages[0] || navigator.language || 'en').toLowerCase();
-            document.documentElement.lang = b.startsWith('es') ? 'es' : 'en';
+            document.documentElement.lang = b.startsWith('es') ? 'es' : b.startsWith('it') ? 'it' : 'en';
           }
         })();
       </script>
