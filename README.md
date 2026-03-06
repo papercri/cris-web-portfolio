@@ -1,8 +1,8 @@
-# Cristiana Sollini — Developer Portfolio
+# Cristiana Sollini — Developer Website
 
 **Live site:** [frontend-ux.website](https://frontend-ux.website/)
 
-Personal portfolio built with React, TypeScript, Vite, Tailwind CSS v4 and Motion. It features a contact form with a serverless backend, trilingual support (EN / ES / IT), dark mode, and a fully accessible UI.
+Personal website built with React, TypeScript, Vite, Tailwind CSS v4 and Motion. It features a contact form with a serverless backend, trilingual support (EN / ES / IT), dark mode, and a fully accessible UI.
 
 ---
 
@@ -14,7 +14,7 @@ Personal portfolio built with React, TypeScript, Vite, Tailwind CSS v4 and Motio
 | **About** | Bio, key highlights and CV download flow |
 | **Skills** | Categorised skill grid |
 | **Projects** | Editorial-style project cards with live demo and code links |
-| **Contact** | Social links + contact form with backend email delivery |
+| **Contact** | Social links + contact form with email delivery via Vercel Serverless Function |
 
 ---
 
@@ -75,10 +75,41 @@ Props: `open`, `onClose`, `titleId`, `icon`, `iconBorderClass`, `title`, `descri
 
 Three locales: `EN`, `ES`, `IT`.
 
-- **Auto-detection** on first visit: `it-*` → Italian, `es-*` → Spanish, everything else → English
-- **Persistent** preference via `localStorage`
-- **Live meta sync** on locale change: `document.lang`, `<title>`, `description`, `og:title`, `og:description`, `og:locale`
-- Language selector in the navbar (desktop dropdown + mobile buttons)
+### Architecture
+
+The i18n system is entirely custom — no third-party library. It is built around a React context (`I18nContext`) defined in `src/app/i18n.tsx` and consumed via the `useI18n()` hook.
+
+All copy lives in a single `translations` object typed as a nested literal, so every translation key is fully type-checked at compile time. Adding a missing key in any locale causes a TypeScript error.
+
+```
+translations
+  ├── en  { nav, hero, about, skills, projects, contact, footer, seo }
+  ├── es  { ... }
+  └── it  { ... }
+```
+
+### Locale detection and persistence
+
+1. On mount, the provider reads `sessionStorage` for a previously saved preference (`portfolio-locale`).
+2. If nothing is stored, it falls back to `navigator.languages[0]` — `it-*` → Italian, `es-*` → Spanish, everything else → English.
+3. Any time the user changes locale via the navbar, `sessionStorage` is updated immediately so the preference survives page refreshes within the same browser session but is cleared when the tab is closed.
+4. An identical detection snippet runs as an inline `<script>` in `index.html` **before React hydrates**, so the `<html lang="">` attribute is set on the very first paint with no flicker.
+
+### Live meta sync
+
+Every locale change triggers a `useEffect` that updates the DOM without a page reload:
+
+- `document.documentElement.lang`
+- `<title>`
+- `<meta name="description">`
+- `<meta property="og:title">`, `og:description`, `og:locale`
+
+Meta tags are created if missing and updated if already present, so the function is safe to call repeatedly.
+
+### Locale selector
+
+- **Desktop** — `DropdownMenu` (Radix UI) in the navbar showing `EN / ES / IT`
+- **Mobile** — three plain buttons rendered inside the full-screen menu overlay
 
 ---
 
