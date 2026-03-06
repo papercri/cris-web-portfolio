@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Menu, X, Moon, Sun, Download } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useI18n } from '../i18n';
+import { blurHover, buttonBlurHover } from '../lib/animation';
 import { DarkModal } from './ui/DarkModal';
 import {
   DropdownMenu,
@@ -56,33 +57,22 @@ export function Navbar() {
     { label: t.nav.projects, href: '#projects' },
     { label: t.nav.contact, href: '#contact' },
   ];
-  const blurHover = 'transition-all duration-500 ease-in-out hover:opacity-70 hover:filter hover:blur-[0.5px] focus-ring';
-
-  const buttonBlurHover = 'inline-flex items-center justify-center w-9 h-9 rounded-full opacity-50 hover:opacity-100 hover:bg-foreground/[0.07] hover:backdrop-blur-sm hover:drop-shadow-[0_0_12px_rgba(100,100,100,0.2)] transition-all duration-300 ease-out focus-ring';
 
 
   const handleNavClick = (href: string) => {
     document.body.style.overflow = '';
     setIsOpen(false);
-
     const scrollToTarget = (attempts = 0) => {
       const element = document.querySelector(href) as HTMLElement | null;
       if (!element) {
         if (attempts < 15) setTimeout(() => scrollToTarget(attempts + 1), 100);
         return;
       }
-      // Set scroll-margin-top dynamically so scrollIntoView accounts for the navbar.
-      // This is more reliable than getBoundingClientRect() + scrollY because the
-      // browser runs scrollIntoView AFTER layout is stable, avoiding the race
-      // condition that occurs on mobile when the menu closes and layout reflows.
       const navbarHeight = document.getElementById('main-navbar')?.offsetHeight ?? 0;
-      element.style.scrollMarginTop = `${navbarHeight}px`;
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const top = element.getBoundingClientRect().top + window.scrollY - navbarHeight;
+      window.scrollTo({ top, behavior: 'smooth' });
     };
-
-    // 250 ms: gives the mobile-menu close animation time to fully complete
-    // before layout is measured by scrollIntoView.
-    setTimeout(() => scrollToTarget(), 250);
+    setTimeout(() => scrollToTarget(), 300);
   };
 
 

@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import { useI18n } from '../i18n';
-import { ease } from '../lib/animation';
+import { ease, buttonBlurHover } from '../lib/animation';
 
 const VP = { once: false, margin: '0px' };
 
@@ -45,7 +45,7 @@ export function Footer() {
           <a
             href="mailto:cristiana.sollini@gmail.com"
             aria-label={t.footer.email}
-            className="text-foreground/40 hover:text-foreground transition-colors focus-ring"
+            className={buttonBlurHover}
           >
             <Mail className="w-4 h-4" />
           </a>
@@ -54,7 +54,7 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={t.footer.linkedin}
-            className="text-foreground/40 hover:text-foreground transition-colors focus-ring"
+            className={buttonBlurHover}
           >
             <Linkedin className="w-4 h-4" />
           </a>
@@ -63,7 +63,7 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={t.footer.github}
-            className="text-foreground/40 hover:text-foreground transition-colors focus-ring"
+            className={buttonBlurHover}
           >
             <Github className="w-4 h-4" />
           </a>
