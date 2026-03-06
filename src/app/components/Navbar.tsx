@@ -3,6 +3,7 @@ import { Menu, X, Moon, Sun, Download } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useI18n } from '../i18n';
 import { blurHover, buttonBlurHover } from '../lib/animation';
+import { downloadCv } from '../lib/utils';
 import { DarkModal } from './ui/DarkModal';
 import {
   DropdownMenu,
@@ -21,16 +22,8 @@ export function Navbar() {
   const dialogDescId = 'cv-dialog-desc';
   const closeDialogButtonRef = useRef<HTMLButtonElement | null>(null);
 
-  const handleDownloadCv = () => {
-    const link = document.createElement('a');
-    const cvPath = locale === 'es' ? '/CV-ES-Cristiana-Sollini.pdf' : locale === 'it' ? '/CV-IT-Cristiana-Sollini.pdf' : '/CV-EN-Cristiana-Sollini.pdf';
-    link.href = cvPath;
-    link.download = cvPath.split('/').pop() || 'CV.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    setIsDownloadDialogOpen(false);
-  };
+  const handleDownloadCv = () => downloadCv(locale, () => setIsDownloadDialogOpen(false));
+
   useEffect(() => {
     if (isOpen || isDownloadDialogOpen) {
       document.body.style.overflow = 'hidden';

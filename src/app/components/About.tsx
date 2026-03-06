@@ -3,6 +3,7 @@ import { Download } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useI18n } from '../i18n';
 import { ease, VP } from '../lib/animation';
+import { downloadCv } from '../lib/utils';
 import { DarkModal } from './ui/DarkModal';
 import { AnimatedButton } from './ui/AnimatedButton';
 
@@ -11,16 +12,8 @@ export function About() {
   const highlights = t.about.highlights;
   const [showCvModal, setShowCvModal] = useState(false);
 
-  const handleDownloadCv = () => {
-    const cvPath = locale === 'es' ? '/CV-ES-Cristiana-Sollini.pdf' : locale === 'it' ? '/CV-IT-Cristiana-Sollini.pdf' : '/CV-EN-Cristiana-Sollini.pdf';
-    const link = document.createElement('a');
-    link.href = cvPath;
-    link.download = cvPath.split('/').pop() || 'CV.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    setShowCvModal(false);
-  };
+  const handleDownloadCv = () => downloadCv(locale, () => setShowCvModal(false));
+
 
   return (
     <section id="about" className="section-base pb-10">
@@ -125,38 +118,14 @@ export function About() {
           viewport={VP}
           transition={{ duration: 0.6, delay: 0.1 + highlights.length * 0.1, ease }}
         >
-            <motion.button
+            <AnimatedButton
               onClick={() => setShowCvModal(true)}
-              className={`
-                relative overflow-hidden group
-                inline-flex items-center gap-2 px-6 py-3
-                bg-foreground text-background text-xs font-bold tracking-[0.15em] uppercase
-                border border-foreground transition-colors duration-500
-              `}
-              whileTap={{ scale: 0.98 }}
               aria-label={t.nav.downloadCv}
+              variant="dark"
             >
-              <span className="absolute inset-0 z-0 bg-background translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500 ease-[0.19,1,0.22,1]" />
-
-              <div className="relative z-10 flex items-center gap-2 group-hover:text-foreground transition-colors duration-500">
-                <motion.div
-                  variants={{
-                    hover: { y: -2, x: 1 }
-                  }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                >
-                  <Download className="w-3.5 h-3.5" aria-hidden="true" />
-                </motion.div>
-                      <span className="relative overflow-hidden">
-                        <span className="inline-block transition-transform duration-500 ease-out group-hover:-translate-y-[120%]">
-                          {t.nav.download}
-                        </span>
-                        <span className="absolute left-0 top-0 inline-block translate-y-[120%] transition-transform duration-500 ease-out group-hover:translate-y-0">
-                          {t.nav.download}
-                        </span>
-                      </span>
-                    </div>
-            </motion.button>
+              <Download className="w-3.5 h-3.5" aria-hidden="true" />
+              {t.nav.download}
+            </AnimatedButton>
           </motion.div>
           </div>
         </div>
