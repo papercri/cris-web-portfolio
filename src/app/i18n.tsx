@@ -182,7 +182,7 @@ export const translations = {
             'Integration with an external API for user management, demonstrating experience working with third-party services and asynchronous data flows.',
           ],
           tags: ['VUE', 'PINIA', 'FIREBASE', 'JAVASCRIPT', 'API-REST', 'TAILWIND', 'RESPONSIVE DESIGN', 'ACCESSIBILITY'],
-          liveUrl: 'https://femshop.vercel.app/',
+          liveUrl: 'https://femshop-nu.vercel.app/',
           githubUrl: 'https://github.com/papercri/femshop',
         },
         {
@@ -344,7 +344,7 @@ export const translations = {
             'Integración con API externa para gestión de usuarios y flujos asíncronos.',
           ],
           tags: ['VUE', 'PINIA', 'FIREBASE', 'JAVASCRIPT', 'API-REST', 'TAILWIND', 'RESPONSIVE DESIGN', 'ACCESSIBILITY'],
-          liveUrl: 'https://femshop.vercel.app/',
+          liveUrl: 'https://femshop-nu.vercel.app/',
           githubUrl: 'https://github.com/papercri/femshop',
         },
         {
@@ -506,7 +506,7 @@ export const translations = {
             'Integrazione con API esterna per la gestione degli utenti, con flussi di dati asincroni e servizi di terze parti.',
           ],
           tags: ['VUE', 'PINIA', 'FIREBASE', 'JAVASCRIPT', 'API-REST', 'TAILWIND', 'RESPONSIVE DESIGN', 'ACCESSIBILITY'],
-          liveUrl: 'https://femshop.vercel.app/',
+          liveUrl: 'https://femshop-nu.vercel.app/',
           githubUrl: 'https://github.com/papercri/femshop',
         },
         {
