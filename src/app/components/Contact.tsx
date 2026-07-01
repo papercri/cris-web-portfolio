@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Linkedin, Github,  Mail } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useI18n } from '../i18n';
 import { ease, VP, VP2 } from '../lib/animation';

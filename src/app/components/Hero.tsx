@@ -1,4 +1,6 @@
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Mail } from 'lucide-react';
+import { TiSocialLinkedin } from "react-icons/ti";
+import { FiGithub } from "react-icons/fi";
 import { motion } from 'motion/react';
 import { ScrollingText } from './ScrollingText';
 import { useI18n } from '../i18n';
@@ -76,7 +78,7 @@ export function Hero() {
                 className="text-foreground/50 hover:text-foreground transition-colors"
                 aria-label="LinkedIn"
               >
-                <Linkedin className="w-5 h-5" aria-hidden="true" />
+                <TiSocialLinkedin className="w-5 h-5" aria-hidden="true" />
               </a>
               <a
                 href="mailto:cristiana.sollini@gmail.com"
