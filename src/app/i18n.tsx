@@ -355,7 +355,7 @@ export const translations = {
             'Herramienta online para crear y organizar prompts. Los usuarios pueden guardar plantillas en carpetas y almacenarlas en la nube al iniciar sesión.',
           highlights: [
             'Guardado en la nube y organización por carpetas para gestionar plantillas de prompts.',
-            'Inicio de sesión con Google o con emailpara acceso y almacenamiento de contenido.',
+            'Inicio de sesión con Google o con email para acceso y almacenamiento de contenido.',
             'Enfoque en reutilización de fragmentos de texto para acelerar la creación e iteración de prompts.',
           ],
           tags: ['NEXT', 'TAILWIND', 'TYPESCRIPT', 'FIREBASE', 'GOOGLE AUTH'],
