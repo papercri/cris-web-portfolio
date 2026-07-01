@@ -193,7 +193,7 @@ export const translations = {
             'Prompt Composer is an online prompt building tool. Users can create, organise and save prompt templates in folders. It supports cloud storage of prompts once you sign in with an account. The interface is simple and aimed at helping people keep prompt text organised and reusable.',
           highlights: [
             'Cloud-based prompt saving and folder organisation to manage prompt templates over time.',
-            'Simple login with Google for access and storage of user prompts.',
+            'Simple login with Google or email for access and storage of user prompts.',
             'Focus on reusable prompt management to speed up prompt writing and iteration.',
           ],
           tags: ['NEXT', 'TAILWIND', 'TYPESCRIPT', 'FIREBASE', 'GOOGLE AUTH'],
@@ -355,8 +355,8 @@ export const translations = {
             'Herramienta online para crear y organizar prompts. Los usuarios pueden guardar plantillas en carpetas y almacenarlas en la nube al iniciar sesión.',
           highlights: [
             'Guardado en la nube y organización por carpetas para gestionar plantillas de prompts.',
-            'Inicio de sesión con Google para acceso y almacenamiento de contenido.',
-            'Enfoque en reutilización para acelerar la creación e iteración de prompts.',
+            'Inicio de sesión con Google o con emailpara acceso y almacenamiento de contenido.',
+            'Enfoque en reutilización de fragmentos de texto para acelerar la creación e iteración de prompts.',
           ],
           tags: ['NEXT', 'TAILWIND', 'TYPESCRIPT', 'FIREBASE', 'GOOGLE AUTH'],
           liveUrl: 'https://prompt-composer-ai.vercel.app/',
@@ -517,8 +517,8 @@ export const translations = {
             'Strumento online per creare e organizzare prompt. Gli utenti possono costruire, classificare e salvare modelli di prompt in cartelle, con archiviazione cloud tramite il proprio account Google.',
           highlights: [
             'Salvataggio cloud e organizzazione in cartelle per gestire i modelli nel tempo.',
-            'Accesso semplice con Google per archiviare e gestire i propri prompt.',
-            'Focus sulla riutilizzabilità per velocizzare la scrittura e l’iterazione dei prompt.',
+            'Accesso semplice con Google o con email per archiviare e gestire i propri prompt.',
+            'Focus sulla riutilizzabilità di frammenti di testo per velocizzare la scrittura e l\'utilizzo dei prompt.',
           ],
           tags: ['NEXT', 'TAILWIND', 'TYPESCRIPT', 'FIREBASE', 'GOOGLE AUTH'],
           liveUrl: 'https://prompt-composer-ai.vercel.app/',
