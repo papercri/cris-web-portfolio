@@ -1,5 +1,5 @@
-import { Mail } from 'lucide-react';
-import { TiSocialLinkedin } from "react-icons/ti";
+import { CiMail } from "react-icons/ci";
+import { FaLinkedinIn } from "react-icons/fa";
 import { FiGithub } from "react-icons/fi";
 import { motion } from 'motion/react';
 import { ScrollingText } from './ScrollingText';
@@ -78,14 +78,14 @@ export function Hero() {
                 className="text-foreground/50 hover:text-foreground transition-colors"
                 aria-label="LinkedIn"
               >
-                <TiSocialLinkedin className="w-5 h-5" aria-hidden="true" />
+                <FaLinkedinIn className="w-5 h-5" aria-hidden="true" />
               </a>
               <a
                 href="mailto:cristiana.sollini@gmail.com"
                 className="text-foreground/50 hover:text-foreground transition-colors"
                 aria-label="Email"
               >
-                <Mail className="w-5 h-5" aria-hidden="true" /></a>
+                <CiMail className="w-5 h-5" aria-hidden="true" /></a>
                 <a
                 href="https://github.com/papercri"
                 target="_blank"
@@ -93,7 +93,7 @@ export function Hero() {
                 className="text-foreground/50 hover:text-foreground transition-colors "
                 aria-label="GitHub"
               >
-                <Github className="w-5 h-5" aria-hidden="true" /> 
+                <FiGithub className="w-5 h-5" aria-hidden="true" /> 
               </a>
             
             </motion.div>

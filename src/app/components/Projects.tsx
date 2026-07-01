@@ -1,4 +1,5 @@
-import { ExternalLink, Github } from 'lucide-react';
+import { FaExternalLinkAlt } from "react-icons/fa";
+import { FiGithub } from "react-icons/fi";
 import { motion } from 'motion/react';
 import { useI18n } from '../i18n';
 import { ease, VP, VP2 } from '../lib/animation';
@@ -80,7 +81,7 @@ export function Projects() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <ExternalLink className="w-4 h-4" aria-hidden="true" />
+                      <FaExternalLinkAlt  className="w-4 h-4" aria-hidden="true" />
                       {t.projects.liveDemo}
                     </a>
                     <a
@@ -89,7 +90,7 @@ export function Projects() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <Github className="w-4 h-4" aria-hidden="true" />
+                      <FiGithub className="w-4 h-4" aria-hidden="true" />
                       {t.projects.code}
                     </a>
                   </div>

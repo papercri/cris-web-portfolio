@@ -1,5 +1,7 @@
 import { motion } from 'motion/react';
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { CiMail } from "react-icons/ci";
+import { FaLinkedinIn } from "react-icons/fa";
+import { FiGithub } from "react-icons/fi";
 import { useI18n } from '../i18n';
 import { ease, buttonBlurHover } from '../lib/animation';
 
@@ -47,7 +49,7 @@ export function Footer() {
             aria-label={t.footer.email}
             className={buttonBlurHover}
           >
-            <Mail className="w-4 h-4" />
+            <CiMail className="w-4 h-4" />
           </a>
           <a
             href="https://www.linkedin.com/in/cristianasollini/"
@@ -56,7 +58,7 @@ export function Footer() {
             aria-label={t.footer.linkedin}
             className={buttonBlurHover}
           >
-            <Linkedin className="w-4 h-4" />
+            <FaLinkedinIn className="w-4 h-4" />
           </a>
           <a
             href="https://github.com/papercri"
@@ -65,7 +67,7 @@ export function Footer() {
             aria-label={t.footer.github}
             className={buttonBlurHover}
           >
-            <Github className="w-4 h-4" />
+            <FiGithub className="w-4 h-4" />
           </a>
         </motion.div>
       </div>

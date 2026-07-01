@@ -1,4 +1,6 @@
-import { Linkedin, Github,  Mail } from 'lucide-react';
+import { CiMail } from "react-icons/ci";
+import { FaLinkedinIn } from "react-icons/fa";
+import { FiGithub } from "react-icons/fi";
 import { motion } from 'motion/react';
 import { useI18n } from '../i18n';
 import { ease, VP, VP2 } from '../lib/animation';
@@ -73,7 +75,7 @@ export function Contact() {
               >
                 <span aria-hidden="true" className="absolute inset-0 rounded-full bg-background translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500" style={{ transitionTimingFunction: 'cubic-bezier(0.19,1,0.22,1)' }} />
                 <span className="relative z-10 group-hover:text-foreground transition-colors duration-300">
-                  <Mail className="w-5 h-5" aria-hidden="true" />
+                  <CiMail className="w-5 h-5" aria-hidden="true" />
                 </span>
               </a>
               <a
@@ -85,7 +87,7 @@ export function Contact() {
               >
                 <span aria-hidden="true" className="absolute inset-0 rounded-full bg-background translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500" style={{ transitionTimingFunction: 'cubic-bezier(0.19,1,0.22,1)' }} />
                 <span className="relative z-10 group-hover:text-foreground transition-colors duration-300">
-                  <Linkedin className="w-5 h-5" aria-hidden="true" />
+                  <FaLinkedinIn className="w-5 h-5" aria-hidden="true" />
                 </span>
               </a>
               <a
@@ -97,7 +99,7 @@ export function Contact() {
               >
                 <span aria-hidden="true" className="absolute inset-0 rounded-full bg-background translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500" style={{ transitionTimingFunction: 'cubic-bezier(0.19,1,0.22,1)' }} />
                 <span className="relative z-10 group-hover:text-foreground transition-colors duration-300">
-                  <Github className="w-5 h-5" aria-hidden="true" />
+                  <FiGithub className="w-5 h-5" aria-hidden="true" />
                 </span>
               </a>
             </motion.div>
@@ -118,7 +120,7 @@ export function Contact() {
               >
                 <span aria-hidden="true" className="absolute inset-0 rounded-full bg-background translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500" style={{ transitionTimingFunction: 'cubic-bezier(0.19,1,0.22,1)' }} />
                 <span className="relative z-10 group-hover:text-foreground transition-colors duration-300">
-                  <Mail className="w-5 h-5" aria-hidden="true" />
+                  <CiMail className="w-5 h-5" aria-hidden="true" />
                 </span>
               </a>
               <a
@@ -130,7 +132,7 @@ export function Contact() {
               >
                 <span aria-hidden="true" className="absolute inset-0 rounded-full bg-background translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500" style={{ transitionTimingFunction: 'cubic-bezier(0.19,1,0.22,1)' }} />
                 <span className="relative z-10 group-hover:text-foreground transition-colors duration-300">
-                  <Linkedin className="w-5 h-5" aria-hidden="true" />
+                  <FaLinkedinIn className="w-5 h-5" aria-hidden="true" />
                 </span>
               </a>
               <a
@@ -142,7 +144,7 @@ export function Contact() {
               >
                 <span aria-hidden="true" className="absolute inset-0 rounded-full bg-background translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500" style={{ transitionTimingFunction: 'cubic-bezier(0.19,1,0.22,1)' }} />
                 <span className="relative z-10 group-hover:text-foreground transition-colors duration-300">
-                  <Github className="w-5 h-5" aria-hidden="true" />
+                  <FiGithub className="w-5 h-5" aria-hidden="true" />
                 </span>
               </a>
             </motion.div>
