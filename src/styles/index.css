@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap');
 @import "tailwindcss";
-@import './fonts.css';
+:root {
+  --font-size: 16px;
+}
 @import './theme.css';
 @import './responsive.css';

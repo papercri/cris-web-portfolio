@@ -25,9 +25,9 @@ Personal website built with React, TypeScript, Vite, Tailwind CSS v4 and Motion.
 |---|---|
 | **React 18 + TypeScript** | Component architecture |
 | **Vite** | Dev server and production bundler |
-| **Tailwind CSS v4** | Utility-first styling with `source(none)` + explicit `@source` entries |
-| **motion/react** | Page and scroll animations (`AnimatePresence`, `motion.*`) |
-| **Lucide React** | Icon set |
+| **Tailwind CSS v4** | Utility-first styling via native Vite plugin. |
+| **Framer Motion (Motion)** | Page and scroll animations (`AnimatePresence`, `motion.*`) |
+| **Lucide React / React Icons** | Icon set |
 | **Radix UI** | Accessible primitives (dropdown, dialog, accordion, …) |
 
 ### Backend / API
