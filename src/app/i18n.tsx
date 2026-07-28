@@ -156,6 +156,33 @@ export const translations = {
       code: 'Code',
       items: [
         {
+          id: 'avocato',
+          title: 'Avocato',
+          imageUrl: '/avocato.jpg',
+          description:
+            'AI-powered nutrition web application that helps users calculate daily calorie needs, track meals, analyze dishes, and generate personalized recipes. It supports nutrition goals through a modern, accessible, and fully responsive experience.',
+          highlights: [
+            'AI-powered meal analysis and personalized recipe generation tailored to calorie goals, dietary preferences, and allergens using Groq and Cerebras with automatic fallback.',
+            'Built with Vue 3, TypeScript, Pinia, Tailwind CSS, Supabase, and Vercel Serverless Functions, featuring authentication, cloud synchronization, and seamless migration between local storage and the database.',
+            'Includes food search powered by Open Food Facts, BMI, ideal weight and daily energy expenditure calculations (Mifflin-St Jeor), meal tracking, progress dashboard, and a mobile-first accessible interface.',
+          ],
+          tags: [
+            'VUE',
+            'TYPESCRIPT',
+            'TAILWIND CSS',
+            'SUPABASE',
+            'OPEN FOOD FACTS API',
+            'AI',
+            'GROQ',
+            'CEREBRAS',
+            'VERCEL',
+            'RESPONSIVE DESIGN',
+            'ACCESSIBILITY',
+          ],
+          liveUrl: 'https://avocato-ia.vercel.app/',
+          githubUrl: 'https://github.com/papercri/diario-nutricional',
+        },
+        {
           id: 'travel-planner',
           title: 'Trip Taylor',
           imageUrl: '/trip-tailor.jpg',
@@ -318,6 +345,33 @@ export const translations = {
       code: 'Código',
       items: [
         {
+          id: 'avocato',
+          title: 'Avocato',
+          imageUrl: '/avocato.jpg',
+          description:
+            'Aplicación web de nutrición impulsada por IA para calcular necesidades calóricas, registrar comidas, analizar platos y generar recetas personalizadas. Permite gestionar objetivos nutricionales y realizar un seguimiento diario mediante una interfaz moderna, accesible y responsive.',
+          highlights: [
+            'Análisis nutricional con IA y generación de recetas personalizadas adaptadas al objetivo calórico, preferencias alimentarias y alérgenos mediante Groq y Cerebras con fallback automático.',
+            'Desarrollada con Vue 3, TypeScript, Pinia, Tailwind CSS, Supabase y Vercel Serverless Functions, integrando autenticación, sincronización de datos y persistencia entre localStorage y la base de datos.',
+            'Incluye búsqueda de alimentos con Open Food Facts, cálculo de IMC, peso ideal y gasto energético (Mifflin-St Jeor), seguimiento de comidas, panel de progreso y diseño mobile-first accesible.',
+          ],
+          tags: [
+            'VUE',
+            'TYPESCRIPT',
+            'TAILWIND CSS',
+            'SUPABASE',
+            'OPEN FOOD FACTS API',
+            'AI',
+            'GROQ',
+            'CEREBRAS',
+            'VERCEL',
+            'RESPONSIVE DESIGN',
+            'ACCESSIBILITY',
+          ],
+          liveUrl: 'https://avocato-ia.vercel.app/',
+          githubUrl: 'https://github.com/papercri/diario-nutricional',
+        },
+        {
           id: 'travel-planner',
           title: 'Trip Taylor',
           imageUrl: '/trip-tailor.jpg',
@@ -479,6 +533,33 @@ export const translations = {
       liveDemo: 'Live',
       code: 'Codice',
       items: [
+        {
+        id: 'avocato',
+        title: 'Avocato',
+        imageUrl: '/avocato.jpg',
+        description:
+          "Applicazione web di nutrizione basata sull'intelligenza artificiale che consente di calcolare il fabbisogno calorico giornaliero, monitorare i pasti, analizzare i piatti e generare ricette personalizzate. Aiuta a raggiungere gli obiettivi nutrizionali attraverso un'esperienza moderna, accessibile e completamente responsive.",
+        highlights: [
+          "Analisi nutrizionale dei pasti e generazione di ricette personalizzate in base all'obiettivo calorico, alle preferenze alimentari e agli allergeni, utilizzando Groq e Cerebras con fallback automatico.",
+          'Sviluppata con Vue 3, TypeScript, Pinia, Tailwind CSS, Supabase e Vercel Serverless Functions, include autenticazione, sincronizzazione dei dati e migrazione automatica tra localStorage e database.',
+          "Include la ricerca di alimenti tramite Open Food Facts, il calcolo di BMI, peso ideale e fabbisogno energetico giornaliero (Mifflin-St Jeor), il monitoraggio dei pasti, una dashboard dei progressi e un'interfaccia mobile-first accessibile.",
+        ],
+        tags: [
+          'VUE',
+          'TYPESCRIPT',
+          'TAILWIND CSS',
+          'SUPABASE',
+          'OPEN FOOD FACTS API',
+          'AI',
+          'GROQ',
+          'CEREBRAS',
+          'VERCEL',
+          'RESPONSIVE DESIGN',
+          'ACCESSIBILITY',
+        ],
+        liveUrl: 'https://avocato-ia.vercel.app/',
+        githubUrl: 'https://github.com/papercri/diario-nutricional',
+      },
         {
           id: 'travel-planner',
           title: 'Trip Taylor',
