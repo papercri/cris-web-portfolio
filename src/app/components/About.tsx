@@ -16,11 +16,11 @@ export function About() {
 
 
   return (
-    <section id="about" className="section-base pb-10">
-      <div className="section-container">
+    <section id="about" className="section-base pb-10 ">
+      <div className="section-container ">
  
         <motion.div
-          className="section-label-row mb-6"
+          className="section-label-row mb-6 "
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={VP}

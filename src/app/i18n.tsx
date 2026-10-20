@@ -146,7 +146,7 @@ export const translations = {
       categories: [
         { category: 'Frontend', skills: ['HTML & CSS', 'LESS', 'SASS', 'Tailwind', 'Bootstrap'] },
         { category: 'JS & Frameworks', skills: ['JavaScript', 'TypeScript', 'React', 'Next.js', 'Vue.js'] },
-        { category: 'Backend & CMS', skills: ['PHP', 'MySQL', 'WordPress', 'Contentful', 'Firebase', 'REST APIs'] },
+        { category: 'Backend & CMS', skills: ['PHP', 'MySQL', 'Supabase', 'WordPress', 'Contentful', 'Firebase', 'REST APIs'] },
         { category: 'Tools & Workflow', skills: ['Git', 'Docker', 'Figma', 'Jest', 'Accessibility (WCAG)', 'Responsive Design', 'SEO'] },
       ],
     },
@@ -155,6 +155,34 @@ export const translations = {
       liveDemo: 'Live',
       code: 'Code',
       items: [
+        {
+          id: 'bikemates',
+          title: 'BikeMates',
+          imageUrl: '/bike-mates.webp',
+          description:
+            'Cycling community web application that helps cyclists discover routes, join group rides, and connect with other riders. Built with a modern, accessible, and fully responsive interface focused on usability, data security, and community engagement.',
+          highlights: [
+            'Ride management with detailed route information, meeting points, distance, elevation gain, bike type, difficulty level, and participant management.',
+            'Built with Vue 3, TypeScript, Pinia, Vue Router, and Tailwind CSS, using a modular architecture and reusable components.',
+            'Powered by Supabase and PostgreSQL, with user authentication and Row Level Security (RLS) policies to control data access and protect user information.',
+          ],
+          tags: [
+            'VUE 3',
+            'TYPESCRIPT',
+            'TAILWIND CSS',
+            'PINIA',
+            'VUE ROUTER',
+            'SUPABASE',
+            'POSTGRESQL',
+            'ROW LEVEL SECURITY',
+            'VERCEL',
+            'RESPONSIVE DESIGN',
+            'ACCESSIBILITY',
+            'TECHNICAL SEO',
+          ],
+          liveUrl: 'https://bikemates.vercel.app/',
+          githubUrl: 'https://github.com/papercri/bikemates',
+        },
         {
           id: 'avocato',
           title: 'Avocato',
@@ -335,7 +363,7 @@ export const translations = {
       categories: [
         { category: 'Frontend', skills: ['HTML y CSS', 'LESS', 'SASS', 'Tailwind', 'Bootstrap'] },
         { category: 'JS y Frameworks', skills: ['JavaScript', 'TypeScript', 'React', 'Next.js', 'Vue.js'] },
-        { category: 'Backend y CMS', skills: ['PHP', 'MySQL', 'WordPress', 'Contentful', 'Firebase', 'REST APIs'] },
+        { category: 'Backend y CMS', skills: ['PHP', 'MySQL', 'Supabase', 'WordPress', 'Contentful', 'Firebase', 'REST APIs'] },
         { category: 'Herramientas y Flujo', skills: ['Git', 'Docker', 'Figma', 'Jest', 'Accesibilidad (WCAG)', 'Diseño Responsive', 'SEO'] },
       ],
     },
@@ -344,6 +372,34 @@ export const translations = {
       liveDemo: 'Live',
       code: 'Código',
       items: [
+        {
+          id: 'bikemates',
+          title: 'BikeMates',
+          imageUrl: '/bike-mates.webp',
+          description:
+            'Aplicación web para la comunidad ciclista que permite descubrir rutas, participar en salidas grupales y conectar con otros ciclistas. Desarrollada con una interfaz moderna, accesible y totalmente responsive, centrada en la usabilidad, la seguridad de los datos y la participación de la comunidad.',
+          highlights: [
+            'Gestión de salidas ciclistas con información detallada de las rutas, puntos de encuentro, distancia, desnivel, tipo de bicicleta, nivel de dificultad y participantes.',
+            'Desarrollada con Vue 3, TypeScript, Pinia, Vue Router y Tailwind CSS, mediante una arquitectura modular y componentes reutilizables.',
+            'Backend basado en Supabase y PostgreSQL, con autenticación de usuarios y políticas Row Level Security (RLS) para controlar el acceso y proteger los datos.',
+          ],
+          tags: [
+            'VUE 3',
+            'TYPESCRIPT',
+            'TAILWIND CSS',
+            'PINIA',
+            'VUE ROUTER',
+            'SUPABASE',
+            'POSTGRESQL',
+            'ROW LEVEL SECURITY',
+            'VERCEL',
+            'RESPONSIVE DESIGN',
+            'ACCESSIBILITY',
+            'TECHNICAL SEO',
+          ],
+          liveUrl: 'https://bikemates.vercel.app/',
+          githubUrl: 'https://github.com/papercri/bikemates',
+        },
         {
           id: 'avocato',
           title: 'Avocato',
@@ -524,7 +580,7 @@ export const translations = {
       categories: [
         { category: 'Frontend', skills: ['HTML & CSS', 'LESS', 'SASS', 'Tailwind', 'Bootstrap'] },
         { category: 'JS & Framework', skills: ['JavaScript', 'TypeScript', 'React', 'Next.js', 'Vue.js'] },
-        { category: 'Backend & CMS', skills: ['PHP', 'MySQL', 'WordPress', 'Contentful', 'Firebase', 'REST APIs'] },
+        { category: 'Backend & CMS', skills: ['PHP', 'MySQL', 'Supabase', 'WordPress', 'Contentful', 'Firebase', 'REST APIs'] },
         { category: 'Strumenti & Workflow', skills: ['Git', 'Docker', 'Figma', 'Jest', 'Accessibilità (WCAG)', 'Design Responsive', 'SEO'] },
       ],
     },
@@ -533,6 +589,34 @@ export const translations = {
       liveDemo: 'Live',
       code: 'Codice',
       items: [
+        {
+          id: 'bikemates',
+          title: 'BikeMates',
+          imageUrl: '/bike-mates.webp',
+          description:
+            'Applicazione web dedicata alla community ciclistica, che permette di scoprire percorsi, partecipare a uscite di gruppo e connettersi con altri ciclisti. Sviluppata con un’interfaccia moderna, accessibile e completamente responsive, con particolare attenzione all’usabilità, alla sicurezza dei dati e alla partecipazione della community.',
+          highlights: [
+            'Gestione delle escursioni ciclistiche con informazioni dettagliate sui percorsi, punti di ritrovo, distanza, dislivello, tipo di bicicletta, livello di difficoltà e partecipanti.',
+            'Sviluppata con Vue 3, TypeScript, Pinia, Vue Router e Tailwind CSS, utilizzando un’architettura modulare e componenti riutilizzabili.',
+            'Backend basato su Supabase e PostgreSQL, con autenticazione degli utenti e politiche Row Level Security (RLS) per controllare gli accessi e proteggere i dati.',
+          ],
+          tags: [
+            'VUE 3',
+            'TYPESCRIPT',
+            'TAILWIND CSS',
+            'PINIA',
+            'VUE ROUTER',
+            'SUPABASE',
+            'POSTGRESQL',
+            'ROW LEVEL SECURITY',
+            'VERCEL',
+            'RESPONSIVE DESIGN',
+            'ACCESSIBILITY',
+            'TECHNICAL SEO',
+          ],
+          liveUrl: 'https://bikemates.vercel.app/',
+          githubUrl: 'https://github.com/papercri/bikemates',
+        },
         {
         id: 'avocato',
         title: 'Avocato',
